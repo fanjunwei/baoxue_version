@@ -9,20 +9,24 @@
     <script src="/static/js/jquery-ui-1.10.4.custom.js"></script>
     <script src="/static/js/helper.js"></script>
     <script>
+        function showAddBranch()
+        {
+            $( "#addBranchDial" ).dialog('open');
+        }
         function delBranch(id)
         {
             callback=function(){
-            $.post('delBranches.py',{id:id},
-                    function(result,status){
-                        if(status == 'success'){
-                            if(result.success){
-                                showMessage('删除成功')
-                                loadBranches();
-                            }else{
-                                showMessage(result.message)
+                $.post('delBranches.py',{id:id},
+                        function(result,status){
+                            if(status == 'success'){
+                                if(result.success){
+                                    showMessage('删除成功')
+                                    loadBranches();
+                                }else{
+                                    showMessage(result.message)
+                                }
                             }
-                        }
-                    });
+                        });
             }
             deleteConfim(callback);
         }
@@ -58,7 +62,7 @@
 
 
         }
-        function addBranch()
+        function addBranch(dial)
         {
             if(checkUnique('addBranchName')){
                 $.post('saveBranch.py',{name:$("#addBranchName").val(),description:$("#addBranchDescription").val()},
@@ -69,15 +73,33 @@
                                     $("#addBranchName").val('')
                                     $("#addBranchDescription").val('')
                                     loadBranches();
+                                    $( dial ).dialog( "close" );
                                 }else{
-                                    showMessage(result.message);
+                                    $('#addBranchDialMsg').text(result.message);
                                 }
                             }
                         });
             }
+
         }
         $(function() {
             $('.mybutton').button();
+            $( "#addBranchDial" ).dialog({
+                resizable: false,
+                modal: true,
+                autoOpen: false,
+                width:500,
+                title:"添加分支",
+                buttons: {
+                    "添加": function() {
+
+                        addBranch(this)
+                    },
+                    "取消": function() {
+                        $( this ).dialog( "close" );
+                    }
+                }
+            });
             loadBranches();
         });
     </script>
@@ -85,43 +107,36 @@
 <body>
 <h1 style="text-align: center" class="ui-dialog-titlebar">分支管理</h1>
 <hr>
-<table style="width: 100%">
+<button class="mybutton" onclick="showAddBranch()">添加</button>
+
+<div id="addBranchDial">
+<table border="0">
     <tr>
-        <td style="vertical-align: top;width: 40%">
-
-            <table border="0">
-                <tr>
-                    <td><label for="addBranchName">分支名称</label></td>
-                    <td><input type="text" style="width: 250px" id="addBranchName"></td>
-                    <td><label id="addBranchNameMsg" class="ui-state-error ui-helper-hidden"></label></td>
-                </tr>
-                <tr>
-                    <td><label for="addBranchDescription" >分支说明</label></td>
-                    <td><textarea id="addBranchDescription" style="width: 250px;height: 100px"></textarea></td>
-                    <td>&nbsp;&nbsp;&nbsp;</td>
-                </tr>
-                <tr>
-                    <td colspan="2" style="text-align: right"><button class="mybutton" onclick="addBranch();" id="addBranch">添加</button></td>
-                </tr>
-            </table>
-        </td>
-        <td style="width: 60%">
-            <label for="branchNameKey">版本名</label>
-            <input type="text" id="branchNameKey" style="width: 60%;"><button class="mybutton" onclick="loadBranches();" style="font-size: 13px;">查找</button>
-            <table border="1" style="width: 100%" >
-                <thead>
-                <th>版本名</th>
-                <th>版本说明</th>
-                <th>操作</th>
-                </thead>
-                <tbody id="branchesData"></tbody>
-            </table>
-
-        </td>
+        <td colspan="3"><span style="color: red" id="addBranchDialMsg"></span></td>
     </tr>
+    <tr>
+        <td><label for="addBranchName">分支名称</label></td>
+        <td><input type="text" style="width: 250px" id="addBranchName"></td>
+        <td><label id="addBranchNameMsg" class="ui-state-error ui-helper-hidden"></label></td>
+    </tr>
+    <tr>
+        <td><label for="addBranchDescription" >分支说明</label></td>
+        <td><textarea id="addBranchDescription" style="width: 250px;height: 100px"></textarea></td>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+
 </table>
+</div><!--addBranchDial -->
 
-
-
+<label for="branchNameKey">版本名</label>
+<input type="text" id="branchNameKey" style="width: 60%;"><button class="mybutton" onclick="loadBranches();" style="font-size: 13px;">查找</button>
+<table border="1" style="width: 100%" >
+    <thead>
+    <th>版本名</th>
+    <th>版本说明</th>
+    <th>操作</th>
+    </thead>
+    <tbody id="branchesData"></tbody>
+</table>
 </body>
 </html>

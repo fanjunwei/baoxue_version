@@ -1,20 +1,6 @@
 	function deleteConfim(callback)
 	{
-        $( "#dialog-confirm" ).dialog({
-            resizable: false,
-            height:165,
-            modal: true,
-            title:"删除确认",
-            buttons: {
-                "删除": function() {
-                    callback();
-                    $( this ).dialog( "close" );
-                },
-                "取消": function() {
-                    $( this ).dialog( "close" );
-                }
-            }
-        });
+        $( "#dialog-confirm" ).dialog('open');
 	}
     function checkUnique(id)
     {
@@ -37,3 +23,21 @@
         $("#msg1").show();
         $('#msg1').delay(3000).hide(0);
     }
+    $(function(){
+        $( "#dialog-confirm" ).dialog({
+            resizable: false,
+            height:165,
+            modal: true,
+            autoOpen:false,
+            title:"删除确认",
+            buttons: {
+                "删除": function() {
+                    callback();
+                    $( this ).dialog( "close" );
+                },
+                "取消": function() {
+                    $( this ).dialog( "close" );
+                }
+            }
+        });
+    });

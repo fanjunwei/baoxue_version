@@ -18,9 +18,9 @@
     <file path="/tools.py" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390140037017" ignored="false" />
     <file path="/main.html" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390226333347" ignored="false" />
     <file path="/manage_branch.html" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390199197216" ignored="false" />
-    <file path="/manageBranch.html" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390226454399" ignored="false" />
+    <file path="/manageBranch.html" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390229058782" ignored="false" />
     <file path="/status.css" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390200577623" ignored="false" />
-    <file path="/helper.js" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390224897537" ignored="false" />
+    <file path="/helper.js" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390229171453" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,15 +48,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="85" selection-start="699" selection-end="699" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/version/urls.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -66,21 +57,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="manageBranch.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="manageBranch.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/manageBranch.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="103" column="108" selection-start="4313" selection-end="4313" vertical-scroll-proportion="0.52879584">
+            <state line="113" column="8" selection-start="4298" selection-end="4298" vertical-scroll-proportion="-2.1666667">
               <folding>
                 <element signature="n#style#0;n#h1#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#textarea#0;n#td#1;n#tr#2;n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#textarea#0;n#td#1;n#tr#1;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#2;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -116,30 +104,40 @@
       <file leaf-file-name="helper.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/version/static/js/helper.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="35" selection-start="624" selection-end="624" vertical-scroll-proportion="0.0">
+            <state line="30" column="27" selection-start="684" selection-end="684" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="status.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version/static/css/status.css">
+      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/version/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="21" selection-end="21" vertical-scroll-proportion="0.0">
+            <state line="15" column="85" selection-start="699" selection-end="699" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="main.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="100" selection-start="1248" selection-end="1248" vertical-scroll-proportion="-3.125">
+            <state line="56" column="24" selection-start="2079" selection-end="2079" vertical-scroll-proportion="0.60732985">
               <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#p#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="6" selection-start="882" selection-end="882" vertical-scroll-proportion="13.541667">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -167,9 +165,9 @@
         <option value="$PROJECT_DIR$/version/static/css/box.css" />
         <option value="$PROJECT_DIR$/version/views.py" />
         <option value="$PROJECT_DIR$/version/urls.py" />
+        <option value="$PROJECT_DIR$/templates/manageBranch.html" />
         <option value="$PROJECT_DIR$/version/static/js/helper.js" />
         <option value="$PROJECT_DIR$/templates/main.html" />
-        <option value="$PROJECT_DIR$/templates/manageBranch.html" />
       </list>
     </option>
   </component>
@@ -629,20 +627,6 @@
         <state line="728" column="6" selection-start="28048" selection-end="28048" vertical-scroll-proportion="0.22434367" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="6" selection-start="882" selection-end="882" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="85" selection-start="699" selection-end="699" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/version/static/css/status.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="0" selection-start="21" selection-end="21" vertical-scroll-proportion="0.0">
@@ -687,38 +671,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="6" selection-start="882" selection-end="882" vertical-scroll-proportion="13.541667">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/manageBranch.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="113" column="8" selection-start="4298" selection-end="4298" vertical-scroll-proportion="-2.1666667">
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#td#1;n#tr#2;n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/version/static/js/helper.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="35" selection-start="624" selection-end="624" vertical-scroll-proportion="0.0">
+        <state line="30" column="27" selection-start="684" selection-end="684" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="85" selection-start="699" selection-end="699" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="100" selection-start="1248" selection-end="1248" vertical-scroll-proportion="-3.125">
+        <state line="56" column="24" selection-start="2079" selection-end="2079" vertical-scroll-proportion="0.60732985">
           <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#p#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/manageBranch.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="108" selection-start="4313" selection-end="4313" vertical-scroll-proportion="0.52879584">
-          <folding>
-            <element signature="n#style#0;n#h1#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#0;n#td#1;n#tr#1;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#2;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
