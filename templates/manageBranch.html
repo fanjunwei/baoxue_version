@@ -1,0 +1,127 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>分支管理</title>
+    <link href="/static/css/start/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+    <link href="/static/css/box.css" rel="stylesheet">
+    <link href="/static/css/table.css" rel="stylesheet">
+    <script src="/static/js/jquery-1.10.2.js"></script>
+    <script src="/static/js/jquery-ui-1.10.4.custom.js"></script>
+    <script src="/static/js/helper.js"></script>
+    <script>
+        function delBranch(id)
+        {
+            callback=function(){
+            $.post('delBranches.py',{id:id},
+                    function(result,status){
+                        if(status == 'success'){
+                            if(result.success){
+                                showMessage('删除成功')
+                                loadBranches();
+                            }else{
+                                showMessage(result.message)
+                            }
+                        }
+                    });
+            }
+            deleteConfim(callback);
+        }
+        function loadBranches(){
+
+            $.post('getBranches.py',{keyword:$('#branchNameKey').val()},
+                    function(result,status){
+                        if(status == 'success'){
+                            if(result.success){
+                                html=[];
+                                for(i in result.result)
+                                {
+                                    html.push('<tr>');
+                                    html.push('<td>');
+                                    html.push(result.result[i][1]);
+                                    html.push('</td>');
+                                    html.push('<td>');
+                                    html.push(result.result[i][2]);
+                                    html.push('</td>');
+                                    html.push('<td>');
+                                    html.push("<a href='#' onclick='delBranch(");
+                                    html.push(result.result[i][0]);
+                                    html.push(")'>删除</a>");
+                                    html.push('</td>');
+                                    html.push('</tr>');
+                                }
+
+                                $('#branchesData').html(html.join(''));
+                            }else{
+                            }
+                        }
+                    });
+
+
+        }
+        function addBranch()
+        {
+            if(checkUnique('addBranchName')){
+                $.post('saveBranch.py',{name:$("#addBranchName").val(),description:$("#addBranchDescription").val()},
+                        function(result,status){
+                            if(status == 'success'){
+                                if(result.success){
+                                    showMessage("添加成功");
+                                    $("#addBranchName").val('')
+                                    $("#addBranchDescription").val('')
+                                    loadBranches();
+                                }else{
+                                    showMessage(result.message);
+                                }
+                            }
+                        });
+            }
+        }
+        $(function() {
+            $('.mybutton').button();
+            loadBranches();
+        });
+    </script>
+</head>
+<body>
+<h1 style="text-align: center" class="ui-dialog-titlebar">分支管理</h1>
+<hr>
+<table style="width: 100%">
+    <tr>
+        <td style="vertical-align: top;width: 40%">
+
+            <table border="0">
+                <tr>
+                    <td><label for="addBranchName">分支名称</label></td>
+                    <td><input type="text" style="width: 250px" id="addBranchName"></td>
+                    <td><label id="addBranchNameMsg" class="ui-state-error ui-helper-hidden"></label></td>
+                </tr>
+                <tr>
+                    <td><label for="addBranchDescription" >分支说明</label></td>
+                    <td><textarea id="addBranchDescription" style="width: 250px;height: 100px"></textarea></td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: right"><button class="mybutton" onclick="addBranch();" id="addBranch">添加</button></td>
+                </tr>
+            </table>
+        </td>
+        <td style="width: 60%">
+            <label for="branchNameKey">版本名</label>
+            <input type="text" id="branchNameKey" style="width: 60%;"><button class="mybutton" onclick="loadBranches();" style="font-size: 13px;">查找</button>
+            <table border="1" style="width: 100%" >
+                <thead>
+                <th>版本名</th>
+                <th>版本说明</th>
+                <th>操作</th>
+                </thead>
+                <tbody id="branchesData"></tbody>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+
+
+</body>
+</html>

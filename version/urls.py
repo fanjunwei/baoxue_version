@@ -10,4 +10,9 @@ from django.conf.urls import patterns, include, url
 urlpatterns = patterns('version/',
                        url(r'^login.py$', login),
                        url(r'^main.py$', main),
+                       url(r'^manageBranch.py$', manageBranch),
+                       url(r'^saveBranch.py$', saveBranch),
+                       url(r'^getBranches.py$', getBranches),
+                       url(r'^delBranches.py$', delBranches),
+                       url(r'^test.py$', test),
  )
