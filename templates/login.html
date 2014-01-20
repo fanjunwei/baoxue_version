@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+<title>版本记录</title>
+
+<link href="/static/css/login-box.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/start/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+    <script src="/static/js/jquery-1.10.2.js"></script>
+    <script src="/static/js/jquery-ui-1.10.4.custom.js"></script>
+<script>
+var mysubmit;
+var keysubmit = function(event){
+	if(event.which==13){
+		mysubmit();
+	}
+};
+$(function()
+{
+	 var imageCode = $("#imgCode");
+	 var imageCodeUrl = imageCode.attr("src");
+	$("#dialog").dialog({closeText: "hide",closeOnEscape: false,resizable: false,width: 510,buttons:[{text:"登录",click:function(){
+		mysubmit();
+		}}]}
+	);
+	$("input").keydown(keysubmit);
+	mysubmit =function(){
+		$.post('login.py',{username:$("#username").val(),password:$("#password").val()},
+				function(result,status){
+					if(status == 'success'){
+						if(result.success){
+							$("#lblMsg").text("");
+							window.location.href="main.py";
+						}else{
+							$("#lblMsg").text(result.message);
+							imageCode.attr("src", chgUrl(imageCodeUrl));
+						}
+					}
+			});
+		};
+		
+		imageCode.click(function(){ imageCode.attr("src", chgUrl(imageCodeUrl))});
+}
+);	
+</script>
+</head>
+
+<body>
+
+		<div id="dialog" title="版本记录">
+
+			<div id="login-box">
+
+				<h2>登录</h2>
+				<br /> <br />
+				<div class="login-box-name" >用户名:</div>
+				<div class="login-box-field">
+					<input name="username" id="username" class="form-login" title="Username" value=""
+						size="30" maxlength="2048" />
+				</div>
+				<div class="login-box-name">密码:</div>
+				<div class="login-box-field">
+					<input  type="password" id="password" class="form-login" title="Password" value=""
+						size="30" name="password" maxlength="2048" />
+				</div>
+
+			</div>
+
+			<label id="lblMsg" style="color:red;"></label>
+		</div>
+</body>
+</html>
