@@ -1,0 +1,209 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>子分支管理</title>
+    <link href="/static/css/start/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+    <link href="/static/css/box.css" rel="stylesheet">
+    <link href="/static/css/table.css" rel="stylesheet">
+    <script src="/static/js/jquery-1.10.2.js"></script>
+    <script src="/static/js/jquery-ui-1.10.4.custom.js"></script>
+    <script src="/static/js/helper.js"></script>
+    <script>
+        var subbranchOnEdit=false;
+        var subbranchesData=[];
+        function subBranchChangeToEdit(edit,index)
+        {
+            subbranchOnEdit=edit;
+            if(edit)
+            {
+                $('#editsubBranchOK').show();
+                $('#editsubBranchCancel').show();
+                $('#addsubBranch').hide();
+                var id=subbranchesData[index][0];
+                var name=subbranchesData[index][1];
+                var branch=subbranchesData[index][2];
+
+                var desc=subbranchesData[index][3];
+                $('#branchName').val(branch);
+                $('#addsubBranchName').val(name);
+                $('#addsubBranchDescription').val(desc);
+                $('#subbranchID').val(id);
+            }
+            else
+            {
+                $('#editsubBranchOK').hide();
+                $('#editsubBranchCancel').hide();
+                $('#addsubBranch').show();
+                $('#addsubBranchName').val('');
+                $('#addsubBranchDescription').val('');
+                $('#subbranchID').val('');
+                $("#branchName").val('')
+            }
+        }
+        function delSubBranch(id)
+        {
+            callback=function(){
+                $.post('delSubBranches.py',{id:id},
+                        function(result,status){
+                            if(status == 'success'){
+                                if(result.success){
+                                    showMessage('删除成功')
+                                    loadSubBranches();
+                                }else{
+                                    showMessage(result.message)
+                                }
+                            }
+                        });
+            }
+            deleteConfim(callback);
+        }
+        function loadSubBranches(){
+            cache={};
+            $.post('getSubBranches.py',{keyword:$('#subbranchNameKey').val()},
+                    function(result,status){
+                        if(status == 'success'){
+                            if(result.success){
+                                html=[];
+                                subbranchesData=result.result;
+                                for(i in result.result)
+                                {
+                                    html.push('<tr>');
+                                    html.push('<td>');
+                                    html.push(result.result[i][1]);
+                                    html.push('</td>');
+                                    html.push('<td>');
+                                    html.push(result.result[i][2]);
+                                    html.push('</td>');
+                                    html.push('<td>');
+                                    html.push(result.result[i][3]);
+                                    html.push('</td>');
+                                    html.push('<td>');
+                                    html.push("<a href='#' onclick='subBranchChangeToEdit(true,");
+                                    html.push(i);
+                                    html.push(")'>编辑</a>");
+                                    html.push('&nbsp;&nbsp;');
+                                    html.push("<a href='#' onclick='delSubBranch(");
+                                    html.push(result.result[i][0]);
+                                    html.push(")'>删除</a>");
+
+                                    html.push('</td>');
+                                    html.push('</tr>');
+                                }
+
+                                $('#subbranchesData').html(html.join(''));
+                            }else{
+                            }
+                        }
+                    });
+
+
+        }
+        function saveSubBranch()
+        {
+            if(checkUnique('branchName') && checkUnique('addsubBranchName')){
+                $.post('saveSubBranch.py',{id:$("#subbranchID").val(),branch:$("#branchName").val(),name:$("#addsubBranchName").val(),description:$("#addsubBranchDescription").val()},
+                        function(result,status){
+                            if(status == 'success'){
+                                if(result.success){
+                                    if(subbranchOnEdit)
+                                    {
+                                        subBranchChangeToEdit(false,0);
+                                        showMessage("修改成功");
+
+                                    }
+                                    else
+                                    {
+                                        showMessage("添加成功");
+                                    }
+                                    $("#branchName").val('')
+                                    $("#addsubBranchName").val('')
+                                    $("#addsubBranchDescription").val('')
+                                    loadSubBranches();
+                                }else{
+                                    showMessage(result.message);
+                                }
+                            }
+                        });
+            }
+        }
+        $(function() {
+            $('.mybutton').button();
+            subBranchChangeToEdit(false,0);
+            loadSubBranches();
+
+            var cache = {};
+            $( "#branchName" ).autocomplete({
+                minLength: 1,
+                source: function( request, response ) {
+                    var term = request.term;
+
+                    if ( term in cache ) {
+                        response( cache[ term ] );
+                        return;
+                    }
+
+                    $.getJSON( "searchBranchesName.py", request, function( data, status, xhr ) {
+                        if(data.success)
+                        {
+                            cache[ term ] = data.result;
+                            response( data.result );
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<h1 style="text-align: center" class="ui-dialog-titlebar">子支管理</h1>
+<hr>
+<table style="width: 100%">
+    <tr>
+        <td style="vertical-align: top;width: 40%">
+            <input type="hidden" id="subbranchID">
+            <table border="0">
+                <tr>
+                    <td><label for="branchName">所属分支</label></td>
+                    <td><input type="text" style="width: 250px" id="branchName"></td>
+                    <td><label id="branchNameMsg" class="ui-state-error ui-helper-hidden"></label></td>
+                </tr>
+                <tr>
+                    <td><label for="addsubBranchName">子分支名称</label></td>
+                    <td><input type="text" style="width: 250px" id="addsubBranchName"></td>
+                    <td><label id="addsubBranchNameMsg" class="ui-state-error ui-helper-hidden"></label></td>
+                </tr>
+                <tr>
+                    <td><label for="addsubBranchDescription" >分支说明</label></td>
+                    <td><textarea id="addsubBranchDescription" style="width: 250px;height: 100px"></textarea></td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="text-align: right">
+                        <button class="mybutton" onclick="saveSubBranch();" id="editsubBranchOK">修改</button>
+                        <button class="mybutton" onclick="subBranchChangeToEdit(false,0);" id="editsubBranchCancel">取消</button>
+                        <button class="mybutton" onclick="saveSubBranch();" id="addsubBranch">添加</button>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td style="width: 60%;vertical-align: top;">
+
+            <input type="text" id="subbranchNameKey" style="width: 60%;"><button class="mybutton" onclick="loadSubBranches();" style="font-size: 13px;">查找</button>
+            <table border="1" style="width: 100%" >
+                <thead>
+                <th>所属分支</th>
+                <th>子分支名</th>
+                <th>子分支说明</th>
+                <th>操作</th>
+                </thead>
+                <tbody id="subbranchesData"></tbody>
+            </table>
+
+        </td>
+    </tr>
+</table>
+
+
+
+</body>
+</html>

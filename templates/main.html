@@ -23,6 +23,12 @@
             $('#branch').click(function(){
                 $('#l_main').load('manageBranch.py');
             });
+            $('#subBranch').click(function(){
+                $('#l_main').load('manageSubBranch.py');
+            });
+            $('#version').click(function(){
+                $('#l_main').load('manageVersion.py');
+            });
         });
 
     </script>
@@ -46,7 +52,7 @@
 <div id='l_left' class="ui-layout-west">
     <button class="left_button" id="branch">分支管理</button><br>
     <button class="left_button" id="subBranch">子分支管理</button><br>
-    <button class="left_button" id="version">版本号管理</button><br>
+    <button class="left_button" id="version">版本管理</button><br>
     <button class="left_button" id="user">用户管理</button><br>
     <br>
     <button class="left_button" id="brow">版本浏览</button><br>
