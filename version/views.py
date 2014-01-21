@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import  login as auth_login
+from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from tools import *
 from models import *
@@ -28,21 +29,27 @@ def login(request):
 @login_required
 def main(request):
     return render_to_response('main.html')
-
+@login_required
 def test(request):
     return render_to_response('test.html')
-
+@login_required
 def manageBranch(request):
     return render_to_response('manageBranch.html')
-
+@login_required
 def manageSubBranch(request):
     return render_to_response('manageSubBranch.html')
 
-def browseVersion(request):
-    return render_to_response('browseVersion.html')
-
+@login_required
 def manageVersion(request):
     return render_to_response('manageVersion.html')
+
+def browseVersion(request):
+    manage=request.REQUEST.get('manage');
+    if not manage=='1':
+        hasManage=True
+    else:
+        hasManage=False
+    return render_to_response('browseVersion.html',{'hasManage':hasManage})
 
 def saveBranch(request):
     if request.method == "POST":
@@ -322,3 +329,6 @@ def getVersionForBrowse(request):
         }
         result.append(item)
     return getResult(True,result=result)
+
+def home(request):
+    return HttpResponseRedirect("/version/browseVersion.py")

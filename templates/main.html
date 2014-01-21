@@ -31,7 +31,7 @@
             });
 
             $('#browseVersion').click(function(){
-                $('#l_main').load('browseVersion.py');
+                $('#l_main').load('browseVersion.py?manage=1');
             });
         });
 
@@ -48,6 +48,7 @@
 <body>
 <div id="msg1" class="msg ui-helper-hidden"  style="position: absolute;left:auto;top:85px;right:20px;width:60%;z-index: 100"></div>
 <div  id="l_top" class="ui-layout-north">
+
     <div style="background:url(/static/images/top.jpg);position: absolute;top: 0px;left: 0px;right: 0px;bottom: auto;width: auto;height: 78px;">
         <div style="position: absolute;left:0px;top:auto;text-align: center;font-size: 50px;color:white;width: 100%;font-weight: bolder;">版本记录</div>
     </div>
@@ -57,7 +58,6 @@
     <button class="left_button" id="branch">分支管理</button><br>
     <button class="left_button" id="subBranch">子分支管理</button><br>
     <button class="left_button" id="version">版本管理</button><br>
-    <button class="left_button" id="user">用户管理</button><br>
     <br>
     <button class="left_button" id="browseVersion">版本浏览</button><br>
 </div>

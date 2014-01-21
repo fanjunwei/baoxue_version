@@ -30,11 +30,24 @@
         {
             padding-left: 20px;
         }
+        .highlight
+        {
+            background-color: #e14f1c;
+        }
     </style>
     <script>
 
         var versionsData=[];
 
+        function highlight(obj)
+        {
+
+            var text=$(obj).text();
+            $(".highlight").removeClass("highlight");
+            if(text){
+                $( "td:contains('"+text+"')" ).addClass("highlight");
+            }
+        }
 
 
         function loadVersions(){
@@ -70,7 +83,7 @@
                                     {
                                         lastSubBranch=result.result[i].subbranch_name;
                                         html.push('<tr class="subbranch_line">');
-                                        
+
                                         html.push('<td colspan="2" class="subbranch">');
                                         html.push(result.result[i].subbranch_name);
                                         html.push('</td>');
@@ -83,11 +96,11 @@
 
                                     }
                                     html.push('<tr>');
-                                    html.push('<td class="version">');
+                                    html.push('<td class="version" onmousemove="highlight(this)">');
                                     html.push(result.result[i].version_fullname);
                                     html.push('</td>');
 
-                                    html.push('<td>');
+                                    html.push('<td onmousemove="highlight(this)">');
                                     html.push(result.result[i].version_base);
                                     html.push('</td>');
 
@@ -117,8 +130,15 @@
 </head>
 <body>
 <h1 style="text-align: center" class="ui-dialog-titlebar">版本浏览</h1>
+{% if hasManage %}
+<div style="text-align: right">
+    <a href="main.py">管理</a>
+</div>
+{% endif %}
 <hr>
-<input type="text" id="keyword" style="width: 60%;"><button class="mybutton" onclick="loadVersions();" style="font-size: 13px;">查找</button>
+<div style="text-align: center">
+    <input type="text" id="keyword" style="width: 60%;"><button class="mybutton" onclick="loadVersions();" style="font-size: 13px;">查找</button>
+</div>
 <table border="1" style="width: 100%" >
     <thead>
     <th>版本号</th>
@@ -128,6 +148,7 @@
     <tbody id="versionsData">
 
     </tbody>
+    <div onmousemove=""></div>
 </table>
 </body>
 </html>

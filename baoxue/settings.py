@@ -4,6 +4,7 @@ import os
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 HERE = os.path.dirname(os.path.dirname(__file__))
+LOGIN_URL='/version/login.py'
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )

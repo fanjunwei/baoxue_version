@@ -8,7 +8,7 @@ from baoxue import settings
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'baoxue.views.home', name='home'),
+    url(r'^$', 'version.views.home'),
     # url(r'^baoxue/', include('baoxue.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
