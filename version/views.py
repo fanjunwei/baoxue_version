@@ -71,7 +71,7 @@ def getBranches(request):
     branches=Branch.objects.filter(Q(name__icontains=keyword)|Q(description__icontains=keyword))
     result=[]
     for b in branches:
-        item=[b.id,b.name,multilineHtml(b.description)]
+        item=[b.id,b.name,b.description]
         result.append(item)
     return getResult(True,result=result)
 
@@ -86,9 +86,6 @@ def delBranches(request):
         except Exception,e:
             return getResult(False,str(e))
     return getResult(False,'删除失败')
-
-def multilineHtml(raw):
-    return saxutils.escape(raw).replace('\n','<br/>')
 
 
 def searchBranchesName(request):
@@ -108,7 +105,7 @@ def getSubBranches(request):
     subbranches=SubBranch.objects.filter(Q(name__icontains=keyword)|Q(branch__name__icontains=keyword)|Q(description__icontains=keyword)).order_by('branch','name')
     result=[]
     for b in subbranches:
-        item=[b.id,b.branch.name,b.name,multilineHtml(b.description)]
+        item=[b.id,b.branch.name,b.name,b.description]
         result.append(item)
     return getResult(True,result=result)
 
@@ -168,6 +165,120 @@ def getVersions(request):
     versions=Version.objects.filter(Q(fullName__icontains=keyword)|Q(description__icontains=keyword)).order_by('subBranch','name')
     result=[]
     for b in versions:
-        item=[b.id,b.getFullName(),multilineHtml(b.description)]
+        baseVersionFullName=''
+        if b.parent:
+            baseVersions=Version.objects.filter(id=b.parent)
+            if baseVersions.count()>0:
+                baseVersionFullName=baseVersions[0].fullName
+
+        item=[b.id,b.getFullName(),baseVersionFullName,b.description]
         result.append(item)
     return getResult(True,result=result)
+
+
+def searchSubBranchesName(request):
+    branch=request.REQUEST.get('branch')
+    term=request.REQUEST.get('term')
+    subbranches=SubBranch.objects.filter(Q(name__icontains=term)&Q(branch__name=branch))
+    result=[]
+    for b in subbranches:
+        item=b.name
+        result.append(item)
+    return getResult(True,result=result)
+
+
+def searchVersionFullName(request):
+    term=request.REQUEST.get('term')
+    if term :
+        versions=Version.objects.filter(fullName__icontains=term)
+        result=[]
+        for b in versions:
+            item=b.fullName
+            result.append(item)
+        return getResult(True,result=result)
+    else:
+        return getResult(False)
+
+
+def getAutoBaseVersionName(request):
+    if request.method == "POST":
+        branchName=request.POST.get('branch')
+        subbranchName=request.POST.get('subbranch')
+        if not branchName:
+            return getResult(False,'所属分支不能为空')
+        if not subbranchName:
+            return getResult(False,'所属子分支不能为空')
+        branches=Branch.objects.filter(name=branchName)
+        if(branches.count()>0):
+            branch=branches[0]
+            subbranches=SubBranch.objects.filter(branch=branch,name=subbranchName)
+            if subbranches.count()>0:
+                subbranch=subbranches[0]
+                versions=Version.objects.filter(subBranch=subbranch).order_by('-createTime')
+                if versions.count()>0:
+                    return getResult(True,result=versions[0].fullName)
+    return getResult(False)
+
+
+
+def saveVersion(request):
+    if request.method == "POST":
+        branchName=request.POST.get('branch')
+        subbranchName=request.POST.get('subbranch')
+        baseVersionFullName=request.POST.get('baseversion')
+        name=request.POST.get('name')
+        id=request.POST.get('id')
+        if not branchName:
+            return getResult(False,'所属分支不能为空')
+
+        if not subbranchName:
+            return getResult(False,'所属子分支不能为空')
+
+        if not name:
+            return getResult(False,'subbranchName不能为空')
+
+
+
+        branches=Branch.objects.filter(name=branchName)
+        if(branches.count()==0):
+            branch=Branch()
+            branch.name=branchName
+            branch.save()
+            subbranch=SubBranch()
+            subbranch.name=subbranchName
+            subbranch.branch=branch
+            subbranch.save()
+        else:
+            branch=branches[0]
+            subbranches=SubBranch.objects.filter(branch=branch,name=subbranchName)
+            if subbranches.count()==0:
+                subbranch=SubBranch()
+                subbranch.name=subbranchName
+                subbranch.branch=branch
+                subbranch.save()
+            else:
+                subbranch=subbranches[0]
+
+        description=request.POST.get('description')
+        try:
+            if id:
+                versions=Version.objects.filter(id=id)
+                if versions.count()==0:
+                    return getResult(False,'版本号错误，请重新选择')
+                else:
+                    version=versions[0]
+            else:
+                version=Version()
+            version.name=name
+            version.subBranch=subbranch
+            version.description=description
+
+            baseVersions=Version.objects.filter(fullName=baseVersionFullName)
+            if baseVersions.count()>0:
+                version.parent=baseVersions[0].id;
+            version.save()
+            return getResult(True)
+        except django.db.utils.IntegrityError:
+            return getResult(False,'该版本已存在')
+        except Exception,e:
+            return getResult(False,str(e))

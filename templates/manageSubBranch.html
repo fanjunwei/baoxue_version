@@ -75,7 +75,7 @@
                                     html.push(result.result[i][2]);
                                     html.push('</td>');
                                     html.push('<td>');
-                                    html.push(result.result[i][3]);
+                                    html.push(htmlEncode(result.result[i][3]));
                                     html.push('</td>');
                                     html.push('<td>');
                                     html.push("<a href='#' onclick='subBranchChangeToEdit(true,");

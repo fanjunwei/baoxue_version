@@ -7,7 +7,7 @@
     <file path="/models.py" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390284140520" ignored="false" />
     <file path="/Dummy.txt" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390274518341" ignored="false" />
     <file path="/settings.py" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390117592595" ignored="false" />
-    <file path="/views.py" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390284152036" ignored="false" />
+    <file path="/views.py" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390293359236" ignored="false" />
     <file path="/urls.py" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390275766696" ignored="false" />
     <file path="/login.html" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390118589562" ignored="false" />
     <file path="/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/django/contrib/staticfiles/urls.py" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390012579341" ignored="false" />
@@ -20,9 +20,9 @@
     <file path="/manage_branch.html" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390199197216" ignored="false" />
     <file path="/manageBranch.html" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390282437960" ignored="false" />
     <file path="/status.css" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390200577623" ignored="false" />
-    <file path="/helper.js" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390229171453" ignored="false" />
+    <file path="/helper.js" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390292123522" ignored="false" />
     <file path="/manageSubBranch.html" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390282446557" ignored="false" />
-    <file path="/manageVersion.html" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390286600864" ignored="false" />
+    <file path="/manageVersion.html" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390292713228" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,13 +39,20 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version/views.py">
+      <file leaf-file-name="base.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/django/core/handlers/base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="0" selection-start="2891" selection-end="2891" vertical-scroll-proportion="21.653847">
-              <folding>
-                <element signature="e#41#54#0" expanded="true" />
-              </folding>
+            <state line="118" column="37" selection-start="5274" selection-end="5274" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/test.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -53,7 +60,7 @@
       <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/version/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="12" selection-start="1380" selection-end="1388" vertical-scroll-proportion="0.0">
+            <state line="31" column="14" selection-start="1511" selection-end="1521" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -71,7 +78,7 @@
       <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/version/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="41" selection-start="1050" selection-end="1061" vertical-scroll-proportion="-10.576923">
+            <state line="16" column="55" selection-start="535" selection-end="535" vertical-scroll-proportion="-4.8076925">
               <folding />
             </state>
           </provider>
@@ -80,7 +87,7 @@
       <file leaf-file-name="manageBranch.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/manageBranch.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="152" column="21" selection-start="6446" selection-end="6446" vertical-scroll-proportion="-82.875">
+            <state line="70" column="77" selection-start="2835" selection-end="2835" vertical-scroll-proportion="-3.125">
               <folding />
             </state>
           </provider>
@@ -89,7 +96,7 @@
       <file leaf-file-name="manageSubBranch.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/manageSubBranch.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="189" column="0" selection-start="8173" selection-end="8173" vertical-scroll-proportion="-1.46">
+            <state line="75" column="55" selection-start="3123" selection-end="3123" vertical-scroll-proportion="-1.76">
               <folding>
                 <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -100,25 +107,16 @@
       <file leaf-file-name="helper.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/version/static/js/helper.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="27" selection-start="684" selection-end="684" vertical-scroll-proportion="0.0">
+            <state line="43" column="23" selection-start="1018" selection-end="1028" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/main.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="43" selection-start="1121" selection-end="1121" vertical-scroll-proportion="-7.7916665">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="manageVersion.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="manageVersion.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/manageVersion.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="181" column="41" selection-start="7081" selection-end="7081" vertical-scroll-proportion="0.45530728">
+            <state line="87" column="75" selection-start="3385" selection-end="3385" vertical-scroll-proportion="-7.875">
               <folding>
                 <element signature="n#style#0;n#h1#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -136,6 +134,17 @@
                 <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#table#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/version/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="219" column="27" selection-start="7203" selection-end="7203" vertical-scroll-proportion="0.68586385">
+              <folding>
+                <element signature="e#41#54#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -159,14 +168,14 @@
         <option value="$PROJECT_DIR$/version/static/css/status.css" />
         <option value="$PROJECT_DIR$/version/static/css/table.css" />
         <option value="$PROJECT_DIR$/version/static/css/box.css" />
-        <option value="$PROJECT_DIR$/version/static/js/helper.js" />
         <option value="$PROJECT_DIR$/templates/main.html" />
-        <option value="$PROJECT_DIR$/version/urls.py" />
         <option value="$PROJECT_DIR$/version/models.py" />
-        <option value="$PROJECT_DIR$/templates/manageSubBranch.html" />
+        <option value="$PROJECT_DIR$/version/urls.py" />
         <option value="$PROJECT_DIR$/templates/manageBranch.html" />
-        <option value="$PROJECT_DIR$/version/views.py" />
+        <option value="$PROJECT_DIR$/version/static/js/helper.js" />
+        <option value="$PROJECT_DIR$/templates/manageSubBranch.html" />
         <option value="$PROJECT_DIR$/templates/manageVersion.html" />
+        <option value="$PROJECT_DIR$/version/views.py" />
       </list>
     </option>
   </component>
@@ -594,15 +603,10 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="22" />
+      <option name="time" value="26" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/django/db/models/fields/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="728" column="6" selection-start="28048" selection-end="28048" vertical-scroll-proportion="0.22434367" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/version/static/css/status.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="0" selection-start="21" selection-end="21" vertical-scroll-proportion="0.0">
@@ -645,43 +649,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version/static/js/helper.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="27" selection-start="684" selection-end="684" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/manageSubBranch.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="189" column="0" selection-start="8173" selection-end="8173" vertical-scroll-proportion="-1.46">
-          <folding>
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/manageBranch.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="21" selection-start="6446" selection-end="6446" vertical-scroll-proportion="-82.875">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="41" selection-start="1050" selection-end="1061" vertical-scroll-proportion="-10.576923">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/django/core/handlers/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="0" selection-start="4677" selection-end="4677" vertical-scroll-proportion="0.33147633">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/django/db/models/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="451" column="71" selection-start="20127" selection-end="20194" vertical-scroll-proportion="-5.4615383">
@@ -689,25 +656,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version/models.py">
+    <entry file="file://$PROJECT_DIR$/templates/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="12" selection-start="1380" selection-end="1388" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version/views.py">
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/django/core/handlers/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="0" selection-start="2891" selection-end="2891" vertical-scroll-proportion="21.653847">
-          <folding>
-            <element signature="e#41#54#0" expanded="true" />
-          </folding>
+        <state line="118" column="37" selection-start="5274" selection-end="5274" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="55" selection-start="535" selection-end="535" vertical-scroll-proportion="-4.8076925">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version/static/js/helper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="23" selection-start="1018" selection-end="1028" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/manageVersion.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="181" column="41" selection-start="7081" selection-end="7081" vertical-scroll-proportion="0.45530728">
+        <state line="87" column="75" selection-start="3385" selection-end="3385" vertical-scroll-proportion="-7.875">
           <folding>
             <element signature="n#style#0;n#h1#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -725,6 +704,38 @@
             <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#table#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/manageSubBranch.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="55" selection-start="3123" selection-end="3123" vertical-scroll-proportion="-1.76">
+          <folding>
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/manageBranch.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="77" selection-start="2835" selection-end="2835" vertical-scroll-proportion="-3.125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="14" selection-start="1511" selection-end="1521" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="219" column="27" selection-start="7203" selection-end="7203" vertical-scroll-proportion="0.68586385">
+          <folding>
+            <element signature="e#41#54#0" expanded="true" />
           </folding>
         </state>
       </provider>

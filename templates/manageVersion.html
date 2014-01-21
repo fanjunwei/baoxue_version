@@ -11,6 +11,17 @@
     <script>
         var versionOnEdit=false;
         var versionsData=[];
+        function clearText()
+        {
+            $('#addversionName').val('');
+            $('#addversionDescription').val('');
+            $('#versionID').val('');
+            $("#branchName").val('')
+
+            $("#subBranchName").val('')
+            $("#addversionFullName").val('')
+            $("#baseversionFullName").val('')
+        }
         function versionChangeToEdit(edit,index)
         {
             versionOnEdit=edit;
@@ -34,10 +45,7 @@
                 $('#editversionOK').hide();
                 $('#editversionCancel').hide();
                 $('#addversion').show();
-                $('#addversionName').val('');
-                $('#addversionDescription').val('');
-                $('#versionID').val('');
-                $("#branchName").val('')
+                clearText();
             }
         }
         function delversion(id)
@@ -71,8 +79,13 @@
                                     html.push('<td>');
                                     html.push(result.result[i][1]);
                                     html.push('</td>');
+
                                     html.push('<td>');
                                     html.push(result.result[i][2]);
+                                    html.push('</td>');
+
+                                    html.push('<td>');
+                                    html.push(htmlEncode(result.result[i][3]));
                                     html.push('</td>');
 
                                     html.push('<td>');
@@ -96,10 +109,10 @@
 
 
         }
-        function saveversion()
+        function saveVersion()
         {
-            if(checkUnique('branchName') && checkUnique('addversionName')){
-                $.post('saveversion.py',{id:$("#versionID").val(),branch:$("#branchName").val(),name:$("#addversionName").val(),description:$("#addversionDescription").val()},
+            if(checkUnique('branchName') && checkUnique('subBranchName') && checkUnique('addversionName')){
+                $.post('saveVersion.py',{id:$("#versionID").val(),branch:$("#branchName").val(),subbranch:$("#subBranchName").val(),name:$("#addversionName").val(),baseversion:$("#baseversionFullName").val(),description:$("#addversionDescription").val()},
                         function(result,status){
                             if(status == 'success'){
                                 if(result.success){
@@ -113,9 +126,7 @@
                                     {
                                         showMessage("添加成功");
                                     }
-                                    $("#branchName").val('')
-                                    $("#addversionName").val('')
-                                    $("#addversionDescription").val('')
+                                    clearText();
                                     loadVersions();
                                 }else{
                                     showMessage(result.message);
@@ -196,7 +207,49 @@
                     $.getJSON( "searchBranchesName.py", request, function( data, status, xhr ) {
                         if(data.success)
                         {
+
                             cache[ term ] = data.result;
+                            response( data.result );
+                        }
+                    });
+                }
+            });
+
+            $( "#subBranchName" ).autocomplete({
+                minLength: 0,
+                source: function( request, response ) {
+                    request.branch=$( "#branchName").val();
+                    var key = request.branch+','+request.term;
+
+                    if ( key in cache ) {
+                        response( cache[ key ] );
+                        return;
+                    }
+
+                    $.getJSON( "searchSubBranchesName.py", request, function( data, status, xhr ) {
+                        if(data.success)
+                        {
+                            cache[ key ] = data.result;
+                            response( data.result );
+                        }
+                    });
+                }
+            });
+
+            $( "#baseversionFullName" ).autocomplete({
+                minLength: 1,
+                source: function( request, response ) {
+                    var key = 'full,'+request.term;
+
+                    if ( key in cache ) {
+                        response( cache[ key ] );
+                        return;
+                    }
+
+                    $.getJSON( "searchVersionFullName.py", request, function( data, status, xhr ) {
+                        if(data.success)
+                        {
+                            cache[ key ] = data.result;
                             response( data.result );
                         }
                     });
@@ -245,9 +298,9 @@
                 </tr>
                 <tr>
                     <td colspan="3" style="text-align: right">
-                        <button class="mybutton" onclick="saveversion();" id="editversionOK">修改</button>
+                        <button class="mybutton" onclick="saveVersion();" id="editversionOK">修改</button>
                         <button class="mybutton" onclick="versionChangeToEdit(false,0);" id="editversionCancel">取消</button>
-                        <button class="mybutton" onclick="saveversion();" id="addversion">添加</button>
+                        <button class="mybutton" onclick="saveVersion();" id="addversion">添加</button>
                     </td>
                 </tr>
             </table>
@@ -258,6 +311,7 @@
             <table border="1" style="width: 100%" >
                 <thead>
                 <th>版本全名</th>
+                <th>基于版本</th>
                 <th>版本说明</th>
                 <th>操作</th>
                 </thead>
