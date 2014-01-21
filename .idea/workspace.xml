@@ -5,9 +5,9 @@
     <ignored path="baoxue.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/models.py" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390284140520" ignored="false" />
-    <file path="/Dummy.txt" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390309666478" ignored="false" />
+    <file path="/Dummy.txt" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390313710228" ignored="false" />
     <file path="/settings.py" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390309724020" ignored="false" />
-    <file path="/views.py" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390311469922" ignored="false" />
+    <file path="/views.py" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390313796948" ignored="false" />
     <file path="/urls.py" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390310830987" ignored="false" />
     <file path="/login.html" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390118589562" ignored="false" />
     <file path="/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/django/contrib/staticfiles/urls.py" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390012579341" ignored="false" />
@@ -16,13 +16,13 @@
     <file path="$PROJECT_DIR$/../my12306/piao.py" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390020541981" ignored="false" />
     <file path="/piao.py" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390020541981" ignored="false" />
     <file path="/tools.py" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390140037017" ignored="false" />
-    <file path="/main.html" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390311206509" ignored="false" />
+    <file path="/main.html" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390313620015" ignored="false" />
     <file path="/manage_branch.html" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390199197216" ignored="false" />
-    <file path="/manageBranch.html" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390282437960" ignored="false" />
+    <file path="/manageBranch.html" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390313443725" ignored="false" />
     <file path="/status.css" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390200577623" ignored="false" />
     <file path="/helper.js" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390292123522" ignored="false" />
-    <file path="/manageSubBranch.html" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390298064445" ignored="false" />
-    <file path="/manageVersion.html" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390294507278" ignored="false" />
+    <file path="/manageSubBranch.html" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390313354152" ignored="false" />
+    <file path="/manageVersion.html" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390313030486" ignored="false" />
     <file path="/browseVersion.html" changelist="0cbdda7d-75ca-4c0f-b5b8-a2fe9df762f3" time="1390311260153" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,15 +40,6 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="10" selection-start="571" selection-end="577" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/version/urls.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -70,7 +61,7 @@
       <file leaf-file-name="main.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="54" selection-start="1176" selection-end="1176" vertical-scroll-proportion="-1.375">
+            <state line="3" column="17" selection-start="68" selection-end="68" vertical-scroll-proportion="-1.875">
               <folding />
             </state>
           </provider>
@@ -79,8 +70,17 @@
       <file leaf-file-name="manageBranch.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/manageBranch.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="56" selection-start="2804" selection-end="2814" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="34" column="31" selection-start="1294" selection-end="1294" vertical-scroll-proportion="-9.375">
+              <folding>
+                <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#textarea#0;n#td#1;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#2;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -88,8 +88,19 @@
       <file leaf-file-name="manageSubBranch.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/manageSubBranch.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="49" selection-start="838" selection-end="838" vertical-scroll-proportion="-0.625">
-              <folding />
+            <state line="195" column="22" selection-start="0" selection-end="8276" vertical-scroll-proportion="-7.7083335">
+              <folding>
+                <element signature="n#style#0;n#h1#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#textarea#0;n#td#1;n#tr#2;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#3;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -97,8 +108,24 @@
       <file leaf-file-name="manageVersion.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/manageVersion.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="192" column="27" selection-start="7725" selection-end="7740" vertical-scroll-proportion="-3.75">
-              <folding />
+            <state line="281" column="0" selection-start="8640" selection-end="8712" vertical-scroll-proportion="-4.5833335">
+              <folding>
+                <element signature="n#style#0;n#h1#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#1;n#tr#2;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#0;n#td#0;n#tr#3;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#1;n#tr#3;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#0;n#td#0;n#tr#4;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#1;n#tr#4;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#textarea#0;n#td#1;n#tr#5;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#6;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -128,10 +155,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/version/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="321" column="50" selection-start="10456" selection-end="10456" vertical-scroll-proportion="0.33168316">
+            <state line="15" column="0" selection-start="489" selection-end="489" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="manage.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/manage.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="70" selection-start="141" selection-end="141" vertical-scroll-proportion="0.1438849">
               <folding />
             </state>
           </provider>
@@ -152,15 +188,15 @@
         <option value="$PROJECT_DIR$/version/static/css/status.css" />
         <option value="$PROJECT_DIR$/version/static/css/table.css" />
         <option value="$PROJECT_DIR$/version/static/css/box.css" />
-        <option value="$PROJECT_DIR$/templates/manageBranch.html" />
         <option value="$PROJECT_DIR$/version/static/js/helper.js" />
-        <option value="$PROJECT_DIR$/templates/manageVersion.html" />
         <option value="$PROJECT_DIR$/version/models.py" />
-        <option value="$PROJECT_DIR$/templates/manageSubBranch.html" />
         <option value="$PROJECT_DIR$/baoxue/settings.py" />
         <option value="$PROJECT_DIR$/baoxue/urls.py" />
         <option value="$PROJECT_DIR$/version/urls.py" />
         <option value="$PROJECT_DIR$/templates/browseVersion.html" />
+        <option value="$PROJECT_DIR$/templates/manageVersion.html" />
+        <option value="$PROJECT_DIR$/templates/manageSubBranch.html" />
+        <option value="$PROJECT_DIR$/templates/manageBranch.html" />
         <option value="$PROJECT_DIR$/templates/main.html" />
         <option value="$PROJECT_DIR$/version/views.py" />
       </list>
@@ -240,110 +276,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="baoxue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="baoxue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="version" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="baoxue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="baoxue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="version" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="baoxue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="baoxue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="version" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="baoxue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="baoxue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="version" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="baoxue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="baoxue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="baoxue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="baoxue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="baoxue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -372,6 +304,21 @@
     </key>
   </component>
   <component name="RunManager" selected="Django server.baoxue">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <module name="baoxue" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <method />
+    </configuration>
     <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -593,11 +540,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="6" selection-start="882" selection-end="882" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/version/tools.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="47" column="19" selection-start="1901" selection-end="1907" vertical-scroll-proportion="0.0" />
@@ -627,20 +569,6 @@
     <entry file="file://$PROJECT_DIR$/templates/test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/manageBranch.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="56" selection-start="2804" selection-end="2814" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/manageSubBranch.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="49" selection-start="838" selection-end="838" vertical-scroll-proportion="-0.625">
           <folding />
         </state>
       </provider>
@@ -689,21 +617,78 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/manageVersion.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="192" column="27" selection-start="7725" selection-end="7740" vertical-scroll-proportion="-3.75">
-          <folding />
+        <state line="281" column="0" selection-start="8640" selection-end="8712" vertical-scroll-proportion="-4.5833335">
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#2;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#td#0;n#tr#3;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#3;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#td#0;n#tr#4;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#4;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#td#1;n#tr#5;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#6;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/manageSubBranch.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="195" column="22" selection-start="0" selection-end="8276" vertical-scroll-proportion="-7.7083335">
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#td#1;n#tr#2;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#3;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/manageBranch.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="31" selection-start="1294" selection-end="1294" vertical-scroll-proportion="-9.375">
+          <folding>
+            <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#td#1;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#2;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="54" selection-start="1176" selection-end="1176" vertical-scroll-proportion="-1.375">
+        <state line="3" column="17" selection-start="68" selection-end="68" vertical-scroll-proportion="-1.875">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/version/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="321" column="50" selection-start="10456" selection-end="10456" vertical-scroll-proportion="0.33168316">
+        <state line="15" column="0" selection-start="489" selection-end="489" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="70" selection-start="141" selection-end="141" vertical-scroll-proportion="0.1438849">
           <folding />
         </state>
       </provider>

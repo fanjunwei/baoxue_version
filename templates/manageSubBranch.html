@@ -19,6 +19,7 @@
                 $('#editsubBranchOK').show();
                 $('#editsubBranchCancel').show();
                 $('#addsubBranch').hide();
+                $('#list').hide();
                 var id=subbranchesData[index][0];
                 var branch=subbranchesData[index][1];
                 var name=subbranchesData[index][2];
@@ -34,6 +35,7 @@
                 $('#editsubBranchOK').hide();
                 $('#editsubBranchCancel').hide();
                 $('#addsubBranch').show();
+                $('#list').show();
                 $('#addsubBranchName').val('');
                 $('#addsubBranchDescription').val('');
                 $('#subbranchID').val('');
@@ -155,55 +157,48 @@
     </script>
 </head>
 <body>
-<h1 style="text-align: center" class="ui-dialog-titlebar">子支管理</h1>
+<h1 style="text-align: center" class="ui-dialog-titlebar">子分支管理</h1>
 <hr>
-<table style="width: 100%">
+<input type="hidden" id="subbranchID">
+<table border="0" style="margin: auto">
     <tr>
-        <td style="vertical-align: top;width: 40%">
-            <input type="hidden" id="subbranchID">
-            <table border="0">
-                <tr>
-                    <td><label for="branchName">所属分支</label></td>
-                    <td><input type="text" style="width: 250px" id="branchName"></td>
-                    <td><label id="branchNameMsg" class="ui-state-error ui-helper-hidden"></label></td>
-                </tr>
-                <tr>
-                    <td><label for="addsubBranchName">子分支名称</label></td>
-                    <td><input type="text" style="width: 250px" id="addsubBranchName"></td>
-                    <td><label id="addsubBranchNameMsg" class="ui-state-error ui-helper-hidden"></label></td>
-                </tr>
-                <tr>
-                    <td><label for="addsubBranchDescription" >分支说明</label></td>
-                    <td><textarea id="addsubBranchDescription" style="width: 250px;height: 100px"></textarea></td>
-                    <td>&nbsp;&nbsp;&nbsp;</td>
-                </tr>
-                <tr>
-                    <td colspan="3" style="text-align: right">
-                        <button class="mybutton" onclick="saveSubBranch();" id="editsubBranchOK">修改</button>
-                        <button class="mybutton" onclick="subBranchChangeToEdit(false,0);" id="editsubBranchCancel">取消</button>
-                        <button class="mybutton" onclick="saveSubBranch();" id="addsubBranch">添加</button>
-                    </td>
-                </tr>
-            </table>
-        </td>
-        <td style="width: 60%;vertical-align: top;">
-
-            <input type="text" id="subbranchNameKey" style="width: 60%;"><button class="mybutton" onclick="loadSubBranches();" style="font-size: 13px;">查找</button>
-            <table border="1" style="width: 100%" >
-                <thead>
-                <th>所属分支</th>
-                <th>子分支名</th>
-                <th>子分支说明</th>
-                <th>操作</th>
-                </thead>
-                <tbody id="subbranchesData"></tbody>
-            </table>
-
+        <td><label for="branchName">所属分支</label></td>
+        <td><input type="text" style="width: 250px" id="branchName"></td>
+        <td><label id="branchNameMsg" class="ui-state-error ui-helper-hidden"></label></td>
+    </tr>
+    <tr>
+        <td><label for="addsubBranchName">子分支名称</label></td>
+        <td><input type="text" style="width: 250px" id="addsubBranchName"></td>
+        <td><label id="addsubBranchNameMsg" class="ui-state-error ui-helper-hidden"></label></td>
+    </tr>
+    <tr>
+        <td><label for="addsubBranchDescription" >分支说明</label></td>
+        <td><textarea id="addsubBranchDescription" style="width: 250px;height: 100px"></textarea></td>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+        <td colspan="3" style="text-align: right">
+            <button class="mybutton" onclick="saveSubBranch();" id="editsubBranchOK">修改</button>
+            <button class="mybutton" onclick="subBranchChangeToEdit(false,0);" id="editsubBranchCancel">取消</button>
+            <button class="mybutton" onclick="saveSubBranch();" id="addsubBranch">添加</button>
         </td>
     </tr>
 </table>
 
 
+<div id="list" style="text-align: center">
+    <hr>
+    <input type="text" id="subbranchNameKey" style="width: 60%;"><button class="mybutton" onclick="loadSubBranches();" style="font-size: 13px;">查找</button>
+    <table border="1" style="width: 100%" >
+        <thead>
+        <th>所属分支</th>
+        <th>子分支名</th>
+        <th>子分支说明</th>
+        <th>操作</th>
+        </thead>
+        <tbody id="subbranchesData"></tbody>
+    </table>
+</div>
 
 </body>
 </html>

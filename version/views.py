@@ -13,6 +13,12 @@ from django.db.models import Q
 import xml.sax.saxutils as saxutils
 
 def login(request):
+
+    if User.objects.all().count()==0:
+        user = User()
+        user.username = 'SW'
+        user.set_password('SW')
+        user.save()
     if request.method == "POST":
         form = AuthenticationForm(data=request.POST)
         if form.is_valid():

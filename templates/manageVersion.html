@@ -1,346 +1,340 @@
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>版本管理</title>
-    <link href="/static/css/start/jquery-ui-1.10.4.custom.css" rel="stylesheet">
-    <link href="/static/css/box.css" rel="stylesheet">
-    <link href="/static/css/table.css" rel="stylesheet">
-    <script src="/static/js/jquery-1.10.2.js"></script>
-    <script src="/static/js/jquery-ui-1.10.4.custom.js"></script>
-    <script src="/static/js/helper.js"></script>
-    <script>
-        var versionOnEdit=false;
-        var versionsData=[];
-        function clearText()
-        {
-            $('#addversionName').val('');
-            $('#addversionDescription').val('');
-            $('#versionID').val('');
-            $("#branchName").val('')
+<meta charset="utf-8">
+<title>版本管理</title>
+<link href="/static/css/start/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+<link href="/static/css/box.css" rel="stylesheet">
+<link href="/static/css/table.css" rel="stylesheet">
+<script src="/static/js/jquery-1.10.2.js"></script>
+<script src="/static/js/jquery-ui-1.10.4.custom.js"></script>
+<script src="/static/js/helper.js"></script>
+<script>
+var versionOnEdit=false;
+var versionsData=[];
+function clearText()
+{
+    $('#addversionName').val('');
+    $('#addversionDescription').val('');
+    $('#versionID').val('');
+    $("#branchName").val('')
 
-            $("#subBranchName").val('')
-            $("#addversionFullName").val('')
-            $("#baseversionFullName").val('')
-        }
-        function versionChangeToEdit(edit,index)
-        {
-            versionOnEdit=edit;
-            if(edit)
-            {
-                $('#editversionOK').show();
-                $('#editversionCancel').show();
-                $('#addversion').hide();
-                var id=versionsData[index][0];
-                var fullanme=versionsData[index][1];
-                var basefullname=versionsData[index][2];
+    $("#subBranchName").val('')
+    $("#addversionFullName").val('')
+    $("#baseversionFullName").val('')
+}
+function versionChangeToEdit(edit,index)
+{
+    versionOnEdit=edit;
+    if(edit)
+    {
+        $('#editversionOK').show();
+        $('#editversionCancel').show();
+        $('#addversion').hide();
+        $('#list').hide();
+        var id=versionsData[index][0];
+        var fullanme=versionsData[index][1];
+        var basefullname=versionsData[index][2];
 
-                var desc=versionsData[index][3];
-                $('#addversionFullName').val(fullanme);
-                $('#baseversionFullName').val(basefullname);
-                splitFullName(false);
-                $('#addversionDescription').val(desc);
-                $('#versionID').val(id);
-            }
-            else
-            {
-                $('#editversionOK').hide();
-                $('#editversionCancel').hide();
-                $('#addversion').show();
-                clearText();
-            }
-        }
-        function delversion(id)
-        {
-            callback=function(){
-                $.post('delVersion.py',{id:id},
-                        function(result,status){
-                            if(status == 'success'){
-                                if(result.success){
-                                    showMessage('删除成功')
-                                    loadVersions();
-                                }else{
-                                    showMessage(result.message)
-                                }
-                            }
-                        });
-            }
-            deleteConfim(callback);
-        }
-        function loadVersions(){
-            cache={};
-            $.post('getVersions.py',{keyword:$('#versionNameKey').val()},
-                    function(result,status){
-                        if(status == 'success'){
-                            if(result.success){
-                                html=[];
-                                versionsData=result.result;
-                                for(i in result.result)
-                                {
-                                    html.push('<tr>');
-                                    html.push('<td>');
-                                    html.push(result.result[i][1]);
-                                    html.push('</td>');
-
-                                    html.push('<td>');
-                                    html.push(result.result[i][2]);
-                                    html.push('</td>');
-
-                                    html.push('<td>');
-                                    html.push(htmlEncode(result.result[i][3]));
-                                    html.push('</td>');
-
-                                    html.push('<td>');
-                                    html.push("<a href='#' onclick='versionChangeToEdit(true,");
-                                    html.push(i);
-                                    html.push(")'>编辑</a>");
-                                    html.push('&nbsp;&nbsp;');
-                                    html.push("<a href='#' onclick='delversion(");
-                                    html.push(result.result[i][0]);
-                                    html.push(")'>删除</a>");
-
-                                    html.push('</td>');
-                                    html.push('</tr>');
-                                }
-
-                                $('#versionsData').html(html.join(''));
-                            }else{
-                            }
+        var desc=versionsData[index][3];
+        $('#addversionFullName').val(fullanme);
+        $('#baseversionFullName').val(basefullname);
+        splitFullName(false);
+        $('#addversionDescription').val(desc);
+        $('#versionID').val(id);
+    }
+    else
+    {
+        $('#editversionOK').hide();
+        $('#editversionCancel').hide();
+        $('#addversion').show();
+        $('#list').show();
+        clearText();
+    }
+}
+function delversion(id)
+{
+    callback=function(){
+        $.post('delVersion.py',{id:id},
+                function(result,status){
+                    if(status == 'success'){
+                        if(result.success){
+                            showMessage('删除成功')
+                            loadVersions();
+                        }else{
+                            showMessage(result.message)
                         }
-                    });
+                    }
+                });
+    }
+    deleteConfim(callback);
+}
+function loadVersions(){
+    cache={};
+    $.post('getVersions.py',{keyword:$('#versionNameKey').val()},
+            function(result,status){
+                if(status == 'success'){
+                    if(result.success){
+                        html=[];
+                        versionsData=result.result;
+                        for(i in result.result)
+                        {
+                            html.push('<tr>');
+                            html.push('<td>');
+                            html.push(result.result[i][1]);
+                            html.push('</td>');
+
+                            html.push('<td>');
+                            html.push(result.result[i][2]);
+                            html.push('</td>');
+
+                            html.push('<td>');
+                            html.push(htmlEncode(result.result[i][3]));
+                            html.push('</td>');
+
+                            html.push('<td>');
+                            html.push("<a href='#' onclick='versionChangeToEdit(true,");
+                            html.push(i);
+                            html.push(")'>编辑</a>");
+                            html.push('&nbsp;&nbsp;');
+                            html.push("<a href='#' onclick='delversion(");
+                            html.push(result.result[i][0]);
+                            html.push(")'>删除</a>");
+
+                            html.push('</td>');
+                            html.push('</tr>');
+                        }
+
+                        $('#versionsData').html(html.join(''));
+                    }else{
+                    }
+                }
+            });
 
 
-        }
-        function saveVersion()
-        {
-            if(checkUnique('branchName') && checkUnique('subBranchName') && checkUnique('addversionName')){
-                $.post('saveVersion.py',{id:$("#versionID").val(),branch:$("#branchName").val(),subbranch:$("#subBranchName").val(),name:$("#addversionName").val(),baseversion:$("#baseversionFullName").val(),description:$("#addversionDescription").val()},
-                        function(result,status){
-                            if(status == 'success'){
-                                if(result.success){
-                                    if(versionOnEdit)
-                                    {
-                                        versionChangeToEdit(false,0);
-                                        showMessage("修改成功");
+}
+function saveVersion()
+{
+    if(checkUnique('branchName') && checkUnique('subBranchName') && checkUnique('addversionName')){
+        $.post('saveVersion.py',{id:$("#versionID").val(),branch:$("#branchName").val(),subbranch:$("#subBranchName").val(),name:$("#addversionName").val(),baseversion:$("#baseversionFullName").val(),description:$("#addversionDescription").val()},
+                function(result,status){
+                    if(status == 'success'){
+                        if(result.success){
+                            if(versionOnEdit)
+                            {
+                                versionChangeToEdit(false,0);
+                                showMessage("修改成功");
 
-                                    }
-                                    else
-                                    {
-                                        showMessage("添加成功");
-                                    }
-                                    clearText();
-                                    loadVersions();
-                                }else{
-                                    showMessage(result.message);
-                                }
                             }
-                        });
-            }
-        }
-        function setFullName(focuse)
-        {
-            var branch= $('#branchName').val();
-            var subbranch= $('#subBranchName').val();
-            var version= $('#addversionName').val();
-            if((branch.length>0 && subbranch.length>0 && version.length>0))
-            {
-                var fullname=branch+'-'+subbranch+'_'+version;
-                $('#addversionFullName').val(fullname);
-            }
-            else if(focuse)
-            {
-                $('#addversionFullName').val('');
-            }
-        }
-        function getAutoBaseVersionFullName()
-        {
-            var branch= $('#branchName').val();
-            var subbranch= $('#subBranchName').val();
-            if(branch.length>0 && subbranch.length>0)
-            {
-                $.post('getAutoBaseVersionName.py',{branch:$("#branchName").val(),subbranch:$("#subBranchName").val()},
-                        function(result,status){
-                            if(status == 'success'){
-                                if(result.success){
-                                    $('#baseversionFullName').val(result.result);
-                                }
+                            else
+                            {
+                                showMessage("添加成功");
                             }
-                        });
-            }
-        }
-        function splitFullName(reset)
+                            clearText();
+                            loadVersions();
+                        }else{
+                            showMessage(result.message);
+                        }
+                    }
+                });
+    }
+}
+function setFullName(focuse)
+{
+    var branch= $('#branchName').val();
+    var subbranch= $('#subBranchName').val();
+    var version= $('#addversionName').val();
+    if((branch.length>0 && subbranch.length>0 && version.length>0))
+    {
+        var fullname=branch+'-'+subbranch+'_'+version;
+        $('#addversionFullName').val(fullname);
+    }
+    else if(focuse)
+    {
+        $('#addversionFullName').val('');
+    }
+}
+function getAutoBaseVersionFullName()
+{
+    var branch= $('#branchName').val();
+    var subbranch= $('#subBranchName').val();
+    if(branch.length>0 && subbranch.length>0)
+    {
+        $.post('getAutoBaseVersionName.py',{branch:$("#branchName").val(),subbranch:$("#subBranchName").val()},
+                function(result,status){
+                    if(status == 'success'){
+                        if(result.success){
+                            $('#baseversionFullName').val(result.result);
+                        }
+                    }
+                });
+    }
+}
+function splitFullName(reset)
+{
+    var fullname= $('#addversionFullName').val();
+    re=/([^-]+)-([^-_]+)_(.*)/g;
+    if(re.test(fullname)){
+        var branch=RegExp.$1.toString();
+        var subbranch=RegExp.$2.toString();
+        var version=RegExp.$3.toString();
+        $('#branchName').val(branch);
+        $('#subBranchName').val(subbranch);
+        $('#addversionName').val(version);
+    }
+    else
+    {
+        if(reset)
         {
-            var fullname= $('#addversionFullName').val();
-            re=/([^-]+)-([^-_]+)_(.*)/g;
-            if(re.test(fullname)){
-                var branch=RegExp.$1.toString();
-                var subbranch=RegExp.$2.toString();
-                var version=RegExp.$3.toString();
-                $('#branchName').val(branch);
-                $('#subBranchName').val(subbranch);
-                $('#addversionName').val(version);
+            setFullName(true);
+        }
+    }
+}
+$(function() {
+    $('.mybutton').button();
+    versionChangeToEdit(false,0);
+    loadVersions();
+
+
+    $('#branchName').keyup(function(){
+        setFullName(false);
+    });
+    $('#subBranchName').keyup(function(){
+        setFullName(false);
+    });
+    $('#addversionName').keyup(function(){
+        setFullName(false);
+    });
+
+
+    $('#addversionFullName').keyup(function(){
+        splitFullName(false);
+    });
+    $('#addversionFullName').blur(function(){
+        splitFullName(true);
+    });
+    $('#baseversionFullName').focus(getAutoBaseVersionFullName);
+    var cache = {};
+    $( "#branchName" ).autocomplete({
+        minLength: 1,
+        source: function( request, response ) {
+            var term = request.term;
+
+            if ( term in cache ) {
+                response( cache[ term ] );
+                return;
             }
-            else
-            {
-                if(reset)
+
+            $.getJSON( "searchBranchesName.py", request, function( data, status, xhr ) {
+                if(data.success)
                 {
-                    setFullName(true);
+
+                    cache[ term ] = data.result;
+                    response( data.result );
                 }
-            }
+            });
         }
-        $(function() {
-            $('.mybutton').button();
-            versionChangeToEdit(false,0);
-            loadVersions();
+    });
 
+    $( "#subBranchName" ).autocomplete({
+        minLength: 0,
+        source: function( request, response ) {
+            request.branch=$( "#branchName").val();
+            var key = request.branch+','+request.term;
 
-            $('#branchName').keyup(function(){
-                setFullName(false);
-            });
-            $('#subBranchName').keyup(function(){
-                setFullName(false);
-            });
-            $('#addversionName').keyup(function(){
-                setFullName(false);
-            });
+            if ( key in cache ) {
+                response( cache[ key ] );
+                return;
+            }
 
-
-            $('#addversionFullName').keyup(function(){
-                splitFullName(false);
-            });
-            $('#addversionFullName').blur(function(){
-                splitFullName(true);
-            });
-            $('#baseversionFullName').focus(getAutoBaseVersionFullName);
-            var cache = {};
-            $( "#branchName" ).autocomplete({
-                minLength: 1,
-                source: function( request, response ) {
-                    var term = request.term;
-
-                    if ( term in cache ) {
-                        response( cache[ term ] );
-                        return;
-                    }
-
-                    $.getJSON( "searchBranchesName.py", request, function( data, status, xhr ) {
-                        if(data.success)
-                        {
-
-                            cache[ term ] = data.result;
-                            response( data.result );
-                        }
-                    });
+            $.getJSON( "searchSubBranchesName.py", request, function( data, status, xhr ) {
+                if(data.success)
+                {
+                    cache[ key ] = data.result;
+                    response( data.result );
                 }
             });
+        }
+    });
 
-            $( "#subBranchName" ).autocomplete({
-                minLength: 0,
-                source: function( request, response ) {
-                    request.branch=$( "#branchName").val();
-                    var key = request.branch+','+request.term;
+    $( "#baseversionFullName" ).autocomplete({
+        minLength: 1,
+        source: function( request, response ) {
+            var key = 'full,'+request.term;
 
-                    if ( key in cache ) {
-                        response( cache[ key ] );
-                        return;
-                    }
+            if ( key in cache ) {
+                response( cache[ key ] );
+                return;
+            }
 
-                    $.getJSON( "searchSubBranchesName.py", request, function( data, status, xhr ) {
-                        if(data.success)
-                        {
-                            cache[ key ] = data.result;
-                            response( data.result );
-                        }
-                    });
+            $.getJSON( "searchVersionFullName.py", request, function( data, status, xhr ) {
+                if(data.success)
+                {
+                    cache[ key ] = data.result;
+                    response( data.result );
                 }
             });
-
-            $( "#baseversionFullName" ).autocomplete({
-                minLength: 1,
-                source: function( request, response ) {
-                    var key = 'full,'+request.term;
-
-                    if ( key in cache ) {
-                        response( cache[ key ] );
-                        return;
-                    }
-
-                    $.getJSON( "searchVersionFullName.py", request, function( data, status, xhr ) {
-                        if(data.success)
-                        {
-                            cache[ key ] = data.result;
-                            response( data.result );
-                        }
-                    });
-                }
-            });
-        });
-    </script>
+        }
+    });
+});
+</script>
 </head>
 <body>
 <h1 style="text-align: center" class="ui-dialog-titlebar">版本管理</h1>
 <hr>
-<table style="width: 100%">
+
+<input type="hidden" id="versionID">
+<table border="0" style="margin: auto;">
     <tr>
-        <td style="vertical-align: top;width: 40%">
-            <input type="hidden" id="versionID">
-            <table border="0">
-                <tr>
-                    <td><label for="branchName">所属分支</label></td>
-                    <td><input type="text" style="width: 250px" id="branchName"></td>
-                    <td><label id="branchNameMsg" class="ui-state-error ui-helper-hidden"></label></td>
-                </tr>
-                <tr>
-                    <td><label for="subBranchName">所属子分支</label></td>
-                    <td><input type="text" style="width: 250px" id="subBranchName"></td>
-                    <td><label id="subBranchNameMsg" class="ui-state-error ui-helper-hidden"></label></td>
-                </tr>
-                <tr>
-                    <td><label for="addversionName">版本编号</label></td>
-                    <td><input type="text" style="width: 250px" id="addversionName"></td>
-                    <td><label id="addversionNameMsg" class="ui-state-error ui-helper-hidden"></label></td>
-                </tr>
-                <tr>
-                    <td><label style="color: blue" for="addversionFullName">版本全名</label></td>
-                    <td><input type="text" style="width: 250px" id="addversionFullName"></td>
-                    <td><label id="addversionFullNameMsg" class="ui-state-error ui-helper-hidden"></label></td>
-                </tr>
-                <tr>
-                    <td><label style="color: forestgreen" for="baseversionFullName">基于版本全名</label></td>
-                    <td><input type="text" style="width: 250px" id="baseversionFullName"></td>
-                    <td><label id="baseversionFullNameMsg" class="ui-state-error ui-helper-hidden"></label></td>
-                </tr>
-                <tr>
-                    <td><label for="addversionDescription" >版本说明</label></td>
-                    <td><textarea id="addversionDescription" style="width: 250px;height: 100px"></textarea></td>
-                    <td>&nbsp;&nbsp;&nbsp;</td>
-                </tr>
-                <tr>
-                    <td colspan="3" style="text-align: right">
-                        <button class="mybutton" onclick="saveVersion();" id="editversionOK">修改</button>
-                        <button class="mybutton" onclick="versionChangeToEdit(false,0);" id="editversionCancel">取消</button>
-                        <button class="mybutton" onclick="saveVersion();" id="addversion">添加</button>
-                    </td>
-                </tr>
-            </table>
-        </td>
-        <td style="width: 60%;vertical-align: top;">
-
-            <input type="text" id="versionNameKey" style="width: 60%;"><button class="mybutton" onclick="loadVersions();" style="font-size: 13px;">查找</button>
-            <table border="1" style="width: 100%" >
-                <thead>
-                <th>版本全名</th>
-                <th>基于版本</th>
-                <th>版本说明</th>
-                <th>操作</th>
-                </thead>
-                <tbody id="versionsData"></tbody>
-            </table>
-
+        <td><label for="branchName">所属分支</label></td>
+        <td><input type="text" style="width: 250px" id="branchName"></td>
+        <td><label id="branchNameMsg" class="ui-state-error ui-helper-hidden"></label></td>
+    </tr>
+    <tr>
+        <td><label for="subBranchName">所属子分支</label></td>
+        <td><input type="text" style="width: 250px" id="subBranchName"></td>
+        <td><label id="subBranchNameMsg" class="ui-state-error ui-helper-hidden"></label></td>
+    </tr>
+    <tr>
+        <td><label for="addversionName">版本编号</label></td>
+        <td><input type="text" style="width: 250px" id="addversionName"></td>
+        <td><label id="addversionNameMsg" class="ui-state-error ui-helper-hidden"></label></td>
+    </tr>
+    <tr>
+        <td><label style="color: blue" for="addversionFullName">版本全名</label></td>
+        <td><input type="text" style="width: 250px" id="addversionFullName"></td>
+        <td><label id="addversionFullNameMsg" class="ui-state-error ui-helper-hidden"></label></td>
+    </tr>
+    <tr>
+        <td><label style="color: forestgreen" for="baseversionFullName">基于版本全名</label></td>
+        <td><input type="text" style="width: 250px" id="baseversionFullName"></td>
+        <td><label id="baseversionFullNameMsg" class="ui-state-error ui-helper-hidden"></label></td>
+    </tr>
+    <tr>
+        <td><label for="addversionDescription" >版本说明</label></td>
+        <td><textarea id="addversionDescription" style="width: 250px;height: 100px"></textarea></td>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+        <td colspan="3" style="text-align: right">
+            <button class="mybutton" onclick="saveVersion();" id="editversionOK">修改</button>
+            <button class="mybutton" onclick="versionChangeToEdit(false,0);" id="editversionCancel">取消</button>
+            <button class="mybutton" onclick="saveVersion();" id="addversion">添加</button>
         </td>
     </tr>
 </table>
 
-
-
+<div id="list" style="text-align: center">
+    <hr>
+    <input type="text" id="versionNameKey" style="width: 60%;"><button class="mybutton" onclick="loadVersions();" style="font-size: 13px;">查找</button>
+    <table border="1" style="width: 100%" >
+        <thead>
+        <th>版本全名</th>
+        <th>基于版本</th>
+        <th>版本说明</th>
+        <th>操作</th>
+        </thead>
+        <tbody id="versionsData"></tbody>
+    </table>
+</div>
 </body>
 </html>
