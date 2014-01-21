@@ -31,12 +31,13 @@
                 $('#editversionCancel').show();
                 $('#addversion').hide();
                 var id=versionsData[index][0];
-                var name=versionsData[index][1];
-                var branch=versionsData[index][2];
+                var fullanme=versionsData[index][1];
+                var basefullname=versionsData[index][2];
 
                 var desc=versionsData[index][3];
-                $('#branchName').val(branch);
-                $('#addversionName').val(name);
+                $('#addversionFullName').val(fullanme);
+                $('#baseversionFullName').val(basefullname);
+                splitFullName(false);
                 $('#addversionDescription').val(desc);
                 $('#versionID').val(id);
             }
@@ -51,7 +52,7 @@
         function delversion(id)
         {
             callback=function(){
-                $.post('delversions.py',{id:id},
+                $.post('delVersion.py',{id:id},
                         function(result,status){
                             if(status == 'success'){
                                 if(result.success){
@@ -150,6 +151,22 @@
                 $('#addversionFullName').val('');
             }
         }
+        function getAutoBaseVersionFullName()
+        {
+            var branch= $('#branchName').val();
+            var subbranch= $('#subBranchName').val();
+            if(branch.length>0 && subbranch.length>0)
+            {
+                $.post('getAutoBaseVersionName.py',{branch:$("#branchName").val(),subbranch:$("#subBranchName").val()},
+                        function(result,status){
+                            if(status == 'success'){
+                                if(result.success){
+                                    $('#baseversionFullName').val(result.result);
+                                }
+                            }
+                        });
+            }
+        }
         function splitFullName(reset)
         {
             var fullname= $('#addversionFullName').val();
@@ -193,6 +210,7 @@
             $('#addversionFullName').blur(function(){
                 splitFullName(true);
             });
+            $('#baseversionFullName').focus(getAutoBaseVersionFullName);
             var cache = {};
             $( "#branchName" ).autocomplete({
                 minLength: 1,

@@ -23,6 +23,9 @@ class SubBranch (models.Model):
         self.fullName='%s-%s'%(self.branch.name,self.name)
         models.Model.save(self,force_insert,force_update,using)
 
+    def getFullName(self):
+        return '%s-%s'%(self.branch.name,self.name)
+
 
 class Version (models.Model):
     id=models.AutoField(verbose_name='id',primary_key=True)

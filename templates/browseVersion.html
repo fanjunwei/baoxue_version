@@ -1,0 +1,133 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>版本浏览</title>
+    <link href="/static/css/start/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+    <link href="/static/css/box.css" rel="stylesheet">
+    <link href="/static/css/table.css" rel="stylesheet">
+    <script src="/static/js/jquery-1.10.2.js"></script>
+    <script src="/static/js/jquery-ui-1.10.4.custom.js"></script>
+    <script src="/static/js/helper.js"></script>
+    <style>
+        .branch_line
+        {
+            background-color: #acdd4a;
+        }
+        .subbranch_line
+        {
+            background-color: #9DADC5;
+        }
+        .branch
+        {
+
+        }
+        .subbranch
+        {
+
+            padding-left: 10px;
+        }
+        .version
+        {
+            padding-left: 20px;
+        }
+    </style>
+    <script>
+
+        var versionsData=[];
+
+
+
+        function loadVersions(){
+            cache={};
+            $.post('getVersionForBrowse.py',{keyword:$('#keyword').val()},
+                    function(result,status){
+                        if(status == 'success'){
+                            if(result.success){
+                                html=[];
+                                versionsData=result.result;
+                                var lastBranch='';
+                                var lastSubBranch='';
+                                for(i in result.result)
+                                {
+                                    if(result.result[i].branch_name!=lastBranch)
+                                    {
+                                        lastSubBranch='';
+                                        lastBranch=result.result[i].branch_name;
+                                        html.push('<tr class="branch_line">');
+
+                                        html.push('<td colspan="2" class="branch">');
+                                        html.push(result.result[i].branch_name);
+                                        html.push('</td>');
+
+                                        html.push('<td>');
+                                        html.push(htmlEncode(result.result[i].branch_desc));
+                                        html.push('</td>');
+
+                                        html.push('</tr>');
+
+                                    }
+                                    if(result.result[i].subbranch_name!=lastSubBranch)
+                                    {
+                                        lastSubBranch=result.result[i].subbranch_name;
+                                        html.push('<tr class="subbranch_line">');
+                                        
+                                        html.push('<td colspan="2" class="subbranch">');
+                                        html.push(result.result[i].subbranch_name);
+                                        html.push('</td>');
+
+                                        html.push('<td>');
+                                        html.push(htmlEncode(result.result[i].subbranch_desc));
+                                        html.push('</td>');
+
+                                        html.push('</tr>');
+
+                                    }
+                                    html.push('<tr>');
+                                    html.push('<td class="version">');
+                                    html.push(result.result[i].version_fullname);
+                                    html.push('</td>');
+
+                                    html.push('<td>');
+                                    html.push(result.result[i].version_base);
+                                    html.push('</td>');
+
+                                    html.push('<td>');
+                                    html.push(htmlEncode(result.result[i].version_desc));
+                                    html.push('</td>');
+
+
+                                    html.push('</tr>');
+                                }
+
+                                $('#versionsData').html(html.join(''));
+                            }else{
+                            }
+                        }
+                    });
+
+
+        }
+
+
+        $(function() {
+            $('.mybutton').button();
+            loadVersions();
+        });
+    </script>
+</head>
+<body>
+<h1 style="text-align: center" class="ui-dialog-titlebar">版本浏览</h1>
+<hr>
+<input type="text" id="keyword" style="width: 60%;"><button class="mybutton" onclick="loadVersions();" style="font-size: 13px;">查找</button>
+<table border="1" style="width: 100%" >
+    <thead>
+    <th>版本号</th>
+    <th>基于版本号</th>
+    <th>说明</th>
+    </thead>
+    <tbody id="versionsData">
+
+    </tbody>
+</table>
+</body>
+</html>

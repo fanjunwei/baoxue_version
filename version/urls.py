@@ -28,4 +28,9 @@ urlpatterns = patterns('version/',
                        url(r'^searchSubBranchesName.py$', searchSubBranchesName),
                        url(r'^searchVersionFullName.py$', searchVersionFullName),
                        url(r'^saveVersion.py$', saveVersion),
+                       url(r'^getAutoBaseVersionName.py$', getAutoBaseVersionName),
+                       url(r'^delVersion.py$', delVersion),
+
+                       url(r'^browseVersion.py$', browseVersion),
+                       url(r'^getVersionForBrowse.py$', getVersionForBrowse),
  )

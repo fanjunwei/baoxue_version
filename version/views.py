@@ -38,6 +38,9 @@ def manageBranch(request):
 def manageSubBranch(request):
     return render_to_response('manageSubBranch.html')
 
+def browseVersion(request):
+    return render_to_response('browseVersion.html')
+
 def manageVersion(request):
     return render_to_response('manageVersion.html')
 
@@ -162,7 +165,7 @@ def delSubBranches(request):
 
 def getVersions(request):
     keyword=request.POST.get('keyword','')
-    versions=Version.objects.filter(Q(fullName__icontains=keyword)|Q(description__icontains=keyword)).order_by('subBranch','name')
+    versions=Version.objects.filter(Q(fullName__icontains=keyword)|Q(description__icontains=keyword)).order_by('subBranch','createTime')
     result=[]
     for b in versions:
         baseVersionFullName=''
@@ -282,3 +285,40 @@ def saveVersion(request):
             return getResult(False,'该版本已存在')
         except Exception,e:
             return getResult(False,str(e))
+
+def delVersion(request):
+
+    id=request.POST.get('id')
+    if id:
+        try:
+            version=Version.objects.get(id=id)
+            version.delete()
+            return getResult(True)
+        except Exception,e:
+            return getResult(False,str(e))
+    return getResult(False,'删除失败')
+
+def getVersionFullNameFromID(id):
+    if id:
+        baseVersions=Version.objects.filter(id=id)
+        if baseVersions.count()>0:
+            return baseVersions[0].fullName
+
+    return ''
+
+def getVersionForBrowse(request):
+    keyword=request.POST.get('keyword','')
+    versions=Version.objects.filter(Q(fullName__icontains=keyword)|Q(description__icontains=keyword)).order_by('subBranch__branch','subBranch','createTime')
+    result=[]
+    for b in versions:
+        item={
+            'branch_name':b.subBranch.branch.name,
+            'branch_desc':b.subBranch.branch.description,
+            'subbranch_name':b.subBranch.getFullName(),
+            'subbranch_desc':b.subBranch.description,
+            'version_fullname':b.fullName,
+            'version_base':getVersionFullNameFromID(b.parent),
+            'version_desc':b.description,
+        }
+        result.append(item)
+    return getResult(True,result=result)
