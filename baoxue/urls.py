@@ -5,10 +5,11 @@ from django.conf.urls import patterns, include, url
 # admin.autodiscover()
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from baoxue import settings
+from version.views import home
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^$', 'version.views.home'),
+    url(r'^$', home),
     # url(r'^baoxue/', include('baoxue.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

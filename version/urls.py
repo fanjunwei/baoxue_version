@@ -10,7 +10,7 @@ from django.conf.urls import patterns, include, url
 
 
 urlpatterns = patterns('version/',
-                       url(r'^$', 'version.views.home'),
+                       url(r'^$', home),
                        url(r'^login.py$', login),
                        url(r'^main.py$', main),
                        url(r'^manageBranch.py$', manageBranch),
