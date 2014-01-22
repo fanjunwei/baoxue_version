@@ -20,11 +20,14 @@ class SubBranch (models.Model):
     class Meta:
         unique_together=[('name','branch')]
     def save(self, force_insert=False, force_update=False, using=None):
-        self.fullName='%s-%s'%(self.branch.name,self.name)
+        self.fullName=self.getFullName()
         models.Model.save(self,force_insert,force_update,using)
 
     def getFullName(self):
-        return '%s-%s'%(self.branch.name,self.name)
+        if self.name:
+            return '%s-%s'%(self.branch.name,self.name)
+        else:
+            return self.branch.name
 
 
 class Version (models.Model):
@@ -34,13 +37,17 @@ class Version (models.Model):
     subBranch=models.ForeignKey(SubBranch,null=False)
     createTime=models.DateTimeField(verbose_name='创建时间',null=False,auto_now_add=True)
     description=models.TextField(verbose_name='描述',default='')
-    parent=models.IntegerField(verbose_name='基础版本',null=True)
+    parent=models.IntegerField(verbose_name='基础版本ID',null=True)
+    parentFullName=models.CharField(verbose_name='基础版本全名',max_length=50,null=True)
     delFlag=models.BooleanField(verbose_name='删除标记',default=False,null=False)
     class Meta:
         unique_together=[('name','subBranch')]
     def getFullName(self):
-        return '%s-%s_%s'%(self.subBranch.branch.name,self.subBranch.name,self.name)
+        if self.subBranch.name:
+            return '%s-%s_%s'%(self.subBranch.branch.name,self.subBranch.name,self.name)
+        else:
+            return '%s_%s'%(self.subBranch.branch.name,self.name)
 
     def save(self, force_insert=False, force_update=False, using=None):
-        self.fullName='%s-%s_%s'%(self.subBranch.branch.name,self.subBranch.name,self.name)
+        self.fullName=self.getFullName()
         models.Model.save(self,force_insert,force_update,using)

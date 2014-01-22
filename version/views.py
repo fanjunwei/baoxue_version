@@ -133,14 +133,12 @@ def saveSubBranch(request):
         if not branchName:
             return getResult(False,'所属分支不能为空')
 
-        if not name:
-            return getResult(False,'子分支名不能为空')
-
         branches=Branch.objects.filter(name=branchName)
         if(branches.count()==0):
-            branch=Branch()
-            branch.name=branchName
-            branch.save()
+            # branch=Branch()
+            # branch.name=branchName
+            # branch.save()
+            return getResult(False,'所属分支不存在')
         else:
             branch=branches[0]
         description=request.POST.get('description')
@@ -178,16 +176,26 @@ def delSubBranches(request):
 
 def getVersions(request):
     keyword=request.POST.get('keyword','')
-    versions=Version.objects.filter(Q(fullName__icontains=keyword)|Q(description__icontains=keyword)).order_by('subBranch','createTime')
+    versions=Version.objects.filter(Q(fullName__icontains=keyword)|Q(parentFullName__icontains=keyword)|Q(description__icontains=keyword)).order_by('subBranch','createTime')
     result=[]
     for b in versions:
         baseVersionFullName=''
         if b.parent:
             baseVersions=Version.objects.filter(id=b.parent)
             if baseVersions.count()>0:
-                baseVersionFullName=baseVersions[0].fullName
+                baseVersionFullName=baseVersions[0].getFullName()
 
-        item=[b.id,b.getFullName(),baseVersionFullName,b.description]
+        #item=[b.id,b.getFullName(),baseVersionFullName,b.description]
+        item={
+            'id':b.id,
+            'branch':b.subBranch.branch.name,
+            'subBranch':b.subBranch.name,
+            'name':b.name,
+            'fullName':b.getFullName(),
+            'parentFullName':baseVersionFullName,
+            'desc':b.description,
+
+        }
         result.append(item)
     return getResult(True,result=result)
 
@@ -247,23 +255,24 @@ def saveVersion(request):
         if not branchName:
             return getResult(False,'所属分支不能为空')
 
-        if not subbranchName:
-            return getResult(False,'所属子分支不能为空')
+        # if not subbranchName:
+        #     return getResult(False,'所属子分支不能为空')
 
         if not name:
-            return getResult(False,'subbranchName不能为空')
+            return getResult(False,'版本号不能为空')
 
 
 
         branches=Branch.objects.filter(name=branchName)
         if(branches.count()==0):
-            branch=Branch()
-            branch.name=branchName
-            branch.save()
-            subbranch=SubBranch()
-            subbranch.name=subbranchName
-            subbranch.branch=branch
-            subbranch.save()
+            # branch=Branch()
+            # branch.name=branchName
+            # branch.save()
+            # subbranch=SubBranch()
+            # subbranch.name=subbranchName
+            # subbranch.branch=branch
+            # subbranch.save()
+            return getResult(False,'所属分支不存在')
         else:
             branch=branches[0]
             subbranches=SubBranch.objects.filter(branch=branch,name=subbranchName)
@@ -288,10 +297,13 @@ def saveVersion(request):
             version.name=name
             version.subBranch=subbranch
             version.description=description
-
-            baseVersions=Version.objects.filter(fullName=baseVersionFullName)
-            if baseVersions.count()>0:
-                version.parent=baseVersions[0].id;
+            if baseVersionFullName:
+                baseVersions=Version.objects.filter(fullName=baseVersionFullName)
+                if baseVersions.count()>0:
+                    version.parent=baseVersions[0].id
+                    version.parentFullName=baseVersions[0].getFullName()
+                else:
+                    return getResult(False,'基于版本不存在')
             version.save()
             return getResult(True)
         except django.db.utils.IntegrityError:
@@ -321,7 +333,7 @@ def getVersionFullNameFromID(id):
 
 def getVersionForBrowse(request):
     keyword=request.POST.get('keyword','')
-    versions=Version.objects.filter(Q(fullName__icontains=keyword)|Q(description__icontains=keyword)).order_by('subBranch__branch','subBranch','createTime')
+    versions=Version.objects.filter(Q(fullName__icontains=keyword)|Q(parentFullName__icontains=keyword)|Q(description__icontains=keyword)).order_by('subBranch__branch','subBranch','createTime')
     result=[]
     for b in versions:
         item={

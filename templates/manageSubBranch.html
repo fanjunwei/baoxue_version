@@ -102,7 +102,7 @@
         }
         function saveSubBranch()
         {
-            if(checkUnique('branchName') && checkUnique('addsubBranchName')){
+            if(checkUnique('branchName')){
                 $.post('saveSubBranch.py',{id:$("#subbranchID").val(),branch:$("#branchName").val(),name:$("#addsubBranchName").val(),description:$("#addsubBranchDescription").val()},
                         function(result,status){
                             if(status == 'success'){
