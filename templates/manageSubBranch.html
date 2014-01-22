@@ -128,8 +128,15 @@
                         });
             }
         }
+        function enterKeyLoadSubBranches(event)
+        {
+            if(event.which==13){
+                loadSubBranches();
+            }
+        }
         $(function() {
             $('.mybutton').button();
+            $('#subbranchNameKey').keydown(enterKeyLoadSubBranches);
             subBranchChangeToEdit(false,0);
             loadSubBranches();
 

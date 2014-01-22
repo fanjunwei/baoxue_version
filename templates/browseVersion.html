@@ -120,10 +120,16 @@
 
 
         }
-
+        function enterKeyLoadVersions(event)
+        {
+            if(event.which==13){
+                loadVersions();
+            }
+        }
 
         $(function() {
             $('.mybutton').button();
+            $('#keyword').keydown(enterKeyLoadVersions);
             loadVersions();
         });
     </script>

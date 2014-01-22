@@ -212,8 +212,15 @@ function splitFullName(reset)
         }
     }
 }
+function enterKeyLoadVersions(event)
+{
+    if(event.which==13){
+        loadVersions();
+    }
+}
 $(function() {
     $('.mybutton').button();
+    $('#versionNameKey').keydown(enterKeyLoadVersions);
     versionChangeToEdit(false,0);
     loadVersions();
 

@@ -121,10 +121,17 @@
                         });
             }
         }
+        function enterKeyLoadBranches(event)
+        {
+            if(event.which==13){
+                loadBranches();
+            }
+        }
         $(function() {
             $('.mybutton').button();
             branchChangeToEdit(false,0);
             loadBranches();
+            $("#branchNameKey").keydown(enterKeyLoadBranches);
         });
     </script>
 </head>
