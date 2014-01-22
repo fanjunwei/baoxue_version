@@ -167,6 +167,8 @@ function setFullName(focuse)
 }
 function getAutoBaseVersionFullName()
 {
+    if(versionOnEdit)
+        return;
     var branch= $('#branchName').val();
     var subbranch= $('#subBranchName').val();
     if(branch.length>0 && subbranch.length>0)
