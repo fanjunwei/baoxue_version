@@ -69,7 +69,7 @@
                                 subbranchesData=result.result;
                                 for(i in result.result)
                                 {
-                                    html.push('<tr>');
+                                    html.push('<tr onmousemove="highlight_line(this)" onmouseout="clear_highlight_line(this)">');
                                     html.push('<td>');
                                     html.push(result.result[i][1]);
                                     html.push('</td>');

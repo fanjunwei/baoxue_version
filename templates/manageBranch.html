@@ -65,7 +65,7 @@
                                 branchesData=result.result;
                                 for(i in result.result)
                                 {
-                                    html.push('<tr>');
+                                    html.push('<tr onmousemove="highlight_line(this)" onmouseout="clear_highlight_line(this)">');
                                     html.push('<td>');
                                     html.push(result.result[i][1]);
                                     html.push('</td>');
@@ -169,7 +169,7 @@
         <th>分支说明</th>
         <th>操作</th>
         </thead>
-        <tbody id="branchesData"></tbody>
+        <tbody id="branchesData" ></tbody>
     </table>
 </div>
 

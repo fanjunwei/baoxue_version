@@ -52,3 +52,14 @@
         s = s.replace(/[\n]/g, "<br/>");
         return s;
     }
+
+    function highlight_line(obj)
+    {
+        $(".highlight_line").removeClass("highlight_line");
+        $(obj).addClass("highlight_line");
+    }
+
+    function clear_highlight_line(obj)
+    {
+        $(".highlight_line").removeClass("highlight_line");
+    }
