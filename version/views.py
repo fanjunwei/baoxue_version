@@ -1,5 +1,7 @@
 # coding=utf-8
 # Create your views here.
+import datetime
+import time
 import django
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -333,7 +335,12 @@ def getVersionFullNameFromID(id):
 
 def getVersionForBrowse(request):
     keyword=request.POST.get('keyword','')
-    versions=Version.objects.filter(Q(fullName__icontains=keyword)|Q(parentFullName__icontains=keyword)|Q(description__icontains=keyword)).order_by('subBranch__branch','subBranch','createTime')
+    today=(request.POST.get('today','').lower()=='true')
+    start= datetime.date.today()
+    if today:
+        versions=Version.objects.filter(Q(createTime__gt=start)&(Q(fullName__icontains=keyword)|Q(parentFullName__icontains=keyword)|Q(description__icontains=keyword))).order_by('subBranch__branch','subBranch','createTime')
+    else:
+        versions=Version.objects.filter(Q(fullName__icontains=keyword)|Q(parentFullName__icontains=keyword)|Q(description__icontains=keyword)).order_by('subBranch__branch','subBranch','createTime')
     result=[]
     for b in versions:
         item={

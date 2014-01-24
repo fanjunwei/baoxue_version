@@ -51,9 +51,9 @@
         }
 
 
-        function loadVersions(){
+        function loadVersions(today){
             cache={};
-            $.post('getVersionForBrowse.py',{keyword:$('#keyword').val()},
+            $.post('getVersionForBrowse.py',{keyword:$('#keyword').val(),today:today},
                     function(result,status){
                         if(status == 'success'){
                             if(result.success){
@@ -124,14 +124,14 @@
         function enterKeyLoadVersions(event)
         {
             if(event.which==13){
-                loadVersions();
+                loadVersions(false);
             }
         }
 
         $(function() {
             $('.mybutton').button();
             $('#keyword').keydown(enterKeyLoadVersions);
-            loadVersions();
+            loadVersions(false);
         });
     </script>
 </head>
@@ -144,7 +144,8 @@
 {% endif %}
 <hr>
 <div style="text-align: center">
-    <input type="text" id="keyword" style="width: 60%;"><button class="mybutton" onclick="loadVersions();" style="font-size: 13px;">查找</button>
+    <input type="text" id="keyword" style="width: 60%;"><button class="mybutton" onclick="loadVersions(false);" style="font-size: 13px;">查找</button>
+    <button class="mybutton" onclick="loadVersions(true);" style="font-size: 13px;">查找今日版本</button>
 </div>
 <table border="1" style="width: 100%" >
     <thead>
