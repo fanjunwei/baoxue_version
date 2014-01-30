@@ -215,3 +215,4 @@ pip-log.txt
 .mr.developer.cfg
 
 *.pyc
+/baoxue.db
