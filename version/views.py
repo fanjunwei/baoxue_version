@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import  login as auth_login
+from django.core.paginator import Paginator, EmptyPage, InvalidPage
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from tools import *
@@ -338,10 +339,21 @@ def getVersionForBrowse(request):
     today=(request.POST.get('today','').lower()=='true')
     start= datetime.date.today()
     if today:
-        versions=Version.objects.filter(Q(createTime__gt=start)&(Q(fullName__icontains=keyword)|Q(parentFullName__icontains=keyword)|Q(description__icontains=keyword))).order_by('subBranch__branch','subBranch','createTime')
+        versions_all=Version.objects.filter(Q(createTime__gt=start)&(Q(fullName__icontains=keyword)|Q(parentFullName__icontains=keyword)|Q(description__icontains=keyword))).order_by('subBranch__branch','subBranch','createTime')
     else:
-        versions=Version.objects.filter(Q(fullName__icontains=keyword)|Q(parentFullName__icontains=keyword)|Q(description__icontains=keyword)).order_by('subBranch__branch','subBranch','createTime')
+        versions_all=Version.objects.filter(Q(fullName__icontains=keyword)|Q(parentFullName__icontains=keyword)|Q(description__icontains=keyword)).order_by('subBranch__branch','subBranch','createTime')
     result=[]
+    paginator=Paginator(versions_all,50)
+    try:
+        p=int(request.REQUEST.get('p','1'))
+    except ValueError:
+        p=1
+    try:
+        versions=paginator.page(p)
+    except (EmptyPage, InvalidPage):
+        p=paginator.num_pages
+        versions=paginator.page(paginator.num_pages)
+
     for b in versions:
         item={
             'branch_name':b.subBranch.branch.name,
@@ -353,7 +365,7 @@ def getVersionForBrowse(request):
             'version_desc':b.description,
         }
         result.append(item)
-    return getResult(True,result=result)
+    return getPagesResult(p,paginator.num_pages,True,result=result)
 
 def home(request):
     return HttpResponseRedirect("/version/browseVersion.py")

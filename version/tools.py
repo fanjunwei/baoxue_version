@@ -48,6 +48,17 @@ def getResult(success,message=None,result=None,status_code=200):
         map['result']=result
     return HttpResponse(json.dumps(map),'application/json')
 
+
+def getPagesResult(pageIndex,pageCount,success,message=None,result=None,status_code=200):
+    '''
+    200 正常返回 code
+    404 登录过期，需要重新登录
+    '''
+    map={'success':success,'message':message, 'status_code':status_code,'pageIndex':pageIndex,'pageCount':pageCount}
+    if result:
+        map['result']=result
+    return HttpResponse(json.dumps(map),'application/json')
+
 def rad(d):
     d=float(d)
     return d*math.pi/180.0
