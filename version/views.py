@@ -371,7 +371,6 @@ def home(request):
     return HttpResponseRedirect("/version/browseVersion.py")
 
 def splitVersion(v):
-    v=unicode(v)
     v=v.replace('.zip','')
     if not v.find('eng_') ==-1 :
         isEng=True
@@ -402,6 +401,7 @@ def versionLog(request):
     if request.method=='POST' :
         fullname=request.POST.get('v')
         if fullname :
+            fullname=fullname.replace('.zip','')
             isEng,branch,suBranch,timestamp=splitVersion(fullname)
             if branch :
                 vl=VersionLog()
