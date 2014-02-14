@@ -17,7 +17,6 @@ from django.db.models import Q
 import xml.sax.saxutils as saxutils
 
 def login(request):
-    User.is_authenticated()
     if User.objects.all().count()==0:
         user = User()
         user.username = 'SW'
