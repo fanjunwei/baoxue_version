@@ -3,7 +3,12 @@ import json
 from django.contrib.auth.models import AnonymousUser
 from django.http import HttpResponse
 import math
+import smtplib
+from email.mime.text import MIMEText
+from email.header import Header
 #from Sell3_server.settings import DEVICEID
+import thread
+
 
 def permission_required(func=None):
     def test(request, *args, **kwargs):
@@ -85,13 +90,26 @@ def distance(gps1,gps2):
         return s
 
 
+def send_mail_thread(to_list,sub,content):
+    mail_host="smtp.exmail.qq.com"
+    mail_user="mantis@baoxuetech.com"
+    mail_pass="baoxue1"
+    mail_postfix="qq.com"
+    me=mail_user
+    msg = MIMEText (content,_charset='utf-8')
+    msg['Subject'] = Header(sub,'utf-8')
+    msg['From'] = me
+    msg['To'] = ','.join(to_list)
+    try:
+        s = smtplib.SMTP()
+        s.connect(mail_host)
+        s.login(mail_user,mail_pass)
+        s.sendmail(me, to_list, msg.as_string())
+        s.close()
+        return True
+    except Exception, e:
+        print str(e)
+        return False
 
-def meal_permission_required(code):
-    def permission(func):
-        def test(request, *args, **kwargs):
-            if request.user.has_perm(code):
-                return func(request, *args, **kwargs)
-            else:
-                return getResult(False,False,u'权限不够,需要具有：%s 权限'%Ztperm.perm[code])
-        return test
-    return permission
+def send_mail(to_list,sub,content):
+    thread.start_new_thread(send_mail_thread, (to_list,sub,content))

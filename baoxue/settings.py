@@ -148,3 +148,5 @@ LOGGING = {
         },
     }
 }
+
+MAIL_TO=["fanjunwei@baoxuetech.com","fanjunwei003@163.com"]
