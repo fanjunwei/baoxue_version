@@ -7,3 +7,5 @@ table {
 .highlight_line{
     background-color: #EDF5FF;
 }
+
+.nowrap{word-break: keep-all;white-space:nowrap;}
