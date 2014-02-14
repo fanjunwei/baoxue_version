@@ -157,9 +157,13 @@ def getNames(v):
         if subbranch:
             name1=('user_%s_%s_%s-%s_%s.zip'%(project,custom,branch,subbranch,timestamp))
             name2=('eng_%s_%s_%s-%s_%s.zip'%(project,custom,branch,subbranch,timestamp))
+            name3=('user.%s_%s_%s-%s_%s.zip'%(project,custom,branch,subbranch,timestamp))
+            name4=('eng.%s_%s_%s-%s_%s.zip'%(project,custom,branch,subbranch,timestamp))
         else:
             name1=('user_%s_%s_%s_%s.zip'%(project,custom,branch,timestamp))
             name2=('eng_%s_%s_%s_%s.zip'%(project,custom,branch,timestamp))
+            name3=('user.%s_%s_%s_%s.zip'%(project,custom,branch,timestamp))
+            name4=('eng.%s_%s_%s_%s.zip'%(project,custom,branch,timestamp))
         return [name1,name2]
     else:
         return None
