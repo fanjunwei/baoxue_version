@@ -53,6 +53,12 @@
             }
         }
 
+        function clear_highlight(obj)
+        {
+
+            var text=$(obj).text();
+            $(".highlight").removeClass("highlight");
+        }
 
         function loadVersions(today){
             cache={};
@@ -103,11 +109,19 @@
 
                                     }
                                     html.push('<tr>');
-                                    html.push('<td class="version" onmousemove="highlight(this)">');
-                                    html.push(result.result[i].version_fullname);
+                                    html.push('<td class="version" onmousemove="highlight(this)" onmouseout="clear_highlight(this)">');
+
+                                    if (result.result[i].has_url)
+                                    {
+                                        html.push('<a href="'+result.result[i].url+'">');
+                                        html.push(result.result[i].version_fullname);
+                                        html.push('</a>')
+                                    }
+                                    else
+                                        html.push(result.result[i].version_fullname);
                                     html.push('</td>');
 
-                                    html.push('<td onmousemove="highlight(this)">');
+                                    html.push('<td onmousemove="highlight(this)" onmouseout="clear_highlight(this)">');
                                     html.push(result.result[i].version_base);
                                     html.push('</td>');
 
@@ -169,7 +183,6 @@
     <tbody id="versionsData">
 
     </tbody>
-    <div onmousemove=""></div>
 </table>
 <div class="digg" id="pages">
 </div>

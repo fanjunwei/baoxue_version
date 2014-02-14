@@ -384,6 +384,13 @@ def getVersionForBrowse(request):
             'version_base':getVersionFullNameFromID(b.parent),
             'version_desc':b.description,
         }
+        url=getDownloadUrl(b.getFullName())
+        if url :
+            item['url']=url
+            item['has_url']=True
+        else:
+            item['has_url']=False
+
         result.append(item)
     return getPagesResult(p,paginator.num_pages,True,result=result)
 

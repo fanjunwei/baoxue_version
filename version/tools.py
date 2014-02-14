@@ -1,5 +1,7 @@
 #coding=utf-8
 import json
+import os
+import urllib2
 from django.contrib.auth.models import AnonymousUser
 from django.http import HttpResponse
 import math
@@ -8,6 +10,7 @@ from email.mime.text import MIMEText
 from email.header import Header
 #from Sell3_server.settings import DEVICEID
 import thread
+import re
 
 
 def permission_required(func=None):
@@ -113,3 +116,63 @@ def send_mail_thread(to_list,sub,content):
 
 def send_mail(to_list,sub,content):
     thread.start_new_thread(send_mail_thread, (to_list,sub,content))
+
+def splitVersion2(v):
+    r=re.compile(r"([^-_]+)_([^-_]+)_([^-_]+)-([^-_]+)_(.*)")
+    m=r.match(v)
+    if m :
+        groups=m.groups()
+        project=groups[0]
+        custom=groups[1]
+        branch=groups[2]
+        subbranch=groups[3]
+        timestamp=groups[4]
+        return project,custom,branch,subbranch,timestamp
+    else:
+        r=re.compile(r"([^-_]+)_([^-_]+)_([^-_]+)_(.*)")
+        m=r.match(v)
+        if m :
+            groups=m.groups()
+            project=groups[0]
+            custom=groups[1]
+            branch=groups[2]
+            subbranch=None
+            timestamp=groups[3]
+            return project,custom,branch,subbranch,timestamp
+
+    return None,None,None,None,None
+
+def getDirUrls(v):
+    project,custom,branch,subbranch,timestamp=splitVersion2(v)
+    baseurl='http://www.baoxuetech.com:900/'
+    if project:
+        url1=os.path.join(baseurl,custom,project,"%s_%s_%s"%(project,custom,branch))
+        url2=os.path.join(baseurl,custom,project,"%s_%s_%s"%(project,custom,branch),"user_%s_%s_%s_%s"%(project,custom,branch,timestamp))
+        url3=os.path.join(baseurl,custom,project,"%s_%s_%s"%(project,custom,branch),"eng_%s_%s_%s_%s"%(project,custom,branch,timestamp))
+        return [url1,url2,url3]
+    return None
+def getNames(v):
+    project,custom,branch,subbranch,timestamp=splitVersion2(v)
+    if project:
+        if subbranch:
+            name1=('user_%s_%s_%s-%s_%s.zip'%(project,custom,branch,subbranch,timestamp))
+            name2=('eng_%s_%s_%s-%s_%s.zip'%(project,custom,branch,subbranch,timestamp))
+        else:
+            name1=('user_%s_%s_%s_%s.zip'%(project,custom,branch,timestamp))
+            name2=('eng_%s_%s_%s_%s.zip'%(project,custom,branch,timestamp))
+        return [name1,name2]
+    else:
+        return None
+
+def getDownloadUrl(v):
+    dirs=getDirUrls(v)
+    names=getNames(v)
+    for i in dirs:
+        try:
+            html= urllib2.urlopen(i).read()
+            for j in names:
+                if not html.find('>'+j+'<') == -1 :
+                    return os.path.join(i,j)
+        except:
+            pass
+    return None
