@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>版本浏览</title>
+    <link href="/static/css/start/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+    <link href="/static/css/box.css" rel="stylesheet">
+    <link href="/static/css/table.css" rel="stylesheet">
+    <link href="/static/css/pages.css" rel="stylesheet">
+    <script src="/static/js/jquery-1.10.2.js"></script>
+    <script src="/static/js/jquery-ui-1.10.4.custom.js"></script>
+    <script src="/static/js/helper.js"></script>
+    <script src="/static/js/pages.js"></script>
+    <script>
+        var pageIndex={{ p }};
+        var pageCount={{ pageCount }};
+        $(function(){
+            showSplitPages();
+        });
+    function toPage(index)
+    {
+        location.href='log.py?p='+index;
+    }
+    </script>
+
+</head>
+<body>
+<h1 style="text-align: center" class="ui-dialog-titlebar">版本发布记录</h1>
+
+<table border="1" style="width: 100%" >
+    <thead>
+    <th>版本</th>
+    <th>发布时间</th>
+    </thead>
+    <tbody >
+    {% for i in logs %}
+        <tr>
+            <td>
+                {{ i.versionFullName }}
+            </td>
+            <td>
+                {{ i.datetime }}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    <div onmousemove=""></div>
+</table>
+<div class="digg" id="pages">
+</div>
+</body>
+</html>

@@ -33,7 +33,7 @@ class SubBranch (models.Model):
 class Version (models.Model):
     id=models.AutoField(verbose_name='id',primary_key=True)
     name = models.CharField(verbose_name='版本号',help_text='例如V01_2014-01-17_14_47', max_length=50,null=False,)
-    fullName=models.CharField(verbose_name='子分支全名',max_length=50,null=False)
+    fullName=models.CharField(verbose_name='版本全名',max_length=50,null=False)
     subBranch=models.ForeignKey(SubBranch,null=False)
     createTime=models.DateTimeField(verbose_name='创建时间',null=False,auto_now_add=True)
     description=models.TextField(verbose_name='描述',default='')
@@ -51,3 +51,11 @@ class Version (models.Model):
     def save(self, force_insert=False, force_update=False, using=None):
         self.fullName=self.getFullName()
         models.Model.save(self,force_insert,force_update,using)
+
+class VersionLog(models.Model):
+    engVersion=models.BooleanField(verbose_name='是否为eng版本')
+    branchName=models.CharField(verbose_name='分支名',help_text='例如：F10_BXT_53', max_length=50)
+    subBranchName=models.CharField(verbose_name='子分支名',help_text='例如：8', max_length=50)
+    timestamp=models.CharField(verbose_name='版本号时间戳',help_text='例如V01_2014-01-17_14_47', max_length=50)
+    versionFullName=models.CharField(verbose_name='版本全名',max_length=50)
+    datetime=models.DateTimeField(auto_now_add=True)

@@ -10,13 +10,14 @@ from django.contrib.auth import  login as auth_login
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
+import re
 from tools import *
 from models import *
 from django.db.models import Q
 import xml.sax.saxutils as saxutils
 
 def login(request):
-
+    User.is_authenticated()
     if User.objects.all().count()==0:
         user = User()
         user.username = 'SW'
@@ -369,3 +370,61 @@ def getVersionForBrowse(request):
 
 def home(request):
     return HttpResponseRedirect("/version/browseVersion.py")
+
+def splitVersion(v):
+    v=unicode(v)
+    v=v.replace('.zip','')
+    if not v.find('eng_') ==-1 :
+        isEng=True
+    else:
+        isEng=False
+    v=v.replace('user_','').replace('eng_','')
+    r=re.compile(r"([^-_]+_[^-_]+_[^-_]+)-([^-_]+)_(.*)")
+    m=r.match(v)
+    if m :
+        groups=m.groups()
+        branch=groups[0]
+        suBranch=groups[1]
+        timestamp=groups[2]
+        return isEng,branch,suBranch,timestamp
+    else:
+        r=re.compile(r"([^-_]+_[^-_]+_[^-_]+)_(.*)")
+        m=r.match(v)
+        if m :
+            groups=m.groups()
+            branch=groups[0]
+            suBranch=''
+            timestamp=groups[1]
+            return isEng,branch,suBranch,timestamp
+
+    return  None,None,None,None
+
+def versionLog(request):
+    if request.method=='POST' :
+        fullname=request.POST.get('v')
+        if fullname :
+            isEng,branch,suBranch,timestamp=splitVersion(fullname)
+            if branch :
+                vl=VersionLog()
+                vl.engVersion=isEng
+                vl.branchName=branch
+                vl.subBranchName=suBranch
+                vl.timestamp=timestamp
+                vl.versionFullName=fullname
+                vl.save()
+        return getResult(True)
+    else:
+        try:
+            p=int(request.REQUEST.get('p','1'))
+        except ValueError:
+            p=1
+        all_logs=VersionLog.objects.all().order_by('-datetime')
+        paginator=Paginator(all_logs,50)
+        pageCount=paginator.num_pages
+        try:
+            logs=paginator.page(p)
+        except (EmptyPage, InvalidPage):
+            p=paginator.num_pages
+            logs=paginator.page(paginator.num_pages)
+
+        return render_to_response('versionLog.html',locals())
