@@ -164,7 +164,7 @@ def getNames(v):
             name2=('eng_%s_%s_%s_%s.zip'%(project,custom,branch,timestamp))
             name3=('user.%s_%s_%s_%s.zip'%(project,custom,branch,timestamp))
             name4=('eng.%s_%s_%s_%s.zip'%(project,custom,branch,timestamp))
-        return [name1,name2]
+        return [name1,name2,name3,name4]
     else:
         return None
 
