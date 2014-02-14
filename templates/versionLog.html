@@ -38,7 +38,7 @@
                 {{ i.versionFullName }}
             </td>
             <td>
-                {{ i.datetime }}
+                {{ i.datetime|date:'Y-m-d H:i:s' }}
             </td>
         </tr>
     {% endfor %}
