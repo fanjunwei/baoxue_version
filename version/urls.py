@@ -1,3 +1,4 @@
+from django.views.decorators.cache import cache_page
 from version.views import *
 
 __author__ = 'fanjunwei003'
@@ -32,7 +33,7 @@ urlpatterns = patterns('version/',
                        url(r'^getAutoBaseVersionName.py$', getAutoBaseVersionName),
                        url(r'^delVersion.py$', delVersion),
 
-                       url(r'^browseVersion.py$', browseVersion),
+                       url(r'^browseVersion.py$',browseVersionForTemplates),
                        url(r'^getVersionForBrowse.py$', getVersionForBrowse),
                        url(r'^log.py$', versionLog),
  )

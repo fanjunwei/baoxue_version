@@ -15,6 +15,7 @@ import re
 from tools import *
 from models import *
 from django.db.models import Q
+from django.core.cache import cache
 import xml.sax.saxutils as saxutils
 
 def login(request):
@@ -54,7 +55,7 @@ def manageVersion(request):
     return render_to_response('manageVersion.html')
 
 def browseVersion(request):
-    manage=request.REQUEST.get('manage');
+    manage=request.REQUEST.get('manage')
     if not manage=='1':
         hasManage=True
     else:
@@ -393,6 +394,76 @@ def getVersionForBrowse(request):
 
         result.append(item)
     return getPagesResult(p,paginator.num_pages,True,result=result)
+def browseVersionGetCached(keyword,today,p):
+    key='browseVersionResult1%s_%s_%d'%(keyword,today,p)
+    return cache.get(key,None)
+    #return  None
+def browseVersionSetCached(keyword,today,p,result,page_count):
+    key='browseVersionResult1%s_%s_%d'%(keyword,today,p)
+    cache.set(key,[result,page_count],30)
+def browseVersionForTemplates(request):
+    try:
+        p=int(request.REQUEST.get('p','1'))
+    except ValueError:
+        p=1
+    if request.method=='POST' :
+        keyword=request.POST.get('keyword','')
+        today=(request.POST.get('today','').lower()=='true')
+        request.session['keyword']=keyword
+        request.session['today']=today
+    else:
+        keyword=request.session.get('keyword','')
+        today=request.session.get('today',False)
+    c=browseVersionGetCached(keyword,today,p)
+    if c:
+        result=c[0]
+        page_count=c[1]
+    else:
+        start= datetime.date.today()
+        if today:
+            list=Version.objects.filter(Q(createTime__gt=start)&(Q(fullName__icontains=keyword)|Q(parentFullName__icontains=keyword)|Q(description__icontains=keyword))).order_by('subBranch__branch','subBranch','createTime')
+        else:
+            list=Version.objects.filter(Q(fullName__icontains=keyword)|Q(parentFullName__icontains=keyword)|Q(description__icontains=keyword)).order_by('subBranch__branch','subBranch','createTime')
+        result=[]
+        paginator=Paginator(list,50)
+        try:
+            versions=paginator.page(p)
+        except (EmptyPage, InvalidPage):
+            p=paginator.num_pages
+            versions=paginator.page(paginator.num_pages)
+        page_count=paginator.num_pages
+        lastBranch=''
+        lastSubBranch=''
+        for b in versions:
+            branch_name=b.subBranch.branch.name
+            subbranch_name=b.subBranch.getFullName()
+            if not lastBranch==branch_name:
+                lastSubBranch=''
+                lastBranch=branch_name
+                item={
+                    'type':'branch',
+                    'branch_name':branch_name,
+                    'branch_desc':b.subBranch.branch.description,
+                }
+                result.append(item)
+            if not lastSubBranch==subbranch_name:
+                lastSubBranch=subbranch_name
+                item={
+                    'type':'subbranch',
+                    'subbranch_name':subbranch_name,
+                    'subbranch_desc':b.subBranch.description,
+                }
+                result.append(item)
+            item={
+                'type':'version',
+                'version_fullname':b.fullName,
+                'version_base':getVersionFullNameFromID(b.parent),
+                'version_desc':b.description,
+                'url':getDownloadUrl(b.getFullName())
+            }
+            result.append(item)
+        browseVersionSetCached(keyword,today,p,result,page_count)
+    return render_to_response('browseVersionForTemplates.html',locals())
 
 def home(request):
     return HttpResponseRedirect("/version/browseVersion.py")
@@ -454,3 +525,4 @@ def versionLog(request):
             logs=paginator.page(paginator.num_pages)
 
         return render_to_response('versionLog.html',locals())
+

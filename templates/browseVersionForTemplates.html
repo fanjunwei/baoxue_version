@@ -1,0 +1,160 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>版本浏览</title>
+    <link href="/static/css/start/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+    <link href="/static/css/box.css" rel="stylesheet">
+    <link href="/static/css/table.css" rel="stylesheet">
+    <link href="/static/css/pages.css" rel="stylesheet">
+    <script src="/static/js/jquery-1.10.2.js"></script>
+    <script src="/static/js/jquery-ui-1.10.4.custom.js"></script>
+    <script src="/static/js/helper.js"></script>
+    <script src="/static/js/pages.js"></script>
+    <style>
+        .branch_line
+        {
+            background-color: #acdd4a;
+        }
+        .subbranch_line
+        {
+            background-color: #9DADC5;
+        }
+        .branch
+        {
+
+        }
+        .subbranch
+        {
+
+            padding-left: 10px;
+        }
+        .version
+        {
+            padding-left: 20px;
+        }
+        .highlight
+        {
+            background-color: #e14f1c;
+            color: #ffffff;
+        }
+    </style>
+    <script>
+        var pageIndex={{ p }};
+        var pageCount={{ page_count }};
+        var versionsData=[];
+        var isToday=false;
+
+        function highlight(obj)
+        {
+
+            var text=$(obj).text().trim();
+            $(".highlight").removeClass("highlight");
+            if(text){
+                $( "td:contains('"+text+"')" ).addClass("highlight");
+            }
+        }
+
+        function clear_highlight(obj)
+        {
+            $(".highlight").removeClass("highlight");
+        }
+
+        function enterKeyLoadVersions(event)
+        {
+            if(event.which==13){
+                $('form').submit();
+            }
+        }
+
+        function toPage(index)
+        {
+            pageIndex=index;
+            window.location.search='p='+index;
+        }
+        $(function() {
+            $('.mybutton').button();
+            $('#keyword').keydown(enterKeyLoadVersions);
+            showSplitPages();
+            //loadVersions(false);
+        });
+        function setToday()
+        {
+            $('input[name=today]').val('true');
+            return true;
+        }
+    </script>
+</head>
+<body>
+<h1 style="text-align: center" class="ui-dialog-titlebar">版本浏览
+    {% if today %}
+        <span style="font-size: small"> (今日版本)</span>
+    {% endif %}
+</h1>
+
+<div style="text-align: right">
+    <a href="main.py">管理</a><br/>
+    <a href="log.py">发布记录</a>
+</div>
+
+<hr>
+<form action="browseVersion.py" method="post">
+    <div style="text-align: center">
+
+        <input type="hidden" name="today">
+        <input type="text" id="keyword" name="keyword" value="{{ keyword }}" style="width: 60%;"><input type="submit" class="mybutton"  style="font-size: 13px;" value="查找">
+        <input type="submit" class="mybutton" style="font-size: 13px;" onclick="setToday();" value="查找今日版本">
+    </div>
+</form>
+<table border="1" style="width: 100%" >
+    <thead>
+    <th>版本号</th>
+    <th>基于版本号</th>
+    <th>说明</th>
+    </thead>
+    <tbody id="versionsData">
+    {% for i in result %}
+        {% ifequal i.type 'branch' %}
+            <tr class="branch_line">
+                <td colspan="2" class="branch">
+                    {{ i.branch_name }}
+                </td>
+                <td>
+                    {{ i.branch_desc }}
+                </td>
+            </tr>
+        {% endifequal %}
+
+        {% ifequal i.type 'subbranch' %}
+            <tr class="subbranch_line">
+                <td colspan="2" class="subbranch">
+                    {{ i.subbranch_name }}
+                </td>
+                <td>
+                    {{ i.subbranch_desc }}
+                </td>
+            </tr>
+        {% endifequal %}
+
+        {% ifequal i.type 'version' %}
+            <tr>
+                <td class="version" onmousemove="highlight(this)" onmouseout="clear_highlight(this)">
+                    {% if i.url %}
+                        <a href="{{ i.url }}">{{ i.version_fullname}}</a>
+                    {% else %}
+                        {{ i.version_fullname }}
+                    {% endif %}
+                </td>
+                <td onmousemove="highlight(this)" onmouseout="clear_highlight(this)">{{ i.version_base }}</td>
+                <td>
+                    {{ i.version_desc|escape|linebreaks }}
+                </td>
+            </tr>
+        {% endifequal %}
+
+    {% endfor %}
+    </tbody>
+</table>
+<div class="digg" id="pages">
+</div>
+</body>
+</html>
