@@ -26,7 +26,7 @@
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/version/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="400" column="4" selection-start="13707" selection-end="13707" vertical-scroll-proportion="-9.846154" vertical-offset="5744" max-vertical-offset="8055">
+            <state line="537" column="0" selection-start="18436" selection-end="18436" vertical-scroll-proportion="-15.461538" vertical-offset="7653" max-vertical-offset="8265">
               <folding>
                 <element signature="e#41#56#0" expanded="true" />
               </folding>
@@ -34,13 +34,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="browseVersionForTemplates.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="version_names.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/version_names.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="0" selection-start="588" selection-end="588" vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="435">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="browseVersionForTemplates.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/browseVersionForTemplates.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="9" selection-start="1200" selection-end="1200" vertical-scroll-proportion="0.70873785" vertical-offset="368" max-vertical-offset="2655">
+            <state line="29" column="31" selection-start="882" selection-end="882" vertical-scroll-proportion="69.708336" vertical-offset="2108" max-vertical-offset="2655">
               <folding>
                 <element signature="n#style#0;n#input#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#2;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="versionLog.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/versionLog.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="46" selection-start="963" selection-end="963" vertical-scroll-proportion="0.17910448" vertical-offset="348" max-vertical-offset="900">
+              <folding>
+                <element signature="n#style#0;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -50,6 +70,19 @@
         <entry file="file://$PROJECT_DIR$/version/db_view.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="14" column="74" selection-start="1424" selection-end="1424" vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="450">
+              <folding>
+                <marker date="1392786619000" expanded="true" signature="44:895" placeholder="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+                <marker date="1392786619000" expanded="true" signature="927:1829" placeholder="..." />
+                <marker date="1392786619000" expanded="true" signature="1801:1829" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/version/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="0" selection-start="1047" selection-end="1047" vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="675">
               <folding />
             </state>
           </provider>
@@ -65,10 +98,8 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/version/static/css/pages.css" />
         <option value="$PROJECT_DIR$/version/static/js/pages.js" />
         <option value="$PROJECT_DIR$/version/models.py" />
-        <option value="$PROJECT_DIR$/templates/versionLog.html" />
         <option value="$PROJECT_DIR$/templates/browseVersion.html" />
         <option value="$PROJECT_DIR$/version/tools.py" />
         <option value="$PROJECT_DIR$/version/static/css/table.css" />
@@ -76,11 +107,13 @@
         <option value="$PROJECT_DIR$/templates/manageSubBranch.html" />
         <option value="$PROJECT_DIR$/templates/manageVersion.html" />
         <option value="$PROJECT_DIR$/templates/main.html" />
-        <option value="$PROJECT_DIR$/version/urls.py" />
         <option value="$PROJECT_DIR$/baoxue/settings.py" />
         <option value="$PROJECT_DIR$/version/db_view.py" />
-        <option value="$PROJECT_DIR$/version/views.py" />
         <option value="$PROJECT_DIR$/templates/browseVersionForTemplates.html" />
+        <option value="$PROJECT_DIR$/templates/version_names.html" />
+        <option value="$PROJECT_DIR$/version/urls.py" />
+        <option value="$PROJECT_DIR$/version/views.py" />
+        <option value="$PROJECT_DIR$/templates/versionLog.html" />
       </list>
     </option>
   </component>
@@ -265,7 +298,7 @@
     <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../manba" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="options.searchVisible" value="true" />
@@ -279,8 +312,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/version" />
       <recent name="$PROJECT_DIR$/templates" />
+      <recent name="$PROJECT_DIR$/version" />
       <recent name="$PROJECT_DIR$/version/static/css" />
     </key>
   </component>
@@ -628,25 +661,10 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="42" />
+      <option name="time" value="43" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tools/import.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="0" selection-start="915" selection-end="915" vertical-scroll-proportion="0.33890578" vertical-offset="812" max-vertical-offset="1470" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version/tools.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="170" column="4" selection-start="5856" selection-end="5856" vertical-scroll-proportion="0.612462" vertical-offset="2027" max-vertical-offset="2685" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="0" selection-start="2048" selection-end="2048" vertical-scroll-proportion="0.48995364" vertical-offset="508" max-vertical-offset="1155" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/version/static/js/helper.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="35" selection-start="204" selection-end="204" vertical-scroll-proportion="0.2857143" vertical-offset="0" max-vertical-offset="1065" />
@@ -669,13 +687,6 @@
     <entry file="file://$PROJECT_DIR$/templates/browseVersion.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="6" selection-start="23" selection-end="23" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="2925">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="74" selection-start="1621" selection-end="1621" vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="675">
           <folding />
         </state>
       </provider>
@@ -706,22 +717,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version/db_view.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="74" selection-start="1424" selection-end="1424" vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="450">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="400" column="4" selection-start="13707" selection-end="13707" vertical-scroll-proportion="-9.846154" vertical-offset="5744" max-vertical-offset="8055">
-          <folding>
-            <element signature="e#41#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/version/static/css/table.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="7" selection-start="112" selection-end="118" vertical-scroll-proportion="0.33407572" vertical-offset="0" max-vertical-offset="449">
@@ -729,12 +724,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/version/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="6" selection-start="2494" selection-end="2494" vertical-scroll-proportion="0.58715594" vertical-offset="554" max-vertical-offset="990">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="0" selection-start="1047" selection-end="1047" vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="675">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/version_names.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="588" selection-end="588" vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="435">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version/db_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="74" selection-start="1424" selection-end="1424" vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="450">
+          <folding>
+            <marker date="1392786619000" expanded="true" signature="44:895" placeholder="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1392786619000" expanded="true" signature="927:1829" placeholder="..." />
+            <marker date="1392786619000" expanded="true" signature="1801:1829" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="537" column="0" selection-start="18436" selection-end="18436" vertical-scroll-proportion="-15.461538" vertical-offset="7653" max-vertical-offset="8265">
+          <folding>
+            <element signature="e#41#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/browseVersionForTemplates.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="9" selection-start="1200" selection-end="1200" vertical-scroll-proportion="0.70873785" vertical-offset="368" max-vertical-offset="2655">
+        <state line="29" column="31" selection-start="882" selection-end="882" vertical-scroll-proportion="69.708336" vertical-offset="2108" max-vertical-offset="2655">
           <folding>
             <element signature="n#style#0;n#input#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#2;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/versionLog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="46" selection-start="963" selection-end="963" vertical-scroll-proportion="0.17910448" vertical-offset="348" max-vertical-offset="900">
+          <folding>
+            <element signature="n#style#0;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

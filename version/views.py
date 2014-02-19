@@ -529,3 +529,17 @@ def versionLog(request):
 
         return render_to_response('versionLog.html',locals())
 
+def version_names(request):
+    if request.method=='POST':
+        ids=request.POST.getlist('id')
+        names=[]
+        for id in ids:
+            try:
+                log=VersionLog.objects.get(pk=id)
+                names.append(log.versionFullName)
+            except:
+                pass
+        names.sort()
+
+    return  render_to_response('version_names.html',locals())
+

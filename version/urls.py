@@ -36,4 +36,5 @@ urlpatterns = patterns('version/',
                        url(r'^browseVersion.py$',browseVersionForTemplates),
                        url(r'^getVersionForBrowse.py$', getVersionForBrowse),
                        url(r'^log.py$', versionLog),
+                       url(r'^version_names.py$', version_names),
  )

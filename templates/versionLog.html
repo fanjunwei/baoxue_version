@@ -15,6 +15,7 @@
         var pageCount={{ pageCount }};
         $(function(){
             showSplitPages();
+            $('input[type=submit]').button();
         });
     function toPage(index)
     {
@@ -25,7 +26,8 @@
 </head>
 <body>
 <h1 style="text-align: center" class="ui-dialog-titlebar">版本发布记录</h1>
-
+<form action="version_names.py" method="post">
+<input type="submit" value="所选版本列表">
 <table border="1" style="width: 100%" >
     <thead>
     <th>版本</th>
@@ -35,7 +37,8 @@
     {% for i in logs %}
         <tr>
             <td>
-                {{ i.versionFullName }}
+                <input type="checkbox" name="id" value="{{ i.id }}" id="id_{{ i.id }}" >
+                <label for="id_{{ i.id }}">{{ i.versionFullName }}</label>
             </td>
             <td>
                 {{ i.datetime|date:'Y-m-d H:i:s' }}
@@ -45,6 +48,7 @@
     </tbody>
     <div onmousemove=""></div>
 </table>
+</form>
 <div class="digg" id="pages">
 </div>
 </body>
