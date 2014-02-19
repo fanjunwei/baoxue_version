@@ -17,6 +17,8 @@ from models import *
 from django.db.models import Q
 from django.core.cache import cache
 import xml.sax.saxutils as saxutils
+from version.db_view import *
+
 
 def login(request):
     if User.objects.all().count()==0:
@@ -419,11 +421,12 @@ def browseVersionForTemplates(request):
         result=c[0]
         page_count=c[1]
     else:
+
         start= datetime.date.today()
         if today:
-            list=Version.objects.filter(Q(createTime__gt=start)&(Q(fullName__icontains=keyword)|Q(parentFullName__icontains=keyword)|Q(description__icontains=keyword))).order_by('subBranch__branch','subBranch','createTime')
+                list=VBrows.objects.filter(Q(version_createTime__gt=start)&(Q(fullName__icontains=keyword)|Q(parentFullName__icontains=keyword)|Q(description__icontains=keyword)))
         else:
-            list=Version.objects.filter(Q(fullName__icontains=keyword)|Q(parentFullName__icontains=keyword)|Q(description__icontains=keyword)).order_by('subBranch__branch','subBranch','createTime')
+            list=VBrows.objects.filter(Q(fullName__icontains=keyword)|Q(parentFullName__icontains=keyword)|Q(description__icontains=keyword))
         result=[]
         paginator=Paginator(list,50)
         try:
@@ -435,31 +438,31 @@ def browseVersionForTemplates(request):
         lastBranch=''
         lastSubBranch=''
         for b in versions:
-            branch_name=b.subBranch.branch.name
-            subbranch_name=b.subBranch.getFullName()
+            branch_name=b.branch_name
+            subbranch_full_name="%s-%s"%(b.branch_name,b.subbranch_name)
             if not lastBranch==branch_name:
                 lastSubBranch=''
                 lastBranch=branch_name
                 item={
                     'type':'branch',
                     'branch_name':branch_name,
-                    'branch_desc':b.subBranch.branch.description,
+                    'branch_desc':b.subbranch_description,
                 }
                 result.append(item)
-            if not lastSubBranch==subbranch_name:
-                lastSubBranch=subbranch_name
+            if not lastSubBranch==subbranch_full_name:
+                lastSubBranch=subbranch_full_name
                 item={
                     'type':'subbranch',
-                    'subbranch_name':subbranch_name,
-                    'subbranch_desc':b.subBranch.description,
+                    'subbranch_name':subbranch_full_name,
+                    'subbranch_desc':b.branch_description,
                 }
                 result.append(item)
             item={
                 'type':'version',
                 'version_fullname':b.fullName,
-                'version_base':getVersionFullNameFromID(b.parent),
+                'version_base':b.parentFullName,
                 'version_desc':b.description,
-                'url':getDownloadUrl(b.getFullName())
+                'url':getDownloadUrl(b.fullName)
             }
             result.append(item)
         browseVersionSetCached(keyword,today,p,result,page_count)

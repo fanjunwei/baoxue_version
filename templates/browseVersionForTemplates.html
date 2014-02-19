@@ -21,22 +21,29 @@
         }
         .branch
         {
-
+            word-break: keep-all;
+            white-space:nowrap;
         }
         .subbranch
         {
 
             padding-left: 10px;
+            word-break: keep-all;
+            white-space:nowrap;
         }
         .version
         {
             padding-left: 20px;
+            word-break: keep-all;
+            white-space:nowrap;
         }
+
         .highlight
         {
             background-color: #e14f1c;
             color: #ffffff;
         }
+
     </style>
     <script>
         var pageIndex={{ p }};
@@ -101,8 +108,13 @@
     <div style="text-align: center">
 
         <input type="hidden" name="today">
-        <input type="text" id="keyword" name="keyword" value="{{ keyword }}" style="width: 60%;"><input type="submit" class="mybutton"  style="font-size: 13px;" value="查找">
-        <input type="submit" class="mybutton" style="font-size: 13px;" onclick="setToday();" value="查找今日版本">
+        <input type="text" id="keyword" name="keyword" value="{{ keyword }}" style="width: 60%;">
+        {% if today %}
+            <input type="submit" class="mybutton"  style="font-size: 13px;" value="查找所有">
+        {% else %}
+            <input type="submit" class="mybutton"  style="font-size: 13px;" value="查找">
+            <input type="submit" class="mybutton" style="font-size: 13px;" onclick="setToday();" value="查找今日版本">
+        {% endif %}
     </div>
 </form>
 <table border="1" style="width: 100%" >
@@ -137,14 +149,14 @@
 
         {% ifequal i.type 'version' %}
             <tr>
-                <td class="version" onmousemove="highlight(this)" onmouseout="clear_highlight(this)">
+                <td class="version" onmousemove="highlight(this)"  onmouseout="clear_highlight(this)">
                     {% if i.url %}
                         <a href="{{ i.url }}">{{ i.version_fullname}}</a>
                     {% else %}
                         {{ i.version_fullname }}
                     {% endif %}
                 </td>
-                <td onmousemove="highlight(this)" onmouseout="clear_highlight(this)">{{ i.version_base }}</td>
+                <td class="nowrap" onmousemove="highlight(this)" onmouseout="clear_highlight(this)">{{ i.version_base|default_if_none:'' }}</td>
                 <td>
                     {{ i.version_desc|escape|linebreaks }}
                 </td>
