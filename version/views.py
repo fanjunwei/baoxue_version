@@ -462,6 +462,7 @@ def browseVersionForTemplates(request):
                 'version_fullname':b.fullName,
                 'version_base':b.parentFullName,
                 'version_desc':b.description,
+                'time':b.version_createTime,
                 'url':getDownloadUrl(b.fullName)
             }
             result.append(item)

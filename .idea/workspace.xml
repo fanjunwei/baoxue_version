@@ -26,7 +26,7 @@
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/version/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="537" column="0" selection-start="18436" selection-end="18436" vertical-scroll-proportion="-15.461538" vertical-offset="7653" max-vertical-offset="8265">
+            <state line="462" column="48" selection-start="16161" selection-end="16161" vertical-scroll-proportion="-5.6538463" vertical-offset="6783" max-vertical-offset="8280">
               <folding>
                 <element signature="e#41#56#0" expanded="true" />
               </folding>
@@ -43,10 +43,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="browseVersionForTemplates.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="browseVersionForTemplates.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/browseVersionForTemplates.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="31" selection-start="882" selection-end="882" vertical-scroll-proportion="69.708336" vertical-offset="2108" max-vertical-offset="2655">
+            <state line="160" column="44" selection-start="4631" selection-end="4631" vertical-scroll-proportion="0.5436893" vertical-offset="2176" max-vertical-offset="2685">
               <folding>
                 <element signature="n#style#0;n#input#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#2;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -55,26 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="versionLog.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/versionLog.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="46" selection-start="963" selection-end="963" vertical-scroll-proportion="0.17910448" vertical-offset="348" max-vertical-offset="900">
-              <folding>
-                <element signature="n#style#0;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="db_view.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/version/db_view.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="74" selection-start="1424" selection-end="1424" vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="450">
-              <folding>
-                <marker date="1392786619000" expanded="true" signature="44:895" placeholder="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-                <marker date="1392786619000" expanded="true" signature="927:1829" placeholder="..." />
-                <marker date="1392786619000" expanded="true" signature="1801:1829" placeholder="..." />
-              </folding>
+            <state line="14" column="22" selection-start="1354" selection-end="1372" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -109,11 +94,11 @@
         <option value="$PROJECT_DIR$/templates/main.html" />
         <option value="$PROJECT_DIR$/baoxue/settings.py" />
         <option value="$PROJECT_DIR$/version/db_view.py" />
-        <option value="$PROJECT_DIR$/templates/browseVersionForTemplates.html" />
         <option value="$PROJECT_DIR$/templates/version_names.html" />
         <option value="$PROJECT_DIR$/version/urls.py" />
-        <option value="$PROJECT_DIR$/version/views.py" />
         <option value="$PROJECT_DIR$/templates/versionLog.html" />
+        <option value="$PROJECT_DIR$/version/views.py" />
+        <option value="$PROJECT_DIR$/templates/browseVersionForTemplates.html" />
       </list>
     </option>
   </component>
@@ -606,16 +591,16 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32621083" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37876615" sideWeight="0.67948717" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3931624" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32478634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32478634" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32051283" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -646,11 +631,6 @@
           <url>file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/django/core/urlresolvers.py</url>
           <line>99</line>
           <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/version/views.py</url>
-          <line>424</line>
-          <option name="timeStamp" value="41" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -738,6 +718,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/versionLog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="51" selection-start="1382" selection-end="1417" vertical-scroll-proportion="0.36567163" vertical-offset="498" max-vertical-offset="900">
+          <folding>
+            <element signature="n#style#0;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version/db_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="22" selection-start="1354" selection-end="1372" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="462" column="48" selection-start="16161" selection-end="16161" vertical-scroll-proportion="-5.6538463" vertical-offset="6783" max-vertical-offset="8280">
+          <folding>
+            <element signature="e#41#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/version_names.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="0" selection-start="588" selection-end="588" vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="435">
@@ -745,41 +750,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version/db_view.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="74" selection-start="1424" selection-end="1424" vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="450">
-          <folding>
-            <marker date="1392786619000" expanded="true" signature="44:895" placeholder="&quot;&quot;&quot;...&quot;&quot;&quot;" />
-            <marker date="1392786619000" expanded="true" signature="927:1829" placeholder="..." />
-            <marker date="1392786619000" expanded="true" signature="1801:1829" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="537" column="0" selection-start="18436" selection-end="18436" vertical-scroll-proportion="-15.461538" vertical-offset="7653" max-vertical-offset="8265">
-          <folding>
-            <element signature="e#41#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/browseVersionForTemplates.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="31" selection-start="882" selection-end="882" vertical-scroll-proportion="69.708336" vertical-offset="2108" max-vertical-offset="2655">
+        <state line="160" column="44" selection-start="4631" selection-end="4631" vertical-scroll-proportion="0.5436893" vertical-offset="2176" max-vertical-offset="2685">
           <folding>
             <element signature="n#style#0;n#input#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#2;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/versionLog.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="46" selection-start="963" selection-end="963" vertical-scroll-proportion="0.17910448" vertical-offset="348" max-vertical-offset="900">
-          <folding>
-            <element signature="n#style#0;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
