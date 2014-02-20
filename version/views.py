@@ -446,7 +446,7 @@ def browseVersionForTemplates(request):
                 item={
                     'type':'branch',
                     'branch_name':branch_name,
-                    'branch_desc':b.subbranch_description,
+                    'branch_desc':b.branch_description,
                 }
                 result.append(item)
             if not lastSubBranch==subbranch_full_name:
@@ -454,7 +454,7 @@ def browseVersionForTemplates(request):
                 item={
                     'type':'subbranch',
                     'subbranch_name':subbranch_full_name,
-                    'subbranch_desc':b.branch_description,
+                    'subbranch_desc':b.subbranch_description,
                 }
                 result.append(item)
             item={
