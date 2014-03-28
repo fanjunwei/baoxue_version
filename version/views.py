@@ -322,8 +322,8 @@ def saveVersion(request):
             if isAddVersion:
                 sub=u'版本记录:'+version.getFullName()
                 content=version.getFullName()+'\n'
-                if version.parentFullName :
-                    content=content+u'基于版本:'+version.parentFullName+'\n'
+                # if version.parentFullName :
+                #     content=content+u'基于版本:'+version.parentFullName+'\n'
                 content=content+u'===============================================\n'
                 content=content+version.description+'\n'
                 content=content+u'===============================================\n'
