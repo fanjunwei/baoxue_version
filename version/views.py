@@ -183,8 +183,19 @@ def delSubBranches(request):
 
 def getVersions(request):
     keyword=request.POST.get('keyword','')
-    versions=Version.objects.filter(Q(fullName__icontains=keyword)|Q(parentFullName__icontains=keyword)|Q(description__icontains=keyword)).order_by('subBranch','createTime')
+    versions_all=Version.objects.filter(Q(fullName__icontains=keyword)|Q(parentFullName__icontains=keyword)|Q(description__icontains=keyword)).order_by('subBranch','createTime')
     result=[]
+    paginator=Paginator(versions_all,50)
+    try:
+        p=int(request.REQUEST.get('p','1'))
+    except ValueError:
+        p=1
+    try:
+        versions=paginator.page(p)
+    except (EmptyPage, InvalidPage):
+        p=paginator.num_pages
+        versions=paginator.page(paginator.num_pages)
+
     for b in versions:
         baseVersionFullName=''
         if b.parent:
@@ -204,7 +215,8 @@ def getVersions(request):
 
         }
         result.append(item)
-    return getResult(True,result=result)
+
+    return getPagesResult(p,paginator.num_pages,True,result=result)
 
 
 def searchSubBranchesName(request):

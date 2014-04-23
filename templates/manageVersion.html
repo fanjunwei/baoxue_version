@@ -5,14 +5,15 @@
 <link href="/static/css/start/jquery-ui-1.10.4.custom.css" rel="stylesheet">
 <link href="/static/css/box.css" rel="stylesheet">
 <link href="/static/css/table.css" rel="stylesheet">
+<link href="/static/css/pages.css" rel="stylesheet">
 <script src="/static/js/jquery-1.10.2.js"></script>
 <script src="/static/js/jquery-ui-1.10.4.custom.js"></script>
 <script src="/static/js/helper.js"></script>
+<script src="/static/js/pages.js"></script>
 <script>
-var versionOnEdit=false;
-var versionsData=[];
-function clearText()
-{
+var versionOnEdit = false;
+var versionsData = [];
+function clearText() {
     $('#addversionName').val('');
     $('#addversionDescription').val('');
     $('#versionID').val('');
@@ -22,22 +23,20 @@ function clearText()
     $("#addversionFullName").val('')
     $("#baseversionFullName").val('')
 }
-function versionChangeToEdit(edit,index)
-{
-    versionOnEdit=edit;
-    if(edit)
-    {
+function versionChangeToEdit(edit, index) {
+    versionOnEdit = edit;
+    if (edit) {
         $('#editversionOK').show();
         $('#editversionCancel').show();
         $('#addversion').hide();
         $('#list').hide();
-        var id=versionsData[index].id;
-        var branch=versionsData[index].branch;
-        var subBranch=versionsData[index].subBranch;
-        var name=versionsData[index].name;
-        var fullName=versionsData[index].fullName;
-        var parentFullName=versionsData[index].parentFullName;
-        var desc=versionsData[index].desc;
+        var id = versionsData[index].id;
+        var branch = versionsData[index].branch;
+        var subBranch = versionsData[index].subBranch;
+        var name = versionsData[index].name;
+        var fullName = versionsData[index].fullName;
+        var parentFullName = versionsData[index].parentFullName;
+        var desc = versionsData[index].desc;
         $('#branchName').val(branch);
         $('#subBranchName').val(subBranch);
         $('#addversionName').val(name);
@@ -46,8 +45,7 @@ function versionChangeToEdit(edit,index)
         $('#addversionDescription').val(desc);
         $('#versionID').val(id);
     }
-    else
-    {
+    else {
         $('#editversionOK').hide();
         $('#editversionCancel').hide();
         $('#addversion').show();
@@ -55,33 +53,33 @@ function versionChangeToEdit(edit,index)
         clearText();
     }
 }
-function delversion(id)
-{
-    callback=function(){
-        $.post('delVersion.py',{id:id},
-                function(result,status){
-                    if(status == 'success'){
-                        if(result.success){
-                            showMessage('删除成功')
+function delversion(id) {
+    callback = function () {
+        $.post('delVersion.py', {id: id},
+                function (result, status) {
+                    if (status == 'success') {
+                        if (result.success) {
+                            showMessage('删除成功');
                             loadVersions();
-                        }else{
-                            showMessage(result.message)
+                        } else {
+                            showMessage(result.message);
                         }
                     }
                 });
-    }
+    };
     deleteConfim(callback);
 }
-function loadVersions(){
-    cache={};
-    $.post('getVersions.py',{keyword:$('#versionNameKey').val()},
-            function(result,status){
-                if(status == 'success'){
-                    if(result.success){
-                        html=[];
-                        versionsData=result.result;
-                        for(i in result.result)
-                        {
+function loadVersions() {
+    cache = {};
+    $.post('getVersions.py', {p:pageIndex,keyword: $('#versionNameKey').val()},
+            function (result, status) {
+                if (status == 'success') {
+                    if (result.success) {
+                        html = [];
+                        versionsData = result.result;
+                        pageIndex=result.pageIndex;
+                        pageCount=result.pageCount;
+                        for (i in result.result) {
                             html.push('<tr onmousemove="highlight_line(this)" onmouseout="clear_highlight_line(this)">');
                             html.push('<td>');
                             html.push(result.result[i].fullName);
@@ -109,198 +107,185 @@ function loadVersions(){
                         }
 
                         $('#versionsData').html(html.join(''));
-                    }else{
+                        showSplitPages();
+                    } else {
                     }
                 }
             });
 
 
 }
-function saveVersion()
-{
-    if(checkUnique('branchName') && checkUnique('addversionName')){
-        $.post('saveVersion.py',{id:$("#versionID").val(),branch:$("#branchName").val(),subbranch:$("#subBranchName").val(),name:$("#addversionName").val(),baseversion:$("#baseversionFullName").val(),description:$("#addversionDescription").val()},
-                function(result,status){
-                    if(status == 'success'){
-                        if(result.success){
-                            if(versionOnEdit)
-                            {
-                                versionChangeToEdit(false,0);
+function toPage(index) {
+    pageIndex = index;
+    loadVersions();
+}
+function saveVersion() {
+    if (checkUnique('branchName') && checkUnique('addversionName')) {
+        $.post('saveVersion.py', {id: $("#versionID").val(), branch: $("#branchName").val(), subbranch: $("#subBranchName").val(), name: $("#addversionName").val(), baseversion: $("#baseversionFullName").val(), description: $("#addversionDescription").val()},
+                function (result, status) {
+                    if (status == 'success') {
+                        if (result.success) {
+                            if (versionOnEdit) {
+                                versionChangeToEdit(false, 0);
                                 showMessage("修改成功");
 
                             }
-                            else
-                            {
+                            else {
                                 showMessage("添加成功");
                             }
                             clearText();
                             loadVersions();
-                        }else{
+                        } else {
                             showMessage(result.message);
                         }
                     }
                 });
     }
 }
-function setFullName(focuse)
-{
-    var branch= $('#branchName').val();
-    var subbranch= $('#subBranchName').val();
-    var version= $('#addversionName').val();
-    if((branch.length>0  && version.length>0))
-    {
+function setFullName(focuse) {
+    var branch = $('#branchName').val();
+    var subbranch = $('#subBranchName').val();
+    var version = $('#addversionName').val();
+    if ((branch.length > 0 && version.length > 0)) {
         var fullname;
-        if(subbranch.length>0)
-        {
-            fullname=branch+'-'+subbranch+'_'+version;
+        if (subbranch.length > 0) {
+            fullname = branch + '-' + subbranch + '_' + version;
         }
-        else
-        {
-            fullname=branch+'_'+version;
+        else {
+            fullname = branch + '_' + version;
         }
         $('#addversionFullName').val(fullname);
     }
-    else if(focuse)
-    {
+    else if (focuse) {
         $('#addversionFullName').val('');
     }
 }
-function getAutoBaseVersionFullName()
-{
-    if(versionOnEdit)
+function getAutoBaseVersionFullName() {
+    if (versionOnEdit)
         return;
-    var branch= $('#branchName').val();
-    var subbranch= $('#subBranchName').val();
-    if(branch.length>0 && subbranch.length>0)
-    {
-        $.post('getAutoBaseVersionName.py',{branch:$("#branchName").val(),subbranch:$("#subBranchName").val()},
-                function(result,status){
-                    if(status == 'success'){
-                        if(result.success){
+    var branch = $('#branchName').val();
+    var subbranch = $('#subBranchName').val();
+    if (branch.length > 0 && subbranch.length > 0) {
+        $.post('getAutoBaseVersionName.py', {branch: $("#branchName").val(), subbranch: $("#subBranchName").val()},
+                function (result, status) {
+                    if (status == 'success') {
+                        if (result.success) {
                             $('#baseversionFullName').val(result.result);
                         }
                     }
                 });
     }
 }
-function splitFullName(reset)
-{
-    var fullname= $('#addversionFullName').val();
-    re=/([^-_]+_[^-_]+_[^-_]+)-([^-_]+)_(.*)/g;
-    if(re.test(fullname)){
-        var branch=RegExp.$1.toString();
-        var subbranch=RegExp.$2.toString();
-        var version=RegExp.$3.toString();
+function splitFullName(reset) {
+    var fullname = $('#addversionFullName').val();
+    re = /([^-_]+_[^-_]+_[^-_]+)-([^-_]+)_(.*)/g;
+    if (re.test(fullname)) {
+        var branch = RegExp.$1.toString();
+        var subbranch = RegExp.$2.toString();
+        var version = RegExp.$3.toString();
         $('#branchName').val(branch);
         $('#subBranchName').val(subbranch);
         $('#addversionName').val(version);
     }
-    else
-    {
-        re=/([^-_]+_[^-_]+_[^-_]+)_(.*)/g;
-        if(re.test(fullname))
-        {
-            var branch=RegExp.$1.toString();
-            var version=RegExp.$2.toString();
+    else {
+        re = /([^-_]+_[^-_]+_[^-_]+)_(.*)/g;
+        if (re.test(fullname)) {
+            var branch = RegExp.$1.toString();
+            var version = RegExp.$2.toString();
             $('#branchName').val(branch);
             $('#addversionName').val(version);
             $('#subBranchName').val('');
         }
-        if(reset)
-        {
+        if (reset) {
             setFullName(true);
         }
     }
 }
-function enterKeyLoadVersions(event)
-{
-    if(event.which==13){
+function enterKeyLoadVersions(event) {
+    if (event.which == 13) {
         loadVersions();
     }
 }
-$(function() {
+$(function () {
     $('.mybutton').button();
     $('#versionNameKey').keydown(enterKeyLoadVersions);
-    versionChangeToEdit(false,0);
+    versionChangeToEdit(false, 0);
     loadVersions();
 
 
-    $('#branchName').keyup(function(){
+    $('#branchName').keyup(function () {
         setFullName(false);
     });
-    $('#subBranchName').keyup(function(){
+    $('#subBranchName').keyup(function () {
         setFullName(false);
     });
-    $('#addversionName').keyup(function(){
+    $('#addversionName').keyup(function () {
         setFullName(false);
     });
 
 
-    $('#addversionFullName').keyup(function(){
+    $('#addversionFullName').keyup(function () {
         splitFullName(false);
     });
-    $('#addversionFullName').blur(function(){
+    $('#addversionFullName').blur(function () {
         splitFullName(false);
     });
     $('#baseversionFullName').focus(getAutoBaseVersionFullName);
     var cache = {};
-    $( "#branchName" ).autocomplete({
+    $("#branchName").autocomplete({
         minLength: 1,
-        source: function( request, response ) {
+        source: function (request, response) {
             var term = request.term;
 
-            if ( term in cache ) {
-                response( cache[ term ] );
+            if (term in cache) {
+                response(cache[ term ]);
                 return;
             }
 
-            $.getJSON( "searchBranchesName.py", request, function( data, status, xhr ) {
-                if(data.success)
-                {
+            $.getJSON("searchBranchesName.py", request, function (data, status, xhr) {
+                if (data.success) {
 
                     cache[ term ] = data.result;
-                    response( data.result );
+                    response(data.result);
                 }
             });
         }
     });
 
-    $( "#subBranchName" ).autocomplete({
+    $("#subBranchName").autocomplete({
         minLength: 0,
-        source: function( request, response ) {
-            request.branch=$( "#branchName").val();
-            var key = request.branch+','+request.term;
+        source: function (request, response) {
+            request.branch = $("#branchName").val();
+            var key = request.branch + ',' + request.term;
 
-            if ( key in cache ) {
-                response( cache[ key ] );
+            if (key in cache) {
+                response(cache[ key ]);
                 return;
             }
 
-            $.getJSON( "searchSubBranchesName.py", request, function( data, status, xhr ) {
-                if(data.success)
-                {
+            $.getJSON("searchSubBranchesName.py", request, function (data, status, xhr) {
+                if (data.success) {
                     cache[ key ] = data.result;
-                    response( data.result );
+                    response(data.result);
                 }
             });
         }
     });
 
-    $( "#baseversionFullName" ).autocomplete({
+    $("#baseversionFullName").autocomplete({
         minLength: 1,
-        source: function( request, response ) {
-            var key = 'full,'+request.term;
+        source: function (request, response) {
+            var key = 'full,' + request.term;
 
-            if ( key in cache ) {
-                response( cache[ key ] );
+            if (key in cache) {
+                response(cache[ key ]);
                 return;
             }
 
-            $.getJSON( "searchVersionFullName.py", request, function( data, status, xhr ) {
-                if(data.success)
-                {
+            $.getJSON("searchVersionFullName.py", request, function (data, status, xhr) {
+                if (data.success) {
                     cache[ key ] = data.result;
-                    response( data.result );
+                    response(data.result);
                 }
             });
         }
@@ -340,7 +325,7 @@ $(function() {
         <td><label id="baseversionFullNameMsg" class="ui-state-error ui-helper-hidden"></label></td>
     </tr>
     <tr>
-        <td><label for="addversionDescription" >版本说明</label></td>
+        <td><label for="addversionDescription">版本说明</label></td>
         <td><textarea id="addversionDescription" style="width: 250px;height: 100px"></textarea></td>
         <td>&nbsp;&nbsp;&nbsp;</td>
     </tr>
@@ -355,8 +340,9 @@ $(function() {
 
 <div id="list" style="text-align: center">
     <hr>
-    <input type="text" id="versionNameKey" style="width: 60%;"><button class="mybutton" onclick="loadVersions();" style="font-size: 13px;">查找</button>
-    <table border="1" style="width: 100%" >
+    <input type="text" id="versionNameKey" style="width: 60%;">
+    <button class="mybutton" onclick="loadVersions();" style="font-size: 13px;">查找</button>
+    <table border="1" style="width: 100%">
         <thead>
         <th>版本全名</th>
         <th>基于版本</th>
@@ -365,6 +351,7 @@ $(function() {
         </thead>
         <tbody id="versionsData"></tbody>
     </table>
+    <div class="digg" id="pages"></div>
 </div>
 </body>
 </html>
