@@ -125,7 +125,7 @@ def searchBranchesName(request):
 
 def getSubBranches(request):
     keyword=request.POST.get('keyword','')
-    subbranches=SubBranch.objects.filter(Q(name__icontains=keyword)|Q(branch__name__icontains=keyword)|Q(description__icontains=keyword)).order_by('branch','name')
+    subbranches=SubBranch.objects.filter(Q(name__icontains=keyword)|Q(branch__name__icontains=keyword)|Q(description__icontains=keyword)).order_by('fullName')
     result=[]
     for b in subbranches:
         item=[b.id,b.branch.name,b.name,b.description]
