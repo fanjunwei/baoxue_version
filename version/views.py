@@ -91,7 +91,7 @@ def saveBranch(request):
 
 def getBranches(request):
     keyword=request.POST.get('keyword','')
-    branches=Branch.objects.filter(Q(name__icontains=keyword)|Q(description__icontains=keyword))
+    branches=Branch.objects.filter(Q(name__icontains=keyword)|Q(description__icontains=keyword)).order_by('name')
     result=[]
     for b in branches:
         item=[b.id,b.name,b.description]
