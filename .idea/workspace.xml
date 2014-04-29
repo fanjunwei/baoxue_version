@@ -23,21 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/version/views.py">
+      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/baoxue/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="451" column="54" selection-start="15725" selection-end="15725" vertical-scroll-proportion="0.5972851" vertical-offset="6501" max-vertical-offset="8280">
-              <folding>
-                <element signature="e#41#56#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="version_names.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/version_names.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="588" selection-end="588" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="435">
+            <state line="41" column="41" selection-start="1554" selection-end="1556" vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="2355">
               <folding />
             </state>
           </provider>
@@ -46,25 +35,25 @@
       <file leaf-file-name="browseVersionForTemplates.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/browseVersionForTemplates.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="160" column="44" selection-start="4631" selection-end="4631" vertical-scroll-proportion="-24.375" vertical-offset="1815" max-vertical-offset="2685">
+            <state line="170" column="0" selection-start="4844" selection-end="4873" vertical-scroll-proportion="-22.791666" vertical-offset="2003" max-vertical-offset="2685">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="db_view.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version/db_view.py">
+      <file leaf-file-name="browseVersion.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/browseVersion.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="22" selection-start="1354" selection-end="1372" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="450">
+            <state line="7" column="56" selection-start="272" selection-end="324" vertical-scroll-proportion="17.5" vertical-offset="525" max-vertical-offset="2925">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/version/urls.py">
+      <file leaf-file-name="manageVersion.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/manageVersion.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="0" selection-start="1047" selection-end="1047" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="690">
+            <state line="213" column="35" selection-start="7733" selection-end="7733" vertical-scroll-proportion="0.13965087" vertical-offset="3139" max-vertical-offset="5775">
               <folding />
             </state>
           </provider>
@@ -80,14 +69,10 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/version/static/js/pages.js" />
-        <option value="$PROJECT_DIR$/version/models.py" />
         <option value="$PROJECT_DIR$/templates/browseVersion.html" />
-        <option value="$PROJECT_DIR$/version/tools.py" />
         <option value="$PROJECT_DIR$/version/static/css/table.css" />
         <option value="$PROJECT_DIR$/templates/manageBranch.html" />
         <option value="$PROJECT_DIR$/templates/manageSubBranch.html" />
-        <option value="$PROJECT_DIR$/templates/manageVersion.html" />
         <option value="$PROJECT_DIR$/templates/main.html" />
         <option value="$PROJECT_DIR$/baoxue/settings.py" />
         <option value="$PROJECT_DIR$/version/db_view.py" />
@@ -95,14 +80,18 @@
         <option value="$PROJECT_DIR$/version/urls.py" />
         <option value="$PROJECT_DIR$/templates/versionLog.html" />
         <option value="$PROJECT_DIR$/templates/browseVersionForTemplates.html" />
+        <option value="$PROJECT_DIR$/version/models.py" />
+        <option value="$PROJECT_DIR$/templates/manageOption.html" />
+        <option value="$PROJECT_DIR$/version/tools.py" />
         <option value="$PROJECT_DIR$/version/views.py" />
+        <option value="$PROJECT_DIR$/templates/manageVersion.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
     <option name="width" value="1440" />
-    <option name="height" value="828" />
+    <option name="height" value="813" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -155,6 +144,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -204,6 +194,56 @@
               <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="baoxue" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="baoxue" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="version" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="baoxue" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="baoxue" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="baoxue" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="baoxue" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -221,21 +261,20 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../manba" />
+    <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ssoTest" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -353,7 +392,27 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="baoxue" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -379,27 +438,7 @@
       <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="baoxue" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -534,19 +573,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="828" extended-state="0" />
+    <frame x="0" y="22" width="1440" height="813" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32621083" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38450503" sideWeight="0.6802817" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3931624" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.45207438" sideWeight="0.6802817" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39280775" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32478634" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3197183" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3195021" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -556,6 +595,11 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -570,11 +614,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="python-line">
-          <url>file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/django/contrib/auth/decorators.py</url>
-          <line>24</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
           <url>file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/django/core/urlresolvers.py</url>
           <line>99</line>
           <option name="timeStamp" value="33" />
@@ -588,40 +627,124 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="43" />
+      <option name="time" value="49" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/version/static/js/helper.js">
+    <entry file="file://$PROJECT_DIR$/version/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="35" selection-start="204" selection-end="204" vertical-scroll-proportion="0.2857143" vertical-offset="0" max-vertical-offset="1065" />
+        <state line="417" column="48" selection-start="14376" selection-end="14376" vertical-scroll-proportion="0.0" vertical-offset="6255" max-vertical-offset="8025">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/django/views/decorators/cache.py">
+    <entry file="file://$PROJECT_DIR$/version/db_view.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="4" selection-start="251" selection-end="251" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915" />
+        <state line="17" column="22" selection-start="1571" selection-end="1589" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="450" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/baoxue/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="41" selection-start="1554" selection-end="1556" vertical-scroll-proportion="0.0" vertical-offset="615" max-vertical-offset="2370">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version/tools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="179" column="14" selection-start="6151" selection-end="6151" vertical-scroll-proportion="0.0" vertical-offset="2089" max-vertical-offset="2805" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="417" column="48" selection-start="14376" selection-end="14376" vertical-scroll-proportion="0.0" vertical-offset="6255" max-vertical-offset="8025">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version/db_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="22" selection-start="1571" selection-end="1589" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="450" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/baoxue/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="41" selection-start="1554" selection-end="1556" vertical-scroll-proportion="0.0" vertical-offset="615" max-vertical-offset="2370">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version/tools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="179" column="14" selection-start="6151" selection-end="6151" vertical-scroll-proportion="0.0" vertical-offset="2089" max-vertical-offset="2805" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="459" column="0" selection-start="16017" selection-end="16017" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8280">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/baoxue/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="41" selection-start="1554" selection-end="1556" vertical-scroll-proportion="0.0" vertical-offset="615" max-vertical-offset="2370">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version/tools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="179" column="14" selection-start="6151" selection-end="6151" vertical-scroll-proportion="0.0" vertical-offset="2546" max-vertical-offset="2805" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="317" column="26" selection-start="10495" selection-end="10495" vertical-scroll-proportion="0.0" vertical-offset="4755" max-vertical-offset="8025">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="334" column="46" selection-start="11383" selection-end="11383" vertical-scroll-proportion="0.0" vertical-offset="5010" max-vertical-offset="8025">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/manageVersion.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="1110" max-vertical-offset="5625" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="71" selection-start="2380" selection-end="2380" vertical-scroll-proportion="0.0" vertical-offset="735" max-vertical-offset="1185" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/version_names.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="588" selection-end="588" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="435" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/browseVersionForTemplates.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="160" column="44" selection-start="4631" selection-end="4631" vertical-scroll-proportion="0.0" vertical-offset="2400" max-vertical-offset="2685" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version/db_view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="22" selection-start="1354" selection-end="1372" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="450" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="0" selection-start="1047" selection-end="1047" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="690" />
       </provider>
     </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/django/core/cache/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="94" column="4" selection-start="3247" selection-end="3247" vertical-scroll-proportion="0.8652482" vertical-offset="939" max-vertical-offset="2055" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/browseVersion.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="6" selection-start="23" selection-end="23" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="2925" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version/static/js/pages.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="152" selection-end="185" vertical-scroll-proportion="0.24822696" vertical-offset="0" max-vertical-offset="1500" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/baoxue/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="13" selection-start="272" selection-end="272" vertical-scroll-proportion="-5.769231" vertical-offset="30" max-vertical-offset="2355">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/baoxue/wsgi.py">
@@ -631,9 +754,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/baoxue/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="41" selection-start="692" selection-end="692" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
-          <folding />
-        </state>
+        <state line="19" column="41" selection-start="692" selection-end="692" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/version/static/css/table.css">
@@ -641,18 +762,9 @@
         <state line="10" column="7" selection-start="112" selection-end="118" vertical-scroll-proportion="0.33407572" vertical-offset="0" max-vertical-offset="449" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="6" selection-start="2494" selection-end="2494" vertical-scroll-proportion="0.58715594" vertical-offset="554" max-vertical-offset="990">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/version/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="1047" selection-end="1047" vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="675">
-          <folding />
-        </state>
+        <state line="26" column="0" selection-start="1047" selection-end="1047" vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="675" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/versionLog.html">
@@ -660,33 +772,73 @@
         <state line="43" column="51" selection-start="1382" selection-end="1417" vertical-scroll-proportion="0.36567163" vertical-offset="498" max-vertical-offset="900" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/version_names.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="588" selection-end="588" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="435" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="71" selection-start="2380" selection-end="2380" vertical-scroll-proportion="0.0" vertical-offset="743" max-vertical-offset="1185" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/import.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="10" selection-start="327" selection-end="327" vertical-scroll-proportion="0.28592375" vertical-offset="0" max-vertical-offset="1470" />
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/django/contrib/auth/decorators.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="0" selection-start="1053" selection-end="1053" vertical-scroll-proportion="0.620438" vertical-offset="0" max-vertical-offset="1065" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/version/db_view.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="22" selection-start="1354" selection-end="1372" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+        <state line="17" column="22" selection-start="1571" selection-end="1589" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version/tools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="18" selection-start="2117" selection-end="2131" vertical-scroll-proportion="0.74623114" vertical-offset="468" max-vertical-offset="2685" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version/static/js/pages.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="4" selection-start="156" selection-end="156" vertical-scroll-proportion="0.25547445" vertical-offset="0" max-vertical-offset="1500" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="187" column="39" selection-start="6062" selection-end="6062" vertical-scroll-proportion="6.330645" vertical-offset="195" max-vertical-offset="8205">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/version_names.html">
+    <entry file="file://$PROJECT_DIR$/baoxue/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="588" selection-end="588" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="435">
+        <state line="41" column="41" selection-start="1554" selection-end="1556" vertical-scroll-proportion="0.0" vertical-offset="615" max-vertical-offset="2370">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/browseVersionForTemplates.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="160" column="44" selection-start="4631" selection-end="4631" vertical-scroll-proportion="-24.375" vertical-offset="1815" max-vertical-offset="2685">
+        <state line="170" column="0" selection-start="4844" selection-end="4873" vertical-scroll-proportion="-22.791666" vertical-offset="2003" max-vertical-offset="2685">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/version/views.py">
+    <entry file="file://$PROJECT_DIR$/templates/browseVersion.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="451" column="54" selection-start="15725" selection-end="15725" vertical-scroll-proportion="0.5972851" vertical-offset="6501" max-vertical-offset="8280">
-          <folding>
-            <element signature="e#41#56#0" expanded="true" />
-          </folding>
+        <state line="7" column="56" selection-start="272" selection-end="324" vertical-scroll-proportion="17.5" vertical-offset="525" max-vertical-offset="2925">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/manageVersion.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="213" column="35" selection-start="7733" selection-end="7733" vertical-scroll-proportion="0.13965087" vertical-offset="3139" max-vertical-offset="5775">
+          <folding />
         </state>
       </provider>
     </entry>

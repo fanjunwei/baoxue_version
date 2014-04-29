@@ -71,14 +71,14 @@ function delversion(id) {
 }
 function loadVersions() {
     cache = {};
-    $.post('getVersions.py', {p:pageIndex,keyword: $('#versionNameKey').val()},
+    $.post('getVersions.py', {p: pageIndex, keyword: $('#versionNameKey').val()},
             function (result, status) {
                 if (status == 'success') {
                     if (result.success) {
                         html = [];
                         versionsData = result.result;
-                        pageIndex=result.pageIndex;
-                        pageCount=result.pageCount;
+                        pageIndex = result.pageIndex;
+                        pageCount = result.pageCount;
                         for (i in result.result) {
                             html.push('<tr onmousemove="highlight_line(this)" onmouseout="clear_highlight_line(this)">');
                             html.push('<td>');
@@ -206,6 +206,21 @@ function enterKeyLoadVersions(event) {
         loadVersions();
     }
 }
+function trimFullName(str) {
+    var re1 = /^user_(.*)/g;
+    var re2 = /^eng_(.*)/g;
+    var re3 = /(.*)\.zip$/g;
+    if (re1.test(str)) {
+        str = RegExp.$1.toString();
+    }
+    if (re2.test(str)) {
+        str = RegExp.$1.toString();
+    }
+    if (re3.test(str)) {
+        str = RegExp.$1.toString();
+    }
+    return str;
+}
 $(function () {
     $('.mybutton').button();
     $('#versionNameKey').keydown(enterKeyLoadVersions);
@@ -225,9 +240,17 @@ $(function () {
 
 
     $('#addversionFullName').keyup(function () {
+        var str = trimFullName($('#addversionFullName').val());
+        if (str != $('#addversionFullName').val()) {
+            $('#addversionFullName').val(str);
+        }
         splitFullName(false);
     });
     $('#addversionFullName').blur(function () {
+        var str = trimFullName($('#addversionFullName').val());
+        if (str != $('#addversionFullName').val()) {
+            $('#addversionFullName').val(str);
+        }
         splitFullName(false);
     });
     $('#baseversionFullName').focus(getAutoBaseVersionFullName);
