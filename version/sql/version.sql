@@ -10,7 +10,8 @@ CREATE VIEW `v_browse` AS
         `version_version`.`parent` AS `parent`,
         `version_version`.`parentFullName` AS `parentFullName`,
         `version_subbranch`.`description` AS `subbranch_description`,
-        `version_branch`.`description` AS `branch_description`
+        `version_branch`.`description` AS `branch_description`,
+        `version_version`.`username` AS `version_username`
     from
         ((`version_version`
         join `version_subbranch` ON ((`version_version`.`subBranch_id` = `version_subbranch`.`id`)))

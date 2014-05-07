@@ -11,81 +11,74 @@
     <script src="/static/js/helper.js"></script>
     <script src="/static/js/pages.js"></script>
     <style>
-        .branch_line
-        {
+        .branch_line {
             background-color: #acdd4a;
         }
-        .subbranch_line
-        {
+
+        .subbranch_line {
             background-color: #9DADC5;
         }
-        .branch
-        {
+
+        .branch {
             word-break: keep-all;
-            white-space:nowrap;
+            white-space: nowrap;
         }
-        .subbranch
-        {
+
+        .subbranch {
 
             padding-left: 10px;
             word-break: keep-all;
-            white-space:nowrap;
-        }
-        .version
-        {
-            padding-left: 20px;
-            word-break: keep-all;
-            white-space:nowrap;
+            white-space: nowrap;
         }
 
-        .highlight
-        {
+        .version {
+            padding-left: 20px;
+            word-break: keep-all;
+            white-space: nowrap;
+        }
+
+        .highlight {
             background-color: #e14f1c;
             color: #ffffff;
         }
 
     </style>
     <script>
-        var pageIndex={{ p }};
-        var pageCount={{ page_count }};
-        var versionsData=[];
-        var isToday=false;
+        var pageIndex ={{ p }};
+        var pageCount ={{ page_count }};
+        var versionsData = [];
+        var isToday = false;
 
-        function highlight(obj)
-        {
+        function highlight(obj) {
 
-            var text=$(obj).text().trim();
+            var text = $(obj).text().trim();
             $(".highlight").removeClass("highlight");
-            if(text){
-                $( "td:contains('"+text+"')" ).addClass("highlight");
+            if (text) {
+                $("td:contains('" + text + "')").addClass("highlight");
             }
         }
 
-        function clear_highlight(obj)
-        {
+        function clear_highlight(obj) {
             $(".highlight").removeClass("highlight");
         }
 
-        function enterKeyLoadVersions(event)
-        {
-            if(event.which==13){
+        function enterKeyLoadVersions(event) {
+            if (event.which == 13) {
                 $('form').submit();
             }
         }
 
-        function toPage(index)
-        {
-            pageIndex=index;
-            window.location.search='p='+index;
+        function toPage(index) {
+            pageIndex = index;
+            window.location.search = 'p=' + index;
         }
-        $(function() {
+        $(function () {
             $('.mybutton').button();
             $('#keyword').keydown(enterKeyLoadVersions);
             showSplitPages();
             //loadVersions(false);
         });
-        function setToday()
-        {
+        function setToday() {
             $('input[name=today]').val('true');
             return true;
         }
@@ -110,25 +103,26 @@
         <input type="hidden" name="today">
         <input type="text" id="keyword" name="keyword" value="{{ keyword }}" style="width: 60%;">
         {% if today %}
-            <input type="submit" class="mybutton"  style="font-size: 13px;" value="查找所有">
+            <input type="submit" class="mybutton" style="font-size: 13px;" value="查找所有">
         {% else %}
-            <input type="submit" class="mybutton"  style="font-size: 13px;" value="查找">
+            <input type="submit" class="mybutton" style="font-size: 13px;" value="查找">
             <input type="submit" class="mybutton" style="font-size: 13px;" onclick="setToday();" value="查找今日版本">
         {% endif %}
     </div>
 </form>
-<table border="1" style="width: 100%" >
+<table border="1" style="width: 100%">
     <thead>
     <th>版本号</th>
     <th>基于版本号</th>
     <th>时间</th>
+    <th>用户名</th>
     <th>说明</th>
     </thead>
     <tbody id="versionsData">
     {% for i in result %}
         {% ifequal i.type 'branch' %}
             <tr class="branch_line">
-                <td colspan="3" class="branch">
+                <td colspan="4" class="branch">
                     {{ i.branch_name }}
                 </td>
                 <td>
@@ -139,7 +133,7 @@
 
         {% ifequal i.type 'subbranch' %}
             <tr class="subbranch_line">
-                <td colspan="3" class="subbranch">
+                <td colspan="4" class="subbranch">
                     {{ i.subbranch_name }}
                 </td>
                 <td>
@@ -150,15 +144,24 @@
 
         {% ifequal i.type 'version' %}
             <tr>
-                <td class="version" onmousemove="highlight(this)"  onmouseout="clear_highlight(this)">
+                <td class="version" onmousemove="highlight(this)" onmouseout="clear_highlight(this)">
                     {% if i.url %}
-                        <a href="{{ i.url }}">{{ i.version_fullname}}</a>
+                        <a href="{{ i.url }}">{{ i.version_fullname }}</a>
                     {% else %}
                         {{ i.version_fullname }}
                     {% endif %}
+
                 </td>
-                <td class="nowrap" onmousemove="highlight(this)" onmouseout="clear_highlight(this)">{{ i.version_base|default_if_none:'' }}</td>
+                <td class="nowrap" onmousemove="highlight(this)"
+                    onmouseout="clear_highlight(this)">{{ i.version_base|default_if_none:'' }}</td>
                 <td class="nowrap">{{ i.time|date:'Y-m-d H:i:s' }}</td>
+                <td class="nowrap">
+                    {% if i.version_username %}
+                        {{ i.version_username }}
+                    {% else %}
+                        &nbsp;
+                    {% endif %}
+                </td>
                 <td>
                     {{ i.version_desc|escape|linebreaks }}
                 </td>

@@ -13,6 +13,7 @@ from django.conf.urls import patterns, include, url
 urlpatterns = patterns('version/',
                        url(r'^$', home),
                        url(r'^login.py$', login),
+                       url(r'^logout.py$', logout),
                        url(r'^main.py$', main),
                        url(r'^manageBranch.py$', manageBranch),
                        url(r'^saveBranch.py$', saveBranch),

@@ -18,6 +18,7 @@ class VBrows (models.Model):
     branch_description=models.TextField(verbose_name='分支描述',default='')
     parent=models.IntegerField(verbose_name='基础版本ID',null=True)
     parentFullName=models.CharField(verbose_name='基础版本全名',max_length=50,null=True)
+    version_username=models.CharField(max_length=30,verbose_name='提交用户名',null=True)
     class Meta:
         db_table='v_browse'
 

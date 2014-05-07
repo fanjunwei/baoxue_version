@@ -40,6 +40,7 @@ class Version (models.Model):
     parent=models.IntegerField(verbose_name='基础版本ID',null=True)
     parentFullName=models.CharField(verbose_name='基础版本全名',max_length=255,null=True)
     delFlag=models.BooleanField(verbose_name='删除标记',default=False,null=False)
+    username=models.CharField(max_length=30,verbose_name='提交用户名',null=True)
     class Meta:
         unique_together=[('name','subBranch')]
     def getFullName(self):
