@@ -49,7 +49,7 @@ def logout(request):
 
 @login_required
 def main(request):
-    return render_to_response('main.html')
+    return render_to_response('main.html',locals())
 
 
 @login_required
