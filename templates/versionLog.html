@@ -32,6 +32,7 @@
     <thead>
     <th>版本</th>
     <th>发布时间</th>
+    <th>下载</th>
     </thead>
     <tbody >
     {% for i in logs %}
@@ -42,6 +43,9 @@
             </td>
             <td>
                 {{ i.datetime|date:'Y-m-d H:i:s' }}
+            </td>
+            <td>
+                <a href="{% url 'version.views.download' i.versionFullName %}">下载</a>
             </td>
         </tr>
     {% endfor %}

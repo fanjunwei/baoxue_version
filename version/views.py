@@ -374,7 +374,7 @@ def send_version_mail(version):
     content = content + u'由服务器自动发送，请勿回复此邮件\n'
     sub = sub.encode('utf8')
     content = content.encode('utf8')
-    send_mail(settings.MAIL_TO, sub, content,version.username)
+    send_mail(settings.MAIL_TO, sub, content, version.username)
 
 
 def delVersion(request):
@@ -604,4 +604,15 @@ def version_names(request):
         names.sort()
 
     return render_to_response('version_names.html', locals())
+
+
+def download(request, version_full_name):
+    version_full_name=version_full_name.replace('user_','')
+    version_full_name=version_full_name.replace('eng_','')
+    version_full_name=version_full_name.replace('.zip','')
+    url = getDownloadUrl(version_full_name)
+    if url:
+        return HttpResponseRedirect(url)
+    else:
+        return HttpResponse('不存在')
 
