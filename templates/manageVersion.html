@@ -90,6 +90,10 @@ function loadVersions() {
                             html.push('</td>');
 
                             html.push('<td>');
+                            html.push(result.result[i].username);
+                            html.push('</td>');
+
+                            html.push('<td>');
                             html.push(htmlEncode(result.result[i].desc));
                             html.push('</td>');
 
@@ -369,6 +373,7 @@ $(function () {
         <thead>
         <th>版本全名</th>
         <th>基于版本</th>
+        <th>用户名</th>
         <th>版本说明</th>
         <th>操作</th>
         </thead>

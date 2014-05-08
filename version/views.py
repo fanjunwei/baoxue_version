@@ -49,7 +49,7 @@ def logout(request):
 
 @login_required
 def main(request):
-    return render_to_response('main.html',locals())
+    return render_to_response('main.html', locals())
 
 
 @login_required
@@ -236,7 +236,7 @@ def getVersions(request):
             'fullName': b.getFullName(),
             'parentFullName': baseVersionFullName,
             'desc': b.description,
-
+            'username': b.username,
         }
         result.append(item)
 
@@ -354,23 +354,27 @@ def saveVersion(request):
                 if not oldFullVersion == version.getFullName():
                     isAddVersion = True
             if isAddVersion:
-                sub = u'版本记录:' + version.getFullName()
-                content = version.getFullName() + '\n'
-                # if version.parentFullName :
-                #     content=content+u'基于版本:'+version.parentFullName+'\n'
-                content = content + u'===============================================\n'
-                content = content + version.description + '\n'
-
-                content = content + u'===============================================\n'
-                content = content + u'由服务器自动发送，请勿回复此邮件\n'
-                sub = sub.encode('utf8')
-                content = content.encode('utf8')
-                send_mail(settings.MAIL_TO, sub, content)
+                send_version_mail(version)
             return getResult(True)
         except django.db.utils.IntegrityError:
             return getResult(False, '该版本已存在')
         except Exception, e:
             return getResult(False, str(e))
+
+
+def send_version_mail(version):
+    sub = u'版本记录:' + version.getFullName()
+    content = version.getFullName() + '\n'
+    # if version.parentFullName :
+    #     content=content+u'基于版本:'+version.parentFullName+'\n'
+    content = content + u'===============================================\n'
+    content = content + version.description + '\n'
+
+    content = content + u'===============================================\n'
+    content = content + u'由服务器自动发送，请勿回复此邮件\n'
+    sub = sub.encode('utf8')
+    content = content.encode('utf8')
+    send_mail(settings.MAIL_TO, sub, content,version.username)
 
 
 def delVersion(request):
@@ -400,8 +404,8 @@ def getVersionForBrowse(request):
     start = datetime.date.today()
     if today:
         versions_all = Version.objects.filter(Q(createTime__gt=start) & (
-        Q(fullName__icontains=keyword) | Q(parentFullName__icontains=keyword) | Q(
-            description__icontains=keyword))).order_by('subBranch__branch', 'subBranch', 'createTime')
+            Q(fullName__icontains=keyword) | Q(parentFullName__icontains=keyword) | Q(
+                description__icontains=keyword))).order_by('subBranch__branch', 'subBranch', 'createTime')
     else:
         versions_all = Version.objects.filter(Q(fullName__icontains=keyword) | Q(parentFullName__icontains=keyword) | Q(
             description__icontains=keyword)).order_by('subBranch__branch', 'subBranch', 'createTime')
@@ -471,9 +475,9 @@ def browseVersionForTemplates(request):
         start = datetime.date.today()
         if today:
             list = VBrows.objects.filter(Q(version_createTime__gt=start) & (
-            Q(fullName__icontains=keyword) | Q(parentFullName__icontains=keyword) | Q(
-                description__icontains=keyword) | Q(subbranch_description__icontains=keyword) | Q(
-                branch_description__icontains=keyword)))
+                Q(fullName__icontains=keyword) | Q(parentFullName__icontains=keyword) | Q(
+                    description__icontains=keyword) | Q(subbranch_description__icontains=keyword) | Q(
+                    branch_description__icontains=keyword)))
         else:
             list = VBrows.objects.filter(Q(fullName__icontains=keyword) | Q(parentFullName__icontains=keyword) | Q(
                 description__icontains=keyword) | Q(subbranch_description__icontains=keyword) | Q(
@@ -517,7 +521,7 @@ def browseVersionForTemplates(request):
                 'url': getDownloadUrl(b.fullName)
             }
             if b.version_username:
-                item['version_username']=b.version_username
+                item['version_username'] = b.version_username
             result.append(item)
         browseVersionSetCached(keyword, today, p, result, page_count)
     return render_to_response('browseVersionForTemplates.html', locals())
