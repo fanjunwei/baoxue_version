@@ -256,6 +256,7 @@ $(function () {
             $('#addversionFullName').val(str);
         }
         splitFullName(false);
+        getAutoBaseVersionFullName();
     });
     $('#baseversionFullName').focus(getAutoBaseVersionFullName);
     var cache = {};
