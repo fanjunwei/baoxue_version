@@ -113,7 +113,6 @@
 <table border="1" style="width: 100%">
     <thead>
     <th>版本号</th>
-    <th>基于版本号</th>
     <th>时间</th>
     <th>用户名</th>
     <th>说明</th>
@@ -122,7 +121,7 @@
     {% for i in result %}
         {% ifequal i.type 'branch' %}
             <tr class="branch_line">
-                <td colspan="4" class="branch">
+                <td colspan="3" class="branch">
                     {{ i.branch_name }}
                 </td>
                 <td>
@@ -133,7 +132,7 @@
 
         {% ifequal i.type 'subbranch' %}
             <tr class="subbranch_line">
-                <td colspan="4" class="subbranch">
+                <td colspan="3" class="subbranch">
                     {{ i.subbranch_name }}
                 </td>
                 <td>
@@ -144,7 +143,7 @@
 
         {% ifequal i.type 'version' %}
             <tr>
-                <td class="version" onmousemove="highlight(this)" onmouseout="clear_highlight(this)">
+                <td class="version">
                     {% if i.url %}
                         <a href="{{ i.url }}">{{ i.version_fullname }}</a>
                     {% else %}
@@ -152,8 +151,6 @@
                     {% endif %}
 
                 </td>
-                <td class="nowrap" onmousemove="highlight(this)"
-                    onmouseout="clear_highlight(this)">{{ i.version_base|default_if_none:'' }}</td>
                 <td class="nowrap">{{ i.time|date:'Y-m-d H:i:s' }}</td>
                 <td class="nowrap">
                     {% if i.version_username %}
