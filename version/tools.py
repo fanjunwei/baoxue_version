@@ -188,7 +188,9 @@ def getDownloadUrl(v):
     names = getNames(v)
     for i in dirs:
         try:
-            html = urllib2.urlopen(i).read().decode('utf-8')
+            opener = urllib2.urlopen(i, timeout=0.05)
+            html = opener.read().decode('utf-8')
+            opener.close()
             for j in names:
                 if not html.find(j) == -1:
                     return os.path.join(i, j)
