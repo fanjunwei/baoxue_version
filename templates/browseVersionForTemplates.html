@@ -72,11 +72,28 @@
             pageIndex = index;
             window.location.search = 'p=' + index;
         }
+        function getDownloadUrl() {
+            $('a[getd]').each(function () {
+                var ctrl = $(this);
+                var fullName = ctrl.text()
+                $.post('/downloadUrl/' + fullName, {},
+                        function (result, status) {
+                            if (status == 'success') {
+                                if (result.success) {
+                                    ctrl.attr("href", result.result);
+                                }
+                                //ctrl.attr("href",'http://www.baidu.com');
+                            }
+                        });
+            });
+
+        }
         $(function () {
             $('.mybutton').button();
             $('#keyword').keydown(enterKeyLoadVersions);
             showSplitPages();
             //loadVersions(false);
+            getDownloadUrl();
         });
         function setToday() {
             $('input[name=today]').val('true');
@@ -144,11 +161,7 @@
         {% ifequal i.type 'version' %}
             <tr>
                 <td class="version">
-                    {% if i.url %}
-                        <a href="{{ i.url }}">{{ i.version_fullname }}</a>
-                    {% else %}
-                        {{ i.version_fullname }}
-                    {% endif %}
+                    <a getd>{{ i.version_fullname }}</a>
 
                 </td>
                 <td class="nowrap">{{ i.time|date:'Y-m-d H:i:s' }}</td>

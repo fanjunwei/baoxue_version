@@ -518,13 +518,21 @@ def browseVersionForTemplates(request):
                 'version_base': b.parentFullName,
                 'version_desc': b.description,
                 'time': b.version_createTime,
-                'url': getDownloadUrl(b.fullName)
+                #'url': getDownloadUrl(b.fullName)
             }
             if b.version_username:
                 item['version_username'] = b.version_username
             result.append(item)
         browseVersionSetCached(keyword, today, p, result, page_count)
     return render_to_response('browseVersionForTemplates.html', locals())
+
+
+def downloadUrl(request, fullName):
+    url = getDownloadUrl(fullName)
+    if url:
+        return getResult(True, result=url)
+    else:
+        return getResult(False)
 
 
 def home(request):
@@ -607,9 +615,9 @@ def version_names(request):
 
 
 def download(request, version_full_name):
-    version_full_name=version_full_name.replace('user_','')
-    version_full_name=version_full_name.replace('eng_','')
-    version_full_name=version_full_name.replace('.zip','')
+    version_full_name = version_full_name.replace('user_', '')
+    version_full_name = version_full_name.replace('eng_', '')
+    version_full_name = version_full_name.replace('.zip', '')
     url = getDownloadUrl(version_full_name)
     if url:
         return HttpResponseRedirect(url)
