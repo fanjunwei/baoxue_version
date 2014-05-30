@@ -11,47 +11,60 @@
     <script src="/static/js/helper.js"></script>
     <script src="/static/js/pages.js"></script>
     <script>
-        var pageIndex={{ p }};
-        var pageCount={{ pageCount }};
-        $(function(){
+        function getDownloadUrl() {
+            $('a[getd]').each(function () {
+                var ctrl = $(this);
+                var fullName = ctrl.text()
+                $.post('/downloadUrl/' + fullName, {},
+                        function (result, status) {
+                            if (status == 'success') {
+                                if (result.success) {
+                                    ctrl.attr("href", result.result);
+                                }
+                                //ctrl.attr("href",'http://www.baidu.com');
+                            }
+                        });
+            });
+
+        }
+        var pageIndex ={{ p }};
+        var pageCount ={{ pageCount }};
+        $(function () {
             showSplitPages();
             $('input[type=submit]').button();
+            getDownloadUrl();
         });
-    function toPage(index)
-    {
-        location.href='log.py?p='+index;
-    }
+        function toPage(index) {
+            location.href = 'log.py?p=' + index;
+        }
     </script>
 
 </head>
 <body>
 <h1 style="text-align: center" class="ui-dialog-titlebar">版本发布记录</h1>
+
 <form action="version_names.py" method="post">
-<input type="submit" value="所选版本列表">
-<table border="1" style="width: 100%" >
-    <thead>
-    <th>版本</th>
-    <th>发布时间</th>
-    <th>下载</th>
-    </thead>
-    <tbody >
-    {% for i in logs %}
-        <tr>
-            <td>
-                <input type="checkbox" name="id" value="{{ i.id }}" id="id_{{ i.id }}" >
-                <label for="id_{{ i.id }}">{{ i.versionFullName }}</label>
-            </td>
-            <td>
-                {{ i.datetime|date:'Y-m-d H:i:s' }}
-            </td>
-            <td>
-                <a href="{% url 'version.views.download' i.versionFullName %}">下载</a>
-            </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-    <div onmousemove=""></div>
-</table>
+    <input type="submit" value="所选版本列表">
+    <table border="1" style="width: 100%">
+        <thead>
+        <th>版本</th>
+        <th>发布时间</th>
+        </thead>
+        <tbody>
+        {% for i in logs %}
+            <tr>
+                <td>
+                    <input type="checkbox" name="id" value="{{ i.id }}" id="id_{{ i.id }}">
+                    <label for="id_{{ i.id }}"><a getd>{{ i.versionFullName }}</a></label>
+                </td>
+                <td>
+                    {{ i.datetime|date:'Y-m-d H:i:s' }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <div onmousemove=""></div>
+    </table>
 </form>
 <div class="digg" id="pages">
 </div>

@@ -528,6 +528,7 @@ def browseVersionForTemplates(request):
 
 
 def downloadUrl(request, fullName):
+    fullName = fullName.replace('user_', '').replace('eng_', '').replace('.zip', '')
     url = getDownloadUrl(fullName)
     if url:
         return getResult(True, result=url)
