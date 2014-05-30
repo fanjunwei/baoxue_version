@@ -105,7 +105,7 @@ def send_mail_thread(to_list, sub, content, username):
     mail_user = "mantis@baoxuetech.com"
     mail_pass = "baoxue1"
     mail_postfix = "qq.com"
-    me = "%s<%s>"%(username,mail_user)
+    me = "%s<%s>" % (username, mail_user)
     msg = MIMEText(content, _charset='utf-8')
     msg['Subject'] = Header(sub, 'utf-8')
     msg['From'] = me
@@ -190,7 +190,7 @@ def getDownloadUrl(v):
         try:
             html = urllib2.urlopen(i).read().decode('utf-8')
             for j in names:
-                if not html.find('>' + j + '<') == -1:
+                if not html.find(j) == -1:
                     return os.path.join(i, j)
         except:
             pass
