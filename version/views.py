@@ -629,11 +629,10 @@ def download(request, version_full_name):
 def check_web_access(request, version):
     try:
         url = settings.WEB_SERVER_URL + 'check_web_access/' + version
-        opener = urllib2.urlopen(url, timeout=1)
+        opener = urllib2.urlopen(url)
         html = opener.read().decode('utf-8')
         opener.close()
         return HttpResponse(html, content_type='application/json')
     except Exception, e:
-        error = str(e)
-        print(error)
         pass
+    return HttpResponse('')

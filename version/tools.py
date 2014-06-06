@@ -1,4 +1,4 @@
-#coding=utf-8
+# coding=utf-8
 import json
 import os
 import urllib2
@@ -188,7 +188,7 @@ def getDownloadUrl(v):
     names = getNames(v)
     for i in dirs:
         try:
-            opener = urllib2.urlopen(i, timeout=1)
+            opener = urllib2.urlopen(i)
             html = opener.read().decode('utf-8')
             opener.close()
             for j in names:
