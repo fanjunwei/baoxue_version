@@ -1,6 +1,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
     <title>版本浏览</title>
     <link href="/static/css/start/jquery-ui-1.10.4.custom.css" rel="stylesheet">
     <link href="/static/css/box.css" rel="stylesheet">
@@ -42,6 +43,14 @@
             color: #ffffff;
         }
 
+        .accessed {
+            color: green;
+        }
+
+        .noaccessed {
+            color: red;
+        }
+
     </style>
     <script>
         var pageIndex ={{ p }};
@@ -72,15 +81,35 @@
             pageIndex = index;
             window.location.search = 'p=' + index;
         }
+        function checkWebAccess(fullName, ctrl) {
+            //alert(fullName);
+            var url = '/check_web_access/' + fullName;
+            $.post(url, {},
+                    function (result, status) {
+                        if (status == 'success') {
+                            if (result.success) {
+                                if (result.result) {
+                                    ctrl.after('<div class="accessed" >外网已访问</div>');
+                                }
+                                else {
+                                    ctrl.after('<div class="noaccessed" >外网未访问</div>');
+                                }
+                            }
+                            //ctrl.attr("href",'http://www.baidu.com');
+                        }
+
+                    });
+        }
         function getDownloadUrl() {
             $('a[getd]').each(function () {
                 var ctrl = $(this);
-                var fullName = ctrl.text()
+                var fullName = ctrl.text();
                 $.post('/downloadUrl/' + fullName, {},
                         function (result, status) {
                             if (status == 'success') {
                                 if (result.success) {
                                     ctrl.attr("href", result.result);
+                                    checkWebAccess(fullName, ctrl);
                                 }
                                 //ctrl.attr("href",'http://www.baidu.com');
                             }

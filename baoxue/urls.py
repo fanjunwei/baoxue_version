@@ -21,6 +21,7 @@ urlpatterns = patterns('',
                        url(r'^admin/', include(admin.site.urls)),
                        url(r'^version/', include('version.urls')),
                        url(r'^downloadUrl/(?P<fullName>.*?)$', 'version.views.downloadUrl', name='downloadUrl'),
-                       #url(r'^static/(?P<path>.*)$','django.views.static.serve',{settings.STATIC_ROOT}),
+                       url(r"^check_web_access/(?P<version>.*?)$", 'version.views.check_web_access'),
+                       # url(r'^static/(?P<path>.*)$','django.views.static.serve',{settings.STATIC_ROOT}),
 )
 urlpatterns += staticfiles_urlpatterns()

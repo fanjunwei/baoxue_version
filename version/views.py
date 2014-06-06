@@ -227,7 +227,7 @@ def getVersions(request):
             if baseVersions.count() > 0:
                 baseVersionFullName = baseVersions[0].getFullName()
 
-        #item=[b.id,b.getFullName(),baseVersionFullName,b.description]
+        # item=[b.id,b.getFullName(),baseVersionFullName,b.description]
         item = {
             'id': b.id,
             'branch': b.subBranch.branch.name,
@@ -298,7 +298,7 @@ def saveVersion(request):
             return getResult(False, '所属分支不能为空')
 
         # if not subbranchName:
-        #     return getResult(False,'所属子分支不能为空')
+        # return getResult(False,'所属子分支不能为空')
 
         if not name:
             return getResult(False, '版本号不能为空')
@@ -366,7 +366,7 @@ def send_version_mail(version):
     sub = u'版本记录:' + version.getFullName()
     content = version.getFullName() + '\n'
     # if version.parentFullName :
-    #     content=content+u'基于版本:'+version.parentFullName+'\n'
+    # content=content+u'基于版本:'+version.parentFullName+'\n'
     content = content + u'===============================================\n'
     content = content + version.description + '\n'
 
@@ -445,7 +445,7 @@ def getVersionForBrowse(request):
 def browseVersionGetCached(keyword, today, p):
     key = 'browseVersionResult1%s_%s_%d' % (keyword, today, p)
     return cache.get(key, None)
-    #return  None
+    # return  None
 
 
 def browseVersionSetCached(keyword, today, p, result, page_count):
@@ -518,7 +518,7 @@ def browseVersionForTemplates(request):
                 'version_base': b.parentFullName,
                 'version_desc': b.description,
                 'time': b.version_createTime,
-                #'url': getDownloadUrl(b.fullName)
+                # 'url': getDownloadUrl(b.fullName)
             }
             if b.version_username:
                 item['version_username'] = b.version_username
@@ -625,3 +625,15 @@ def download(request, version_full_name):
     else:
         return HttpResponse('不存在')
 
+
+def check_web_access(request, version):
+    try:
+        url = settings.WEB_SERVER_URL + 'check_web_access/' + version
+        opener = urllib2.urlopen(url, timeout=1)
+        html = opener.read().decode('utf-8')
+        opener.close()
+        return HttpResponse(html, content_type='application/json')
+    except Exception, e:
+        error = str(e)
+        print(error)
+        pass

@@ -146,3 +146,4 @@ LOGGING = {
 }
 
 MAIL_TO=["fanjunwei@baoxuetech.com","fanjunwei003@163.com"]
+WEB_SERVER_URL='http://192.168.1.20:8000/'
