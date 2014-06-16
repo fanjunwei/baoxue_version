@@ -475,12 +475,12 @@ def browseVersionForTemplates(request):
         start = datetime.date.today()
         if today:
             list = VBrows.objects.filter(Q(version_createTime__gt=start) & (
-                Q(fullName__icontains=keyword) | Q(parentFullName__icontains=keyword) | Q(
+                Q(fullName__icontains=keyword) | Q(
                     description__icontains=keyword) | Q(subbranch_description__icontains=keyword) | Q(
                     branch_description__icontains=keyword)))
         else:
-            list = VBrows.objects.filter(Q(fullName__icontains=keyword) | Q(parentFullName__icontains=keyword) | Q(
-                description__icontains=keyword) | Q(subbranch_description__icontains=keyword) | Q(
+            list = VBrows.objects.filter(Q(fullName__icontains=keyword) | Q(description__icontains=keyword) | Q(
+                subbranch_description__icontains=keyword) | Q(
                 branch_description__icontains=keyword))
         result = []
         paginator = Paginator(list, 50)
