@@ -95,7 +95,6 @@
                                     ctrl.after('<div class="noaccessed" >外网未访问</div>');
                                 }
                             }
-                            //ctrl.attr("href",'http://www.baidu.com');
                         }
 
                     });
@@ -109,6 +108,7 @@
                             if (status == 'success') {
                                 if (result.success) {
                                     ctrl.attr("href", result.result);
+                                    ctrl.text(fullName);
                                     checkWebAccess(fullName, ctrl);
                                 }
                                 //ctrl.attr("href",'http://www.baidu.com');
