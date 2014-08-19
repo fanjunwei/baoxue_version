@@ -294,6 +294,7 @@ def saveVersion(request):
         baseVersionFullName = request.POST.get('baseversion')
         name = request.POST.get('name')
         id = request.POST.get('id')
+        sendMail = True if request.POST.get('sendMail').lower() =='true' else False
         if not branchName:
             return getResult(False, '所属分支不能为空')
 
@@ -327,18 +328,14 @@ def saveVersion(request):
         description = request.POST.get('description')
         try:
             if id:
-                isAddVersion = False
                 versions = Version.objects.filter(id=id)
                 if versions.count() == 0:
                     return getResult(False, '版本号错误，请重新选择')
                 else:
                     version = versions[0]
             else:
-                isAddVersion = True
                 version = Version()
                 version.username = request.user.username
-            if not isAddVersion:
-                oldFullVersion = version.getFullName()
             version.name = name
             version.subBranch = subbranch
             version.description = description
@@ -350,11 +347,8 @@ def saveVersion(request):
                 else:
                     return getResult(False, '基于版本不存在')
             version.save()
-            if not isAddVersion:
-                if not oldFullVersion == version.getFullName():
-                    isAddVersion = True
-            if isAddVersion:
-                send_version_mail(version)
+            if sendMail:
+                send_version_mail(version,request.user.username)
             return getResult(True)
         except django.db.utils.IntegrityError:
             return getResult(False, '该版本已存在')
@@ -362,7 +356,7 @@ def saveVersion(request):
             return getResult(False, str(e))
 
 
-def send_version_mail(version):
+def send_version_mail(version,username=None):
     sub = u'版本记录:' + version.getFullName()
     content = version.getFullName() + '\n'
     # if version.parentFullName :
@@ -374,7 +368,7 @@ def send_version_mail(version):
     content = content + u'由服务器自动发送，请勿回复此邮件\n'
     sub = sub.encode('utf8')
     content = content.encode('utf8')
-    send_mail(settings.MAIL_TO, sub, content, version.username)
+    send_mail(settings.MAIL_TO, sub, content, username)
 
 
 def delVersion(request):

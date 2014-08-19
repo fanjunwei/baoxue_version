@@ -22,6 +22,9 @@ function clearText() {
     $("#subBranchName").val('')
     $("#addversionFullName").val('')
     $("#baseversionFullName").val('')
+
+    $('#addversionSendMail').attr("checked", true);
+    $('#addversionSendMail').prop("checked", true);
 }
 function versionChangeToEdit(edit, index) {
     versionOnEdit = edit;
@@ -44,6 +47,8 @@ function versionChangeToEdit(edit, index) {
         $('#baseVersionFullName').val(parentFullName);
         $('#addversionDescription').val(desc);
         $('#versionID').val(id);
+        $('#addversionSendMail').attr("checked", false);
+        $('#addversionSendMail').prop("checked", false);
     }
     else {
         $('#editversionOK').hide();
@@ -125,7 +130,10 @@ function toPage(index) {
 }
 function saveVersion() {
     if (checkUnique('branchName') && checkUnique('addversionName')) {
-        $.post('saveVersion.py', {id: $("#versionID").val(), branch: $("#branchName").val(), subbranch: $("#subBranchName").val(), name: $("#addversionName").val(), baseversion: $("#baseversionFullName").val(), description: $("#addversionDescription").val()},
+        $.post('saveVersion.py', {id: $("#versionID").val(), branch: $("#branchName").val(),
+                    subbranch: $("#subBranchName").val(), name: $("#addversionName").val(),
+                    baseversion: $("#baseversionFullName").val(), description: $("#addversionDescription").val(),
+                    sendMail:$("#addversionSendMail").prop("checked")},
                 function (result, status) {
                     if (status == 'success') {
                         if (result.success) {
@@ -355,6 +363,11 @@ $(function () {
     <tr>
         <td><label for="addversionDescription">版本说明</label></td>
         <td><textarea id="addversionDescription" style="width: 250px;height: 100px"></textarea></td>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+        <td><label for="addversionSendMail">发送邮件</label></td>
+        <td><input type="checkbox" id="addversionSendMail" checked="checked"></td>
         <td>&nbsp;&nbsp;&nbsp;</td>
     </tr>
     <tr>
