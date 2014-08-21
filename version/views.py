@@ -3,6 +3,7 @@
 import datetime
 import time
 import django
+from django.template import loader, RequestContext
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -20,7 +21,7 @@ import xml.sax.saxutils as saxutils
 from django.core.urlresolvers import reverse
 from django.contrib.auth import logout as auth_logout
 from version.db_view import *
-
+import HTMLParser
 
 def login(request):
     if User.objects.all().count() == 0:
@@ -348,7 +349,8 @@ def saveVersion(request):
                     return getResult(False, '基于版本不存在')
             version.save()
             if sendMail:
-                send_version_mail(version,request.user.username)
+                thread.start_new_thread(send_version_mail, (version,request.user.username))
+                #send_version_mail(version,request.user.username)
             return getResult(True)
         except django.db.utils.IntegrityError:
             return getResult(False, '该版本已存在')
@@ -357,18 +359,39 @@ def saveVersion(request):
 
 
 def send_version_mail(version,username=None):
-    sub = u'版本记录:' + version.getFullName()
-    content = version.getFullName() + '\n'
-    # if version.parentFullName :
-    # content=content+u'基于版本:'+version.parentFullName+'\n'
-    content = content + u'===============================================\n'
-    content = content + version.description + '\n'
 
-    content = content + u'===============================================\n'
-    content = content + u'由服务器自动发送，请勿回复此邮件\n'
+    versionUrl=getDownloadUrl(version.getFullName())
+    html=loader.render_to_string("mail.html",
+                                 {"versionFullName":version.getFullName(),
+                                  "versionUrl":versionUrl,
+                                  "description":version.description})
+    sub = u'版本记录:' + version.getFullName()
+
     sub = sub.encode('utf8')
-    content = content.encode('utf8')
-    send_mail(settings.MAIL_TO, sub, content, username)
+    content = html.encode('utf8')
+
+
+    to_list=settings.MAIL_TO
+    mail_host = "smtp.exmail.qq.com"
+    mail_user = "mantis@baoxuetech.com"
+    mail_pass = "baoxue1"
+    me = "%s<%s>" % (username, mail_user)
+    html_att = MIMEText(content, 'html', 'utf-8')
+    msg = MIMEMultipart()
+    msg['Subject'] = Header(sub, 'utf-8')
+    msg['From'] = me
+    msg['To'] = ','.join(to_list)
+    msg.attach(html_att)
+    try:
+        s = smtplib.SMTP()
+        s.connect(mail_host)
+        s.login(mail_user, mail_pass)
+        s.sendmail(me, to_list, msg.as_string())
+        s.close()
+        return True
+    except Exception, e:
+        print str(e)
+        return False
 
 
 def delVersion(request):

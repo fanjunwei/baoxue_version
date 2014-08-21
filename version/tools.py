@@ -1,4 +1,5 @@
 # coding=utf-8
+from email.mime.multipart import MIMEMultipart
 import json
 import os
 import urllib2
@@ -8,7 +9,7 @@ import math
 import smtplib
 from email.mime.text import MIMEText
 from email.header import Header
-#from Sell3_server.settings import DEVICEID
+# from Sell3_server.settings import DEVICEID
 import thread
 import re
 
@@ -100,30 +101,32 @@ def distance(gps1, gps2):
         return s
 
 
-def send_mail_thread(to_list, sub, content, username):
-    mail_host = "smtp.exmail.qq.com"
-    mail_user = "mantis@baoxuetech.com"
-    mail_pass = "baoxue1"
-    mail_postfix = "qq.com"
-    me = "%s<%s>" % (username, mail_user)
-    msg = MIMEText(content, _charset='utf-8')
-    msg['Subject'] = Header(sub, 'utf-8')
-    msg['From'] = me
-    msg['To'] = ','.join(to_list)
-    try:
-        s = smtplib.SMTP()
-        s.connect(mail_host)
-        s.login(mail_user, mail_pass)
-        s.sendmail(me, to_list, msg.as_string())
-        s.close()
-        return True
-    except Exception, e:
-        print str(e)
-        return False
-
-
-def send_mail(to_list, sub, content, username):
-    thread.start_new_thread(send_mail_thread, (to_list, sub, content, username))
+# def send_mail_thread(to_list, sub, content, username):
+#     mail_host = "smtp.exmail.qq.com"
+#     mail_user = "mantis@baoxuetech.com"
+#     mail_pass = "baoxue1"
+#     mail_postfix = "qq.com"
+#     me = "%s<%s>" % (username, mail_user)
+#     html_att = MIMEText(content, 'html', 'utf-8')
+#     msg = MIMEMultipart()
+#     msg['Subject'] = Header(sub, 'utf-8')
+#     msg['From'] = me
+#     msg['To'] = ','.join(to_list)
+#     msg.attach(html_att)
+#     try:
+#         s = smtplib.SMTP()
+#         s.connect(mail_host)
+#         s.login(mail_user, mail_pass)
+#         s.sendmail(me, to_list, msg.as_string())
+#         s.close()
+#         return True
+#     except Exception, e:
+#         print str(e)
+#         return False
+#
+#
+# def send_mail(to_list, sub, content, username):
+#     thread.start_new_thread(send_mail_thread, (to_list, sub, content, username))
 
 
 def splitVersion2(v):

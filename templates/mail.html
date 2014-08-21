@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta charset="UTF-8">
+</head>
+<body>
+<div style="font-weight: bold">
+    {% if versionUrl %}
+        <a href="{{ versionUrl }}">{{ versionFullName }}</a>
+    {% else %}
+        {{ versionFullName }}
+    {% endif %}
+</div>
+<hr>
+<div>
+    {{ description|escape|linebreaks }}
+</div>
+<hr>
+<div style="float: right;font-size: small;">由服务器自动发送，请勿回复此邮件</div>
+</body>
+</html>
